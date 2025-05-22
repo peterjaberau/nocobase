@@ -1,6 +1,6 @@
 // @ts-ignore
 import pkg from './../../package.json';
-import { useApp } from '@nocobase/client';
+import { useApp } from '@easyflow/client';
 
 export function useT() {
   const app = useApp();

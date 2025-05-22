@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 const { Command } = require('commander');
 const fg = require('fast-glob');
@@ -37,7 +30,7 @@ function sortJSON(json) {
 module.exports = (cli) => {
   const locale = cli.command('locale');
   locale.command('generate').action(async (options) => {
-    const cwd = path.resolve(process.cwd(), 'node_modules', '@nocobase');
+    const cwd = path.resolve(process.cwd(), 'node_modules', '@easyflow');
     const files = await fg('./*/src/locale/*.json', {
       cwd,
     });
@@ -46,7 +39,7 @@ module.exports = (cli) => {
     for (const file of files) {
       const locale = path.basename(file, '.json');
       const pkg = path.basename(path.dirname(path.dirname(path.dirname(file))));
-      _.set(locales, [locale.replace(/_/g, '-'), `@nocobase/${pkg}`], await fs.readJSON(path.resolve(cwd, file)));
+      _.set(locales, [locale.replace(/_/g, '-'), `@easyflow/${pkg}`], await fs.readJSON(path.resolve(cwd, file)));
       if (locale.includes('_')) {
         await fs.rename(
           path.resolve(cwd, file),

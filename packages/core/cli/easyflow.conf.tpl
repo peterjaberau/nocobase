@@ -15,10 +15,10 @@ log_format apm '"$time_local" client=$remote_addr '
 server {
     listen 80;
     server_name _;
-    root {{cwd}}/node_modules/@nocobase/app/dist/client;
+    root {{cwd}}/node_modules/@easyflow/app/dist/client;
     index index.html;
     client_max_body_size 0;
-    access_log /var/log/nginx/nocobase.log apm;
+    access_log /var/log/nginx/easyflow.log apm;
 
     gzip on;
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
@@ -51,7 +51,7 @@ server {
     }
 
     location {{publicPath}} {
-        alias {{cwd}}/node_modules/@nocobase/app/dist/client/;
+        alias {{cwd}}/node_modules/@easyflow/app/dist/client/;
         try_files $uri $uri/ /index.html;
         add_header Last-Modified $date_gmt;
         add_header Cache-Control 'no-store, no-cache';

@@ -1,11 +1,3 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
 const execa = require('execa');
 const { resolve } = require('path');
@@ -31,7 +23,7 @@ async function runApp(dir, index = 0) {
   // 一个进程需要占用两个端口? (一个是应用端口，一个是 socket 端口)
   index = index * 2;
   const { Client } = require('pg');
-  const database = `nocobase${index}`;
+  const database = `easyflow${index}`;
   const client = new Client({
     host: config['DB_HOST'],
     port: Number(config['DB_PORT']),
@@ -43,7 +35,7 @@ async function runApp(dir, index = 0) {
   await client.query(`DROP DATABASE IF EXISTS "${database}"`);
   await client.query(`CREATE DATABASE "${database}";`);
   await client.end();
-  return execa('yarn', ['nocobase', 'e2e', 'test', dir], {
+  return execa('yarn', ['easyflow', 'e2e', 'test', dir], {
     shell: true,
     stdio: 'inherit',
     env: {
@@ -54,7 +46,7 @@ async function runApp(dir, index = 0) {
       LOGGER_LEVEL: 'error',
       APP_ENV: 'production',
       APP_PORT: 20000 + index,
-      DB_DATABASE: `nocobase${index}`,
+      DB_DATABASE: `easyflow${index}`,
       SOCKET_PATH: `storage/e2e/gateway-e2e-${index}.sock`,
       PM2_HOME: resolve(process.cwd(), `storage/e2e/.pm2-${index}`),
       PLAYWRIGHT_AUTH_FILE: resolve(process.cwd(), `storage/playwright/.auth/admin-${index}.json`),

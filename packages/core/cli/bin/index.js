@@ -7,14 +7,14 @@ initEnv();
 genTsConfigPaths();
 
 if (require('semver').satisfies(process.version, '<16')) {
-  console.error(chalk.red('[nocobase cli]: Node.js version must be >= 16'));
+  console.error(chalk.red('[easyflow cli]: Node.js version must be >= 16'));
   process.exit(1);
 }
 
 if (__dirname.includes(' ')) {
-  console.error(chalk.red(`[nocobase cli]: PathError: Invalid path "${process.cwd()}"`));
+  console.error(chalk.red(`[easyflow cli]: PathError: Invalid path "${process.cwd()}"`));
   console.error(
-    chalk.red('[nocobase cli]: PathError: The path cannot contain spaces. Please modify the path and try again.'),
+    chalk.red('[easyflow cli]: PathError: The path cannot contain spaces. Please modify the path and try again.'),
   );
   process.exit(1);
 }

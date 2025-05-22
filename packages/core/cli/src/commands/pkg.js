@@ -1,11 +1,3 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
 const { Command } = require('commander');
 const axios = require('axios');
@@ -13,7 +5,7 @@ const fs = require('fs-extra');
 const zlib = require('zlib');
 const tar = require('tar');
 const path = require('path');
-const { createStoragePluginsSymlink } = require('@nocobase/utils/plugin-symlink');
+const { createStoragePluginsSymlink } = require('@easyflow/utils/plugin-symlink');
 const chalk = require('chalk');
 
 class Package {
@@ -244,15 +236,15 @@ module.exports = (cli) => {
     .option('-V, --version [version]')
     .action(async () => {
       const {
-        NOCOBASE_PKG_URL = 'https://pkg.nocobase.com/',
-        NOCOBASE_PKG_USERNAME,
-        NOCOBASE_PKG_PASSWORD,
+        EASYFLOW_PKG_URL = 'https://pkg.easyflow.com/',
+        EASYFLOW_PKG_USERNAME,
+        EASYFLOW_PKG_PASSWORD,
       } = process.env;
-      if (!(NOCOBASE_PKG_USERNAME && NOCOBASE_PKG_PASSWORD)) {
+      if (!(EASYFLOW_PKG_USERNAME && EASYFLOW_PKG_PASSWORD)) {
         return;
       }
-      const credentials = { username: NOCOBASE_PKG_USERNAME, password: NOCOBASE_PKG_PASSWORD };
-      const pm = new PackageManager({ baseURL: NOCOBASE_PKG_URL });
+      const credentials = { username: EASYFLOW_PKG_USERNAME, password: EASYFLOW_PKG_PASSWORD };
+      const pm = new PackageManager({ baseURL: EASYFLOW_PKG_URL });
       await pm.login(credentials);
       const file = path.resolve(__dirname, '../../package.json');
       const json = await fs.readJson(file);

@@ -1,18 +1,10 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
 const { Command } = require('commander');
 const { run, isDev, isPackageValid, generatePlaywrightPath, generatePlugins } = require('../util');
 const { dirname, resolve } = require('path');
 const { existsSync, mkdirSync, readFileSync, appendFileSync } = require('fs');
 const { readFile, writeFile } = require('fs').promises;
-const { createStoragePluginsSymlink, createDevPluginsSymlink } = require('@nocobase/utils/plugin-symlink');
+const { createStoragePluginsSymlink, createDevPluginsSymlink } = require('@easyflow/utils/plugin-symlink');
 
 function runPatchPackage() {
   // run yarn patch-package

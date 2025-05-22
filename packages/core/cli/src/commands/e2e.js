@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 const { Command } = require('commander');
 const { run, isPortReachable, checkDBDialect } = require('../util');
@@ -93,14 +86,14 @@ async function appReady() {
 
 async function runApp(options = {}) {
   console.log('installing...');
-  await run('nocobase', ['install', '-f']);
-  await run('nocobase', ['pm', 'enable-all']);
+  await run('easyflow', ['install', '-f']);
+  await run('easyflow', ['pm', 'enable-all']);
   if (await isPortReachable(process.env.APP_PORT)) {
     console.log('app started');
     return;
   }
   console.log('starting...');
-  run('nocobase', [process.env.APP_ENV === 'production' ? 'start' : 'dev'], options);
+  run('easyflow', [process.env.APP_ENV === 'production' ? 'start' : 'dev'], options);
 }
 
 process.on('SIGINT', async () => {
@@ -235,8 +228,8 @@ module.exports = (cli) => {
     });
 
   e2e.command('reinstall-app').action(async (options) => {
-    await run('nocobase', ['install', '-f'], options);
-    await run('nocobase', ['pm2', 'enable-all']);
+    await run('easyflow', ['install', '-f'], options);
+    await run('easyflow', ['pm2', 'enable-all']);
   });
 
   e2e.command('install-deps').action(async () => {
