@@ -1,0 +1,23 @@
+{
+  "name": "@easyflow-sample/plugin-json-viewer",
+  "version": "0.1.0",
+  "license": "MIT",
+  "displayName": "-- Add JsonViewer",
+  "displayName.zh-CN": "-- Add JsonViewer",
+  "description": "Json View Payload.",
+  "description.zh-CN": "Json View Payload.",
+  "homepage": "https://docs.easyflow.com",
+  "homepage.zh-CN": "https://docs.easyflow.com",
+  "main": "dist/server/index.js",
+  "devDependencies": {
+    "react18-json-view": "0.2.9"
+  },
+  "peerDependencies": {
+    "@easyflow/client": "1.x",
+    "@easyflow/server": "1.x",
+    "@easyflow/database": "1.x"
+  },
+  "keywords": [
+    "Blocks"
+  ]
+}
