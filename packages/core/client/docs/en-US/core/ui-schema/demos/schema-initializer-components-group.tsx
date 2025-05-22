@@ -1,4 +1,4 @@
-import { Application, SchemaInitializer, SchemaInitializerItemGroup } from '@nocobase/client';
+import { Application, SchemaInitializer, SchemaInitializerItemGroup } from '@easyflow/client';
 import React from 'react';
 import { appOptions } from './schema-initializer-common';
 

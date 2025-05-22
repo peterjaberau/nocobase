@@ -1,17 +1,10 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore file -- @preserve */
 
-import { Model, Transactionable } from '@nocobase/database';
-import { LoggerOptions } from '@nocobase/logger';
-import { fsExists } from '@nocobase/utils';
+import { Model, Transactionable } from '@easyflow/database';
+import { LoggerOptions } from '@easyflow/logger';
+import { fsExists } from '@easyflow/utils';
 import fs from 'fs';
 import type { TFuncKey, TOptions } from 'i18next';
 import { resolve } from 'path';

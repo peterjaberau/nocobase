@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { css, cx } from '@emotion/css';
 import { FormLayout } from '@formily/antd-v5';
@@ -14,7 +7,7 @@ import { Schema, useField, useFieldSchema } from '@formily/react';
 import { List as AntdList, PaginationProps, theme } from 'antd';
 import React, { useCallback, useState } from 'react';
 import { getCardItemSchema } from '../../../block-provider';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { withDynamicSchemaProps } from '../../../hoc/withDynamicSchemaProps';
 import { withSkeletonComponent } from '../../../hoc/withSkeletonComponent';
 import { SortableItem } from '../../common';
@@ -160,13 +153,13 @@ const InternalList = withSkeletonComponent(
                 {field.value?.length
                   ? field.value.map((item, index) => {
                       return (
-                        <NocoBaseRecursionField
+                        <EasyFlowRecursionField
                           basePath={field.address}
                           key={index}
                           name={index}
                           onlyRenderProperties
                           schema={getSchema(index)}
-                        ></NocoBaseRecursionField>
+                        ></EasyFlowRecursionField>
                       );
                     })
                   : null}

@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { css } from '@emotion/css';
 import { observer } from '@formily/reactive-react';
-import { parseHTML } from '@nocobase/utils/client';
+import { parseHTML } from '@easyflow/utils/client';
 import { Dropdown, Menu, Popover } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -32,11 +25,11 @@ const SettingsMenu: React.FC<{
 
   const items = [
     {
-      key: 'nocobase',
+      key: 'easyflow',
       disabled: true,
       label: (
         <div style={{ cursor: 'text' }}>
-          <div style={{ color: token.colorText }}>NocoBase</div>
+          <div style={{ color: token.colorText }}>EasyFlow</div>
           <div style={{ fontSize: '0.8em', color: token.colorTextDescription }}>v{data?.data?.version}</div>
         </div>
       ),
@@ -49,7 +42,7 @@ const SettingsMenu: React.FC<{
       key: 'homePage',
       label: (
         <a
-          href={isSimplifiedChinese ? 'https://www.nocobase.com/cn/' : 'https://www.nocobase.com'}
+          href={isSimplifiedChinese ? 'https://www.easyflow.com/cn/' : 'https://www.easyflow.com'}
           target="_blank"
           rel="noreferrer"
         >
@@ -61,7 +54,7 @@ const SettingsMenu: React.FC<{
       key: 'userManual',
       label: (
         <a
-          href={isSimplifiedChinese ? 'https://docs-cn.nocobase.com/handbook' : 'https://docs.nocobase.com/handbook'}
+          href={isSimplifiedChinese ? 'https://docs-cn.easyflow.com/handbook' : 'https://docs.easyflow.com/handbook'}
           target="_blank"
           rel="noreferrer"
         >
@@ -73,7 +66,7 @@ const SettingsMenu: React.FC<{
       key: 'license',
       label: (
         <a
-          href={isSimplifiedChinese ? 'https://www.nocobase.com/cn/agreement' : 'https://www.nocobase.com/en/agreement'}
+          href={isSimplifiedChinese ? 'https://www.easyflow.com/cn/agreement' : 'https://www.easyflow.com/en/agreement'}
           target="_blank"
           rel="noreferrer"
         >
@@ -100,7 +93,7 @@ export const Help = observer(
   () => {
     const [visible, setVisible] = useState(false);
     const { token } = useToken();
-    const customBrandPlugin: any = usePlugin('@nocobase/plugin-custom-brand');
+    const customBrandPlugin: any = usePlugin('@easyflow/plugin-custom-brand');
     const data = useCurrentAppInfo();
 
     const icon = (

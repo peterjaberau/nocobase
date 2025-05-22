@@ -1,7 +1,7 @@
 
 
 import { ISchema } from '@formily/react';
-import { Application, Input, SchemaComponent, SchemaComponentProvider, Table } from '@nocobase/client';
+import { Application, Input, SchemaComponent, SchemaComponentProvider, Table } from '@easyflow/client';
 import React from 'react';
 
 const schema: ISchema = {

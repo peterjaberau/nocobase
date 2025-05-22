@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { DownOutlined } from '@ant-design/icons';
 import { observer, useField, useFieldSchema, useForm } from '@formily/react';
@@ -111,7 +104,7 @@ const InternalCreateRecordAction = (props: any, ref) => {
               recordData: treeRecordData,
             });
           } else {
-            // fix https://nocobase.height.app/T-5084/description
+            // fix https://easyflow.height.app/T-5084/description
             if (collection.isInherited?.()) {
               openPopup({
                 collectionNameUsedInURL: collection.name,

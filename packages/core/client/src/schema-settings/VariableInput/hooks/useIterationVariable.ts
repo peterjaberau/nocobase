@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Schema } from '@formily/json-schema';
 import { useTranslation } from 'react-i18next';
@@ -50,7 +43,7 @@ export const useIterationVariable = ({
     collectionName: currentCollection,
     noDisabled,
     returnFields: (fields, option) => {
-      // fix https://nocobase.height.app/T-2277
+      // fix https://easyflow.height.app/T-2277
       return fields;
       // const activeFieldsName = getActiveFieldsName?.('nester') || [];
 
@@ -115,7 +108,7 @@ export const useCurrentObjectVariable = ({
     noDisabled,
     dataSource: collection?.dataSource,
     returnFields: (fields, option) => {
-      // fix https://nocobase.height.app/T-2277
+      // fix https://easyflow.height.app/T-2277
       return fields;
       // const activeFieldsName = getActiveFieldsName?.('nester') || [];
 

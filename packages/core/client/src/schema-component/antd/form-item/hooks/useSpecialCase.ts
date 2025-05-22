@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field } from '@formily/core';
 import { Schema, useFieldSchema, useForm } from '@formily/react';
@@ -66,7 +59,7 @@ export const useSpecialCase = () => {
   return {
     /**
      * 特殊情况指的是：当前字段是 `对一` 字段且存在于 `对多` 字段的 `子表格` 或 `子表单` 中
-     * 详细说明见：https://nocobase.feishu.cn/docx/EmNEdEBOnoQohUx2UmBcqIQ5nyh#CUdLdy6OpoPKjyx9DLPc3lqknVc
+     * 详细说明见：https://easyflow.feishu.cn/docx/EmNEdEBOnoQohUx2UmBcqIQ5nyh#CUdLdy6OpoPKjyx9DLPc3lqknVc
      */
     isSpecialCase,
     setDefaultValue,
@@ -91,7 +84,7 @@ export function getParentFieldSchema(fieldSchema: Schema) {
 
 /**
  * 特殊情况指的是：当前字段是 `对一` 字段且存在于 `对多` 字段的 `子表格` 或 `子表单` 中
- * 详细说明见：https://nocobase.feishu.cn/docx/EmNEdEBOnoQohUx2UmBcqIQ5nyh#CUdLdy6OpoPKjyx9DLPc3lqknVc
+ * 详细说明见：https://easyflow.feishu.cn/docx/EmNEdEBOnoQohUx2UmBcqIQ5nyh#CUdLdy6OpoPKjyx9DLPc3lqknVc
  * @returns
  */
 export function isSpecialCaseField({

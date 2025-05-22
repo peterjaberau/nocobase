@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import type { ButtonProps } from 'antd';
 import { SchemaInitializerItemType, SchemaInitializerItemTypeWithoutName, SchemaInitializerOptions } from './types';
@@ -55,7 +48,7 @@ export class SchemaInitializer<P1 = ButtonProps, P2 = {}> {
         parentItem.children[index] = data;
       }
 
-      // 这里是为了兼容这个改动：https://nocobase.feishu.cn/wiki/O7pjwSbBEigpOWkY9s5c03Yenkh
+      // 这里是为了兼容这个改动：https://easyflow.feishu.cn/wiki/O7pjwSbBEigpOWkY9s5c03Yenkh
     } else {
       pushData(itemName, data);
     }

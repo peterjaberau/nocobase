@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { observer, useField, useFieldSchema } from '@formily/react';
 import { Input as AntdInput, Button, Space, Spin, theme } from 'antd';
@@ -89,7 +82,7 @@ const MarkdownEditor = (props: MarkdownEditorProps) => {
         </span>
 
         <a
-          href={`https://${i18n.language === 'zh-CN' ? 'docs-cn' : 'docs'}.nocobase.com/handbook/template-handlebars`}
+          href={`https://${i18n.language === 'zh-CN' ? 'docs-cn' : 'docs'}.easyflow.com/handbook/template-handlebars`}
           target="_blank"
           rel="noreferrer"
         >

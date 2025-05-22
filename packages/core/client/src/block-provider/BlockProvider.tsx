@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field, GeneralField } from '@formily/core';
 import { RecursionField, useField, useFieldSchema } from '@formily/react';
@@ -35,7 +28,7 @@ import {
   useCollectionManager_deprecated,
   useCollection_deprecated,
 } from '../collection-manager';
-import { RefreshComponentProvider, useRefreshComponent } from '../formily/NocoBaseRecursionField';
+import { RefreshComponentProvider, useRefreshComponent } from '../formily/EasyFlowRecursionField';
 import { useSourceId } from '../modules/blocks/useSourceId';
 import { RecordProvider, useRecordIndex } from '../record-provider';
 import { useAssociationNames } from './hooks';

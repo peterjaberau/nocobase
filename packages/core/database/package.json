@@ -1,13 +1,13 @@
 {
-  "name": "@nocobase/database",
+  "name": "@easyflow/database",
   "version": "1.6.31",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "dependencies": {
-    "@nocobase/logger": "1.6.31",
-    "@nocobase/utils": "1.6.31",
+    "@easyflow/logger": "1.6.31",
+    "@easyflow/utils": "1.6.31",
     "async-mutex": "^0.3.2",
     "chalk": "^4.1.1",
     "cron-parser": "4.4.0",
@@ -35,8 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/easyflow/easyflow.git",
     "directory": "packages/database"
-  },
-  "gitHead": "d0b4efe4be55f8c79a98a331d99d9f8cf99021a1"
+  }
 }

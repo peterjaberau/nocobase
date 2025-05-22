@@ -1,7 +1,7 @@
 import { DatetimeInterface } from './datetime-interface';
 import dayjs from 'dayjs';
 import { getJsDateFromExcel } from 'excel-date-to-js';
-import { getDefaultFormat, str2moment } from '@nocobase/utils';
+import { getDefaultFormat, str2moment } from '@easyflow/utils';
 
 function isDate(v) {
   return v instanceof Date;

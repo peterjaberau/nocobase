@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { DragOutlined, MenuOutlined, PlusOutlined } from '@ant-design/icons';
 import { css } from '@emotion/css';
@@ -29,7 +22,7 @@ import { SchemaInitializer, SchemaSettings, SchemaToolbarProvider, useSchemaInit
 import { useSchemaSettingsRender } from '../application/schema-settings/hooks/useSchemaSettingsRender';
 import { useDataSourceManager } from '../data-source/data-source/DataSourceManagerProvider';
 import { useDataSource } from '../data-source/data-source/DataSourceProvider';
-import { RefreshComponentProvider, useRefreshFieldSchema } from '../formily/NocoBaseRecursionField';
+import { RefreshComponentProvider, useRefreshFieldSchema } from '../formily/EasyFlowRecursionField';
 import { DragHandler, useCompile, useDesignable, useGridContext, useGridRowContext } from '../schema-component';
 import { gridRowColWrap } from '../schema-initializer/utils';
 import { SchemaSettingsDropdown } from './SchemaSettings';
@@ -310,7 +303,7 @@ const InternalSchemaToolbar: FC<SchemaToolbarProps> = React.memo((props) => {
   }, [schemaSettingsExists, schemaSettingsRender, settings]);
   const toolbarRef = useRef<HTMLDivElement>(null);
 
-  const hiddenClassName = process.env.__E2E__ ? 'hidden-e2e' : 'hidden';
+  const hiddenClassName = 'hidden';
 
   useEffect(() => {
     const toolbarElement = toolbarRef.current;

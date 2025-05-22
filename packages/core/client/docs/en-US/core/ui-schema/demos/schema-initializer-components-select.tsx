@@ -1,7 +1,7 @@
 /**
  * defaultShowCode: true
  */
-import { Grid, SchemaInitializer, Application, SchemaInitializerSelect, useDesignable } from '@nocobase/client';
+import { Grid, SchemaInitializer, Application, SchemaInitializerSelect, useDesignable } from '@easyflow/client';
 import React from 'react';
 import { appOptions } from './schema-initializer-common';
 import { useFieldSchema } from '@formily/react';

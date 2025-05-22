@@ -5,7 +5,7 @@ import {
   useDataBlockRequest,
   useDataBlock,
   withDynamicSchemaProps,
-} from '@nocobase/client';
+} from '@easyflow/client';
 
 import { createApp } from '../../../data-source/demos/createApp';
 import { Table, TableProps } from 'antd';

@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { createForm, onFormValuesChange } from '@formily/core';
 import { useField } from '@formily/react';
 import { autorun } from '@formily/reactive';
-import { forEach } from '@nocobase/utils/client';
+import { forEach } from '@easyflow/utils/client';
 import { Spin } from 'antd';
 import React, { createContext, useContext, useEffect, useMemo } from 'react';
 import { useCollectionParentRecordData } from '../data-source/collection-record/CollectionRecordProvider';

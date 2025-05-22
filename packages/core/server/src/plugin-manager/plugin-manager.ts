@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import Topo from '@hapi/topo';
-import { CleanOptions, Collection, SyncOptions } from '@nocobase/database';
-import { importModule, isURL } from '@nocobase/utils';
+import { CleanOptions, Collection, SyncOptions } from '@easyflow/database';
+import { importModule, isURL } from '@easyflow/utils';
 import execa from 'execa';
 import fg from 'fast-glob';
 import fs from 'fs-extra';
@@ -153,7 +146,7 @@ export class PluginManager {
    * @internal
    */
   static getPluginPkgPrefix() {
-    return (process.env.PLUGIN_PACKAGE_PREFIX || '@nocobase/plugin-,@nocobase/preset-,@nocobase/plugin-pro-').split(
+    return (process.env.PLUGIN_PACKAGE_PREFIX || '@easyflow/plugin-,@easyflow/preset-,@easyflow/plugin-pro-').split(
       ',',
     );
   }
@@ -216,29 +209,29 @@ export class PluginManager {
     if (this.parsedNames[nameOrPkg]) {
       return this.parsedNames[nameOrPkg];
     }
-    if (nameOrPkg.startsWith('@nocobase/plugin-')) {
+    if (nameOrPkg.startsWith('@easyflow/plugin-')) {
       this.parsedNames[nameOrPkg] = {
         packageName: nameOrPkg,
-        name: nameOrPkg.replace('@nocobase/plugin-', ''),
+        name: nameOrPkg.replace('@easyflow/plugin-', ''),
       };
       return this.parsedNames[nameOrPkg];
     }
-    if (nameOrPkg.startsWith('@nocobase/preset-')) {
+    if (nameOrPkg.startsWith('@easyflow/preset-')) {
       this.parsedNames[nameOrPkg] = {
         packageName: nameOrPkg,
-        name: nameOrPkg.replace('@nocobase/preset-', ''),
+        name: nameOrPkg.replace('@easyflow/preset-', ''),
       };
       return this.parsedNames[nameOrPkg];
     }
     const exists = async (name: string, isPreset = false) => {
       return fs.exists(
-        resolve(process.env.NODE_MODULES_PATH, `@nocobase/${isPreset ? 'preset' : 'plugin'}-${name}`, 'package.json'),
+        resolve(process.env.NODE_MODULES_PATH, `@easyflow/${isPreset ? 'preset' : 'plugin'}-${name}`, 'package.json'),
       );
     };
     if (await exists(nameOrPkg)) {
-      this.parsedNames[nameOrPkg] = { name: nameOrPkg, packageName: `@nocobase/plugin-${nameOrPkg}` };
+      this.parsedNames[nameOrPkg] = { name: nameOrPkg, packageName: `@easyflow/plugin-${nameOrPkg}` };
     } else if (await exists(nameOrPkg, true)) {
-      this.parsedNames[nameOrPkg] = { name: nameOrPkg, packageName: `@nocobase/preset-${nameOrPkg}` };
+      this.parsedNames[nameOrPkg] = { name: nameOrPkg, packageName: `@easyflow/preset-${nameOrPkg}` };
     } else {
       this.parsedNames[nameOrPkg] = { name: nameOrPkg, packageName: nameOrPkg };
     }
@@ -292,7 +285,7 @@ export class PluginManager {
       if (options?.forceRecreate) {
         await fs.rm(pluginDir, { recursive: true, force: true });
       }
-      const { PluginGenerator } = require('@nocobase/cli/src/plugin-generator');
+      const { PluginGenerator } = require('@easyflow/cli/src/plugin-generator');
       const generator = new PluginGenerator({
         cwd: process.cwd(),
         args: {},
@@ -553,7 +546,7 @@ export class PluginManager {
   async enable(nameOrPkg: string | string[]) {
     let pluginNames = nameOrPkg;
     if (nameOrPkg === '*') {
-      const plugin = this.get('nocobase') as any;
+      const plugin = this.get('easyflow') as any;
       pluginNames = await plugin.findLocalPlugins();
     }
     pluginNames = await this.sort(pluginNames);
@@ -878,7 +871,7 @@ export class PluginManager {
         this.app.log.debug('app upgrading');
         await this.app.runCommand('upgrade');
         await tsxRerunning();
-        await execa('yarn', ['nocobase', 'pm2-restart'], {
+        await execa('yarn', ['easyflow', 'pm2-restart'], {
           env: process.env,
         });
         return;
@@ -887,7 +880,7 @@ export class PluginManager {
       await fs.writeFile(file, '', 'utf-8');
       // await this.app.upgrade();
       await tsxRerunning();
-      await execa('yarn', ['nocobase', 'pm2-restart'], {
+      await execa('yarn', ['easyflow', 'pm2-restart'], {
         env: process.env,
       });
     };

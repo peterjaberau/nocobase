@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { PageHeader } from '@ant-design/pro-layout';
 import { css } from '@emotion/css';
@@ -89,7 +82,7 @@ export const AdminSettingsLayout = () => {
       // 如果是外链类型的，需要跳转外链，如果是内页则返回内页 path
       const pluginSetting = settings.find((item) => item.isTopLevel);
       // 如果仅有 1 个，且是外链类型的，跳转到 /admin
-      // @see https://nocobase.height.app/inbox/T-5038
+      // @see https://easyflow.height.app/inbox/T-5038
       return pluginSetting.link ? '/admin' : pluginSetting.path;
     }
 

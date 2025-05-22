@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import type { SchemaKey } from '@formily/json-schema';
 import qs from 'qs';
@@ -125,7 +118,7 @@ export class CollectionManager {
     }
 
     if (String(path).split('.').length < 2) {
-      console.error(`[@nocobase/client]: CollectionManager.getField() path "${path}" is invalid`);
+      console.error(`[@easyflow/client]: CollectionManager.getField() path "${path}" is invalid`);
       return;
     }
 
@@ -160,7 +153,7 @@ export class CollectionManager {
   ) {
     if (!collectionOrAssociation || !collectionRecordOrAssociationRecord) {
       console.error(
-        '@nocobase/client]: CollectionManager.getFilterByTK() collectionOrAssociation or collectionRecordOrAssociationRecord is invalid',
+        '@easyflow/client]: CollectionManager.getFilterByTK() collectionOrAssociation or collectionRecordOrAssociationRecord is invalid',
       );
       return;
     }
@@ -187,7 +180,7 @@ export class CollectionManager {
       // 字段不存在，返回空
       if (!field) {
         console.error(
-          `[@nocobase/client]: CollectionManager.getFilterByTK() field "${collectionOrAssociation}" is invalid`,
+          `[@easyflow/client]: CollectionManager.getFilterByTK() field "${collectionOrAssociation}" is invalid`,
         );
         return;
       }
@@ -199,7 +192,7 @@ export class CollectionManager {
 
     if (!targetCollection) {
       console.error(
-        `[@nocobase/client]: CollectionManager.getFilterByTK() collection "${collectionOrAssociation}" is invalid`,
+        `[@easyflow/client]: CollectionManager.getFilterByTK() collection "${collectionOrAssociation}" is invalid`,
       );
       return;
     }

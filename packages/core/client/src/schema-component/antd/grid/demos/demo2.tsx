@@ -13,7 +13,7 @@ import {
   Plugin,
   SchemaComponent,
   SchemaComponentProvider,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 import { mockAPIClient } from '../../../../testUtils';

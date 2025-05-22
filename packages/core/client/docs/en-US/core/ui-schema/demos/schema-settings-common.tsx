@@ -1,4 +1,4 @@
-import { ApplicationOptions, CardItem, Grid, Plugin, SchemaComponent } from '@nocobase/client';
+import { ApplicationOptions, CardItem, Grid, Plugin, SchemaComponent } from '@easyflow/client';
 import React from 'react';
 
 const Hello = () => {

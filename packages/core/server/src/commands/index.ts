@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore file -- @preserve */
 
@@ -40,7 +33,7 @@ export function registerCli(app: Application) {
   start(app);
   refresh(app);
 
-  // development only with @nocobase/cli
+  // development only with @easyflow/cli
   app.command('build').argument('[packages...]');
   app.command('clean');
   app.command('dev').usage('[options]').option('-p, --port [port]').option('--client').option('--server');

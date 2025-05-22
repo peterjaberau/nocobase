@@ -37,7 +37,7 @@ exports.fsExists = fsExists;
 
 async function createStoragePluginSymLink(pluginName) {
   const storagePluginsPath = resolve(process.cwd(), 'storage/plugins');
-  const nodeModulesPath = process.env.NODE_MODULES_PATH; // resolve(dirname(require.resolve('@nocobase/server/package.json')), 'node_modules');
+  const nodeModulesPath = process.env.NODE_MODULES_PATH; // resolve(dirname(require.resolve('@easyflow/server/package.json')), 'node_modules');
   // const nodeModulesPath = resolve(process.cwd(), 'node_modules');
   try {
     if (pluginName.startsWith('@')) {
@@ -71,7 +71,7 @@ exports.createStoragePluginsSymlink = createStoragePluginsSymlink;
 
 async function createDevPluginSymLink(pluginName) {
   const packagePluginsPath = resolve(process.cwd(), 'packages/plugins');
-  const nodeModulesPath = process.env.NODE_MODULES_PATH; // resolve(dirname(require.resolve('@nocobase/server/package.json')), 'node_modules');
+  const nodeModulesPath = process.env.NODE_MODULES_PATH; // resolve(dirname(require.resolve('@easyflow/server/package.json')), 'node_modules');
   try {
     if (pluginName.startsWith('@')) {
       const [orgName] = pluginName.split('/');

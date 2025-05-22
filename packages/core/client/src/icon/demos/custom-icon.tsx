@@ -1,6 +1,6 @@
 
 
-import { Icon } from '@nocobase/client';
+import { Icon } from '@easyflow/client';
 import React from 'react';
 
 const HeartSvg = () => (

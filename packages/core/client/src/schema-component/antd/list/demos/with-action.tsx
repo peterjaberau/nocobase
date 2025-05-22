@@ -1,9 +1,9 @@
 import React from 'react';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { mockApp } from '@easyflow/client/demo-utils';
 import {
   BlockSchemaComponentPlugin,
   SchemaComponent, Plugin,
-} from '@nocobase/client';
+} from '@easyflow/client';
 
 const schema = {
   type: 'void',

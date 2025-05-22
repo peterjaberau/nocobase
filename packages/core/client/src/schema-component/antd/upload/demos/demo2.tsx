@@ -2,7 +2,7 @@
  * title: Upload
  */
 import { FormItem } from '@formily/antd-v5';
-import { APIClientProvider, SchemaComponent, SchemaComponentProvider, Upload } from '@nocobase/client';
+import { APIClientProvider, SchemaComponent, SchemaComponentProvider, Upload } from '@easyflow/client';
 import React from 'react';
 import apiClient from './apiClient';
 
@@ -25,7 +25,7 @@ const schema = {
           meta: {},
           status: 'uploading',
           percent: 60,
-          url: 'https://nocobase.oss-cn-beijing.aliyuncs.com/cd48dc833ab01aa3959ac39309fc39de.jpg',
+          url: 'https://easyflow.oss-cn-beijing.aliyuncs.com/cd48dc833ab01aa3959ac39309fc39de.jpg',
           created_at: '2021-08-13T15:00:17.423Z',
           updated_at: '2021-08-13T15:00:17.423Z',
           created_by_id: null,
@@ -41,7 +41,7 @@ const schema = {
           mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
           path: '',
           meta: {},
-          url: 'https://nocobase.oss-cn-beijing.aliyuncs.com/d9f6ad6669902a9a8a1229d9f362235a.docx',
+          url: 'https://easyflow.oss-cn-beijing.aliyuncs.com/d9f6ad6669902a9a8a1229d9f362235a.docx',
           created_at: '2021-09-12T01:22:06.229Z',
           updated_at: '2021-09-12T01:22:06.229Z',
           created_by_id: null,

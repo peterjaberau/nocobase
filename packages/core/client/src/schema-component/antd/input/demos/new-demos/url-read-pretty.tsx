@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { mockApp } from '@nocobase/client/demo-utils';
-import { SchemaComponent, Plugin, ISchema } from '@nocobase/client';
+import { mockApp } from '@easyflow/client/demo-utils';
+import { SchemaComponent, Plugin, ISchema } from '@easyflow/client';
 
 const schema: ISchema = {
   type: 'void',
@@ -13,7 +13,7 @@ const schema: ISchema = {
     test: {
       type: 'string',
       title: 'Test',
-      default: 'https://www.nocobase.com',
+      default: 'https://www.easyflow.com',
       'x-decorator': 'FormItem',
       'x-component': 'Input.URL',
     },

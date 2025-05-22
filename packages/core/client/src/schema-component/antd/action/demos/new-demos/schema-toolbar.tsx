@@ -1,5 +1,5 @@
-import { SchemaComponent, Plugin, SchemaSettings } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { SchemaComponent, Plugin, SchemaSettings } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 import React from 'react';
 
 const myActionSettings = new SchemaSettings({

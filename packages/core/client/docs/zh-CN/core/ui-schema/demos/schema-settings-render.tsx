@@ -14,7 +14,7 @@ import {
   useRefreshFieldSchema,
   useSchemaSettings,
   useSchemaSettingsRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React, { useMemo } from 'react';
 
 class PluginHello extends Plugin {

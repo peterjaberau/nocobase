@@ -6,7 +6,7 @@ import {
   useDataBlockResource,
   useCollectionRecordData,
   withDynamicSchemaProps,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { ISchema } from '@formily/json-schema';
 import useUrlState from '@ahooksjs/use-url-state';
 

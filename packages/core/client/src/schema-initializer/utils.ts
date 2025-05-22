@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field, Form } from '@formily/core';
 import { ISchema, Schema, useFieldSchema, useForm } from '@formily/react';
@@ -971,7 +964,7 @@ export const useCollectionDataSourceItems = ({
           t,
           componentNamePrefix,
         }).sort((item) => {
-          // fix https://nocobase.height.app/T-3551
+          // fix https://easyflow.height.app/T-3551
           const inherits = _.toArray(collection?.inherits || []);
           if (item.name === collection?.name || inherits.some((inheritName) => inheritName === item.name)) return -1;
         }),
@@ -979,7 +972,7 @@ export const useCollectionDataSourceItems = ({
     }));
   }, [allCollections, collection?.inherits, collection?.name, componentName, getTemplatesByCollection, t]);
 
-  // https://nocobase.height.app/T-3821
+  // https://easyflow.height.app/T-3821
   // showAssociationFields 的值是固定不变的，所以在 if 语句里使用 hooks 是安全的
   if (showAssociationFields) {
     // eslint-disable-next-line react-hooks/rules-of-hooks

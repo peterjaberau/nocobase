@@ -11,7 +11,7 @@ import {
   useSchemaInitializer,
   useSchemaInitializerItem,
   useSchemaInitializerRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { ButtonProps, List, ListProps } from 'antd';
 import React, { FC } from 'react';
 

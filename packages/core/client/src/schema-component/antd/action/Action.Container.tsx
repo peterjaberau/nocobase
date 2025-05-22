@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { observer, useField, useFieldSchema } from '@formily/react';
 import React from 'react';
 import { useActionContext } from '.';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { useOpenModeContext } from '../../../modules/popup/OpenModeProvider';
 import { ComposedActionDrawer } from './types';
 import { ActionDrawer } from './Action.Drawer';
@@ -39,7 +32,7 @@ ActionContainer.Footer = observer(
   () => {
     const field = useField();
     const schema = useFieldSchema();
-    return <NocoBaseRecursionField basePath={field.address} schema={schema} onlyRenderProperties />;
+    return <EasyFlowRecursionField basePath={field.address} schema={schema} onlyRenderProperties />;
   },
   { displayName: 'ActionContainer.Footer' },
 );

@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import cors from '@koa/cors';
-import { requestLogger } from '@nocobase/logger';
-import { Resourcer } from '@nocobase/resourcer';
-import { uid } from '@nocobase/utils';
+import { requestLogger } from '@easyflow/logger';
+import { Resourcer } from '@easyflow/resourcer';
+import { uid } from '@easyflow/utils';
 import { Command } from 'commander';
 import { randomUUID } from 'crypto';
 import fs from 'fs';

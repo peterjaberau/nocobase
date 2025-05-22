@@ -1,7 +1,7 @@
 /**
  * defaultShowCode: true
  */
-import { Application, SchemaInitializer, SchemaInitializerItem } from '@nocobase/client';
+import { Application, SchemaInitializer, SchemaInitializerItem } from '@easyflow/client';
 import React from 'react';
 import { appOptions } from './schema-initializer-common';
 

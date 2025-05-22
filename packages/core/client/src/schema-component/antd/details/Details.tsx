@@ -1,18 +1,11 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useFieldSchema } from '@formily/react';
 import { Empty } from 'antd';
 import _ from 'lodash';
 import React from 'react';
 import { useDataBlockRequestData } from '../../../data-source';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { withDynamicSchemaProps } from '../../../hoc/withDynamicSchemaProps';
 import { withSkeletonComponent } from '../../../hoc/withSkeletonComponent';
 import { FormV2 } from '../form-v2';
@@ -28,7 +21,7 @@ export const Details = withDynamicSchemaProps(
       return (
         <>
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
-          <NocoBaseRecursionField schema={schema.properties.pagination} name="pagination" />
+          <EasyFlowRecursionField schema={schema.properties.pagination} name="pagination" />
         </>
       );
     }
@@ -39,5 +32,5 @@ export const Details = withDynamicSchemaProps(
       </div>
     );
   }),
-  { displayName: 'NocoBaseDetails' },
+  { displayName: 'EasyFlowDetails' },
 );

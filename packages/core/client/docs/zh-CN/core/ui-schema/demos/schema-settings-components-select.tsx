@@ -2,7 +2,7 @@
  * defaultShowCode: true
  */
 import React, { FC } from 'react';
-import { Application, SchemaSettings, SchemaSettingsSelectItem, useDesignable } from '@nocobase/client';
+import { Application, SchemaSettings, SchemaSettingsSelectItem, useDesignable } from '@easyflow/client';
 import { appOptions } from './schema-settings-common';
 import { observer, useField } from '@formily/react';
 import { Table } from 'antd';

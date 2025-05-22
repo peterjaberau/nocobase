@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { rspack } from '@rspack/core';
 import ncc from '@vercel/ncc';
@@ -38,40 +31,40 @@ const sourceGlobalFiles: string[] = [
 ];
 
 const external = [
-  // nocobase
-  '@nocobase/acl',
-  '@nocobase/actions',
-  '@nocobase/auth',
-  '@nocobase/cache',
-  '@nocobase/client',
-  '@nocobase/database',
-  '@nocobase/data-source-manager',
-  '@nocobase/evaluators',
-  '@nocobase/lock-manager',
-  '@nocobase/logger',
-  '@nocobase/resourcer',
-  '@nocobase/telemetry',
-  '@nocobase/sdk',
-  '@nocobase/server',
-  '@nocobase/test',
-  '@nocobase/utils',
+  // easyflow
+  '@easyflow/acl',
+  '@easyflow/actions',
+  '@easyflow/auth',
+  '@easyflow/cache',
+  '@easyflow/client',
+  '@easyflow/database',
+  '@easyflow/data-source-manager',
+  '@easyflow/evaluators',
+  '@easyflow/lock-manager',
+  '@easyflow/logger',
+  '@easyflow/resourcer',
+  '@easyflow/telemetry',
+  '@easyflow/sdk',
+  '@easyflow/server',
+  '@easyflow/test',
+  '@easyflow/utils',
 
-  // @nocobase/auth
+  // @easyflow/auth
   'jsonwebtoken',
 
-  // @nocobase/cache
+  // @easyflow/cache
   'cache-manager',
 
-  // @nocobase/database
+  // @easyflow/database
   'sequelize',
   'umzug',
   'async-mutex',
 
-  // @nocobase/evaluators
+  // @easyflow/evaluators
   '@formulajs/formulajs',
   'mathjs',
 
-  // @nocobase/logger
+  // @easyflow/logger
   'winston',
   'winston-daily-rotate-file',
 
@@ -137,7 +130,7 @@ const external = [
   'file-saver',
 ];
 const pluginPrefix = (
-  process.env.PLUGIN_PACKAGE_PREFIX || '@nocobase/plugin-,@nocobase/preset-,@nocobase/plugin-pro-'
+  process.env.PLUGIN_PACKAGE_PREFIX || '@easyflow/plugin-,@easyflow/preset-,@easyflow/plugin-pro-'
 ).split(',');
 
 const target_dir = 'dist';
@@ -200,7 +193,7 @@ export async function buildServerDeps(cwd: string, serverFiles: string[], log: P
     tips.push(`These packages ${chalk.yellow(excludePackages.join(', '))} will be ${chalk.italic('exclude')}.`);
   }
   tips.push(
-    `For more information, please refer to: ${chalk.blue('https://docs.nocobase.com/development/others/deps')}.`,
+    `For more information, please refer to: ${chalk.blue('https://docs.easyflow.com/development/others/deps')}.`,
   );
   log(tips.join(' '));
 
@@ -237,7 +230,6 @@ export async function buildServerDeps(cwd: string, serverFiles: string[], log: P
         './**/*.gif',
         './**/*/.bin',
         './**/*/bin',
-        './**/*/LICENSE',
         './**/*/tsconfig.json',
       ],
       { cwd: outputDir, absolute: true },
@@ -324,7 +316,7 @@ export async function buildPluginClient(cwd: string, userConfig: UserConfig, sou
   const outDir = path.join(cwd, target_dir, 'client');
 
   const globals = excludePackages.reduce<Record<string, string>>((prev, curr) => {
-    if (curr.startsWith('@nocobase')) {
+    if (curr.startsWith('@easyflow')) {
       prev[`${curr}/client`] = `${curr}/client`;
     }
     prev[curr] = curr;
@@ -481,7 +473,7 @@ export async function buildPluginClient(cwd: string, userConfig: UserConfig, sou
                 module.source = {
                   source: `
 __webpack_require__.p = (function() {
-  var publicPath = window['__nocobase_public_path__'] || '/';
+  var publicPath = window['__easyflow_public_path__'] || '/';
   // 确保路径以 / 结尾
   if (!publicPath.endsWith('/')) {
     publicPath += '/';

@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Command } from 'commander';
 
@@ -46,7 +39,7 @@ export class AppCommand extends Command {
     //@ts-ignore
     const userArgs = this._prepareUserArgs(argv, parseOptions);
 
-    if (userArgs[0] === 'nocobase') {
+    if (userArgs[0] === 'easyflow') {
       userArgs.shift();
     }
 

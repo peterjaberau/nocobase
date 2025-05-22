@@ -9,7 +9,7 @@ import {
   SchemaSettings,
   SchemaSettingsActionModalItem,
   useDesignable,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { appOptions } from './schema-settings-common';
 import { ISchema, useField } from '@formily/react';
 

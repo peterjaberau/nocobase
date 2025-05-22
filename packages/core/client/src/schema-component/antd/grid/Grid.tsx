@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { TinyColor } from '@ctrl/tinycolor';
 import { useDndContext, useDndMonitor, useDraggable, useDroppable } from '@dnd-kit/core';
@@ -18,10 +11,10 @@ import { SchemaComponent, useDesignable, useSchemaInitializerRender } from '../.
 import { useFormBlockContext } from '../../../block-provider/FormBlockProvider';
 import { FilterBlockProvider } from '../../../filter-provider/FilterProvider';
 import {
-  NocoBaseRecursionField,
+  EasyFlowRecursionField,
   RefreshComponentProvider,
   useRefreshFieldSchema,
-} from '../../../formily/NocoBaseRecursionField';
+} from '../../../formily/EasyFlowRecursionField';
 import { DndContext, DndContextProps } from '../../common/dnd-context';
 import { useToken } from '../__builtins__';
 import useStyles from './Grid.style';
@@ -404,7 +397,7 @@ export const Grid: any = observer(
                           {distributedValue ? (
                             <SchemaComponent name={schema.name} schema={schema} distributed />
                           ) : (
-                            <NocoBaseRecursionField name={schema.name} schema={schema} isUseFormilyField />
+                            <EasyFlowRecursionField name={schema.name} schema={schema} isUseFormilyField />
                           )}
                           {showDivider ? (
                             <RowDivider
@@ -468,7 +461,7 @@ Grid.Row = observer(
           {cols.map((schema, index) => {
             return (
               <React.Fragment key={index}>
-                <NocoBaseRecursionField name={schema.name} schema={schema} isUseFormilyField />
+                <EasyFlowRecursionField name={schema.name} schema={schema} isUseFormilyField />
                 {showDivider && (
                   <ColDivider
                     cols={cols}

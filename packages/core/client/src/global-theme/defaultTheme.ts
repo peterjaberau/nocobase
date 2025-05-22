@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ThemeConfig } from './type';
 
@@ -27,8 +20,7 @@ const defaultTheme: ThemeConfig = {
     colorBorderSettingsHover: 'rgba(241, 139, 98, 0.3)',
 
     // 动画相关
-    motionUnit: 0.03,
-    motion: !process.env.__E2E__,
+    motionUnit: 0.03
   },
 };
 

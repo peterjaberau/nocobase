@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { Registry } from '@nocobase/utils';
+
+import { Registry } from '@easyflow/utils';
 import { BatchSpanProcessor, ConsoleSpanExporter, SpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
 import { Resource } from '@opentelemetry/resources';
@@ -30,7 +23,7 @@ export class Trace {
   constructor(options?: TraceOptions) {
     const { processorName, tracerName, version } = options || {};
     this.processorName = processorName || 'console';
-    this.tracerName = tracerName || 'nocobase-trace';
+    this.tracerName = tracerName || 'easyflow-trace';
     this.version = version || '';
     this.registerProcessor('console', () => new BatchSpanProcessor(new ConsoleSpanExporter()));
   }

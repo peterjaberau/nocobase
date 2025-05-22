@@ -8,7 +8,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   useAPIClient,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { Card, Space } from 'antd';
 import { createMemoryHistory } from 'history';
 import React from 'react';

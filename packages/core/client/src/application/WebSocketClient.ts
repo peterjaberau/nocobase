@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { define, observable } from '@formily/reactive';
-import { getSubAppName } from '@nocobase/sdk';
+import { getSubAppName } from '@easyflow/sdk';
 import { Application } from './Application';
 
 export type WebSocketClientOptions = {
@@ -97,7 +90,7 @@ export class WebSocketClient {
       return;
     }
     if (this._reconnectTimes === 0) {
-      console.log('[nocobase-ws]: connecting...');
+      console.log('[easyflow-ws]: connecting...');
     }
     if (this._reconnectTimes >= this.reconnectAttempts) {
       return;
@@ -110,7 +103,7 @@ export class WebSocketClient {
     let pingIntervalTimer: any;
 
     ws.onopen = () => {
-      console.log('[nocobase-ws]: connected.');
+      console.log('[easyflow-ws]: connected.');
       this.serverDown = false;
       if (this._ws) {
         this.removeAllListeners();

@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useTranslation } from 'react-i18next';
 import { useAsyncData } from '../../../../async-data-provider';
@@ -17,7 +10,7 @@ import { useFieldInterfaceOptions } from '../../../Configuration/interfaces';
 import { useCompile } from '../../../../schema-component';
 import { useCollectionManager_deprecated } from '../../../hooks';
 import dayjs from 'dayjs';
-import { FieldOptions } from '@nocobase/database';
+import { FieldOptions } from '@easyflow/database';
 import { ResourceActionContext } from '../../../ResourceActionProvider';
 
 const inferInterface = (field: string, value: any) => {

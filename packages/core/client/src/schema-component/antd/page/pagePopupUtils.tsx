@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ISchema, useFieldSchema } from '@formily/react';
 import _ from 'lodash';
@@ -272,7 +265,7 @@ export const usePopupUtils = (
         setPopupLayerState(nextLevel, true);
       } else {
         console.error(
-          `[NocoBase] The popup schema is invalid, please check the schema: \n${JSON.stringify(schema, null, 2)}`,
+          `[EasyFlow] The popup schema is invalid, please check the schema: \n${JSON.stringify(schema, null, 2)}`,
         );
       }
     },

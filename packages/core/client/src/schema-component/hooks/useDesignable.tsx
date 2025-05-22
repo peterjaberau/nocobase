@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { GeneralField, Query } from '@formily/core';
 import { ISchema, Schema, SchemaOptionsContext, useField, useFieldSchema } from '@formily/react';
@@ -18,7 +11,7 @@ import set from 'lodash/set';
 import React, { ComponentType, useCallback, useContext, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { APIClient, useAPIClient } from '../../api-client';
-import { useRefreshComponent, useRefreshFieldSchema } from '../../formily/NocoBaseRecursionField';
+import { useRefreshComponent, useRefreshFieldSchema } from '../../formily/EasyFlowRecursionField';
 import { LAZY_COMPONENT_KEY } from '../../lazy-helper';
 import { SchemaComponentContext } from '../context';
 import { addAppVersion } from './addAppVersion';
@@ -35,7 +28,7 @@ interface CreateDesignableProps {
   onSuccess?: any;
   t?: any;
   /**
-   * NocoBase 系统版本
+   * EasyFlow 系统版本
    */
   appVersion?: string;
 }
@@ -125,7 +118,7 @@ export class Designable {
   current: Schema;
   options: CreateDesignableProps;
   /**
-   * NocoBase 系统版本
+   * EasyFlow 系统版本
    */
   appVersion: string;
   events = {};
@@ -734,7 +727,7 @@ export function useFindComponent() {
     }
     const res = get(components, component);
     if (!res) {
-      console.error(`[nocobase]: Component "${component}" not found`);
+      console.error(`[easyflow]: Component "${component}" not found`);
     }
     return res;
   };

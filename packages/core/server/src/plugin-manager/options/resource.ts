@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { uid } from '@nocobase/utils';
+
+import { uid } from '@easyflow/utils';
 import fs from 'fs';
 import fse from 'fs-extra';
 import path from 'path';
@@ -125,7 +118,7 @@ export default {
       const locale = ctx.getCurrentLocale();
       const pm = ctx.app.pm as PluginManager;
       // ctx.body = await pm.list({ locale, isPreset: false });
-      const plugin = pm.get('nocobase') as any;
+      const plugin = pm.get('easyflow') as any;
       ctx.body = await plugin.getAllPlugins(locale);
       await next();
     },
@@ -166,7 +159,7 @@ export default {
       if (!filterByTk) {
         ctx.throw(400, 'plugin name invalid');
       }
-      const plugin = pm.get('nocobase') as any;
+      const plugin = pm.get('easyflow') as any;
       ctx.body = await plugin.getPluginInfo(filterByTk, locale);
       // ctx.body = await pm.get(filterByTk).toJSON({ locale });
       await next();

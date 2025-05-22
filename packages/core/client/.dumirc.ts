@@ -1,6 +1,6 @@
-import { getUmiConfig } from '@nocobase/devtools/umiConfig';
+import { getUmiConfig } from '@easyflow/devtools/umiConfig';
 import { defineConfig } from 'dumi';
-import { defineThemeConfig } from 'dumi-theme-nocobase';
+import { defineThemeConfig } from 'dumi-theme-easyflow';
 
 const umiConfig = getUmiConfig();
 process.env.DOC_LANG = process.env.DOC_LANG || 'zh-CN';
@@ -31,10 +31,10 @@ export default defineConfig({
   },
   locales: lang === 'zh-CN' ? [{ id: 'zh-CN', name: '中文' },] : [{ id: 'en-US', name: 'English' }],
   themeConfig: defineThemeConfig({
-    title: 'NocoBase',
-    logo: 'https://www.nocobase.com/images/logo.png',
-    github: 'https://github.com/nocobase/nocobase',
-    footer: 'nocobase | Copyright © 2022',
+    title: 'EasyFlow',
+    logo: 'https://www.easyflow.com/images/logo.png',
+    github: 'https://github.com/easyflow/easyflow',
+    footer: 'easyflow | Copyright © 2022',
     // sidebarGroupModePath: ['/components'],
     nav: [
       {
@@ -47,7 +47,7 @@ export default defineConfig({
       },
       {
         title: 'Home site',
-        link: lang === 'zh-CN' ? 'https://docs-cn.nocobase.com' : 'https://docs.nocobase.com',
+        link: lang === 'zh-CN' ? 'https://docs-cn.easyflow.com' : 'https://docs.easyflow.com',
       }
       // {
       //   title: 'UI Schema',
@@ -671,8 +671,8 @@ export default defineConfig({
       // ],
     },
     localesEnhance: [
-      { id: 'zh-CN', switchPrefix: '中', hostname: 'client.docs-cn.nocobase.com' },
-      { id: 'en-US', switchPrefix: 'en', hostname: 'client.docs.nocobase.com' }
+      { id: 'zh-CN', switchPrefix: '中', hostname: 'client.docs-cn.easyflow.com' },
+      { id: 'en-US', switchPrefix: 'en', hostname: 'client.docs.easyflow.com' }
     ],
   }),
 });

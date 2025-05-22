@@ -1,6 +1,6 @@
 import React from 'react';
-import { ISchema, SchemaComponent, Plugin } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { ISchema, SchemaComponent, Plugin } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 
 const schema: ISchema = {
   name: 'test',

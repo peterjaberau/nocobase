@@ -1,12 +1,12 @@
 
 
-import { Application, NocoBaseBuildInPlugin } from '@nocobase/client';
+import { Application, EasyFlowBuildInPlugin } from '@easyflow/client';
 
 export const app = new Application({
   apiClient: {
     baseURL: process.env.API_BASE_URL,
   },
-  plugins: [NocoBaseBuildInPlugin],
+  plugins: [EasyFlowBuildInPlugin],
 });
 
 export default app.getRootComponent();

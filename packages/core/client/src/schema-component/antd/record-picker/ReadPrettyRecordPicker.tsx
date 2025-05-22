@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { observer, useFieldSchema } from '@formily/react';
 import { toArr } from '@formily/shared';
@@ -16,7 +9,7 @@ import { BlockAssociationContext } from '../../../block-provider/BlockProvider';
 import { CollectionProvider_deprecated } from '../../../collection-manager';
 import { useCollectionManager } from '../../../data-source/collection/CollectionManagerProvider';
 import { useCollection } from '../../../data-source/collection/CollectionProvider';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { RecordProvider, useRecord } from '../../../record-provider';
 import { FormProvider } from '../../core';
 import { useCompile } from '../../hooks';
@@ -95,7 +88,7 @@ export const ReadPrettyRecordPicker: React.FC = observer(
     const renderWithoutTableFieldResourceProvider = () => (
       <WithoutTableFieldResource.Provider value={true}>
         <FormProvider>
-          <NocoBaseRecursionField
+          <EasyFlowRecursionField
             schema={fieldSchema}
             onlyRenderProperties
             filterProperties={(s) => {

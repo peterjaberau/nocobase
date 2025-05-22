@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
@@ -16,7 +9,7 @@ import { spliceArrayState } from '@formily/core/esm/shared/internals';
 import { RecursionField, Schema, SchemaOptionsContext, observer, useField, useFieldSchema } from '@formily/react';
 import { action } from '@formily/reactive';
 import { uid } from '@formily/shared';
-import { isPortalInBody } from '@nocobase/utils/client';
+import { isPortalInBody } from '@easyflow/utils/client';
 import { useCreation, useDeepCompareEffect, useMemoizedFn } from 'ahooks';
 import { Table as AntdTable, Spin, TableColumnProps } from 'antd';
 import { default as classNames, default as cls } from 'classnames';
@@ -134,7 +127,6 @@ const useTableColumns = (props: { showDel?: any; isSubTable?: boolean }, paginat
           ...s['x-component-props'],
           width: columnHidden && !designable ? 0 : s['x-component-props']?.width || 100,
           render: (v, record) => {
-            // 这行代码会导致这里的测试不通过：packages/core/client/src/modules/blocks/data-blocks/table/__e2e__/schemaInitializer.test.ts:189
             // if (collectionFields?.length === 1 && collectionFields[0]['x-read-pretty'] && v == undefined) return null;
 
             const index = field.value?.indexOf(record);
@@ -544,7 +536,7 @@ interface TableProps {
   isSubTable?: boolean;
 }
 
-const InternalNocoBaseTable = React.memo(
+const InternalEasyFlowTable = React.memo(
   (props: {
     tableHeight: number;
     SortableWrapper: React.FC<{}>;
@@ -652,7 +644,7 @@ const InternalNocoBaseTable = React.memo(
   },
 );
 
-InternalNocoBaseTable.displayName = 'InternalNocoBaseTable';
+InternalEasyFlowTable.displayName = 'InternalEasyFlowTable';
 
 export const Table: any = withDynamicSchemaProps(
   observer((props: TableProps) => {
@@ -953,7 +945,7 @@ export const Table: any = withDynamicSchemaProps(
     return (
       // If spinning is set to undefined, it will cause the subtable to always display loading, so we need to convert it here
       <Spin spinning={!!loading}>
-        <InternalNocoBaseTable
+        <InternalEasyFlowTable
           tableHeight={tableHeight}
           SortableWrapper={SortableWrapper}
           tableSizeRefCallback={tableSizeRefCallback}
@@ -975,5 +967,5 @@ export const Table: any = withDynamicSchemaProps(
       </Spin>
     );
   }),
-  { displayName: 'NocoBaseTable' },
+  { displayName: 'EasyFlowTable' },
 );

@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { Context } from '@nocobase/actions';
+
+import { Context } from '@easyflow/actions';
 import { head } from 'lodash';
 import Stream from 'stream';
 

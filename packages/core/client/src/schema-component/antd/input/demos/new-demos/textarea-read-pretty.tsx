@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { mockApp } from '@nocobase/client/demo-utils';
-import { SchemaComponent, Plugin } from '@nocobase/client';
+import { mockApp } from '@easyflow/client/demo-utils';
+import { SchemaComponent, Plugin } from '@easyflow/client';
 
 const schema = {
   type: 'void',
@@ -14,7 +14,7 @@ const schema = {
       interface: 'string',
       type: 'string',
       default:
-        'NocoBase is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
+        'EasyFlow is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
       title: `Test`,
       'x-decorator': 'FormItem',
       'x-component': 'Input.TextArea',
@@ -25,7 +25,7 @@ const schema = {
       title: `Test(ellipsis)`,
       'x-decorator': 'FormItem',
       default:
-        'NocoBase is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
+        'EasyFlow is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
       'x-component': 'Input.TextArea',
       'x-component-props': {
         ellipsis: true,
@@ -39,7 +39,7 @@ const schema = {
       type: 'string',
       title: `Test(autop)`,
       default:
-        'NocoBase is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
+        'EasyFlow is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
       'x-decorator': 'FormItem',
       'x-component': 'Input.TextArea',
       'x-component-props': {

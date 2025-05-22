@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { createForm, Form, IFormProps } from '@formily/core';
 import { FormProvider, Observer, observer, ReactFC } from '@formily/react';
@@ -105,8 +98,8 @@ export function FormDialog(title: any, id: any, renderer?: any, theme?: any): IF
 
             return (
               <Modal
-                // fix https://nocobase.height.app/T-2797
-                // fix https://nocobase.height.app/T-2838
+                // fix https://easyflow.height.app/T-2797
+                // fix https://easyflow.height.app/T-2838
                 zIndex={token.zIndexPopupBase + 1000}
                 {...modal}
                 open={open}

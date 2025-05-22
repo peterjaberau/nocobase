@@ -7,8 +7,8 @@ import {
   SchemaComponent,
   ISchema,
   Plugin
-} from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+} from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 
 function useSubmitActionProps(): ActionProps {
   const form = useForm();

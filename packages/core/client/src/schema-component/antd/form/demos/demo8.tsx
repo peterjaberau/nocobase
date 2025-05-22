@@ -11,7 +11,7 @@ import {
   useActionContext,
   useCloseAction,
   useRequest,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { Button } from 'antd';
 import { createMemoryHistory } from 'history';
 import React, { useEffect, useState } from 'react';
@@ -24,7 +24,7 @@ const useValues = (options) => {
       Promise.resolve({
         data: {
           id: 1,
-          name: 'hello nocobase',
+          name: 'hello easyflow',
         },
       }),
     { ...options, manual: true },

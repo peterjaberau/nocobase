@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore file -- @preserve */
 
@@ -49,7 +42,7 @@ export default (app: Application) => {
       if (!(await app.isInstalled())) {
         app['_started'] = new Date();
         throw new ApplicationNotInstall(
-          `Application ${app.name} is not installed, Please run 'yarn nocobase install' command first`,
+          `Application ${app.name} is not installed, Please run 'yarn easyflow install' command first`,
         );
       }
       await app.load();

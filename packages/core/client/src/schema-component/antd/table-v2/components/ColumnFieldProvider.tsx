@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import React, { useMemo } from 'react';
 import { useCollection } from '../../../../data-source';
-import { NocoBaseRecursionField } from '../../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../../formily/EasyFlowRecursionField';
 import { useRecord } from '../../../../record-provider';
 
 export const ColumnFieldProvider = (props: { schema: any; basePath: any; children: any }) => {
@@ -45,7 +38,7 @@ export const ColumnFieldProvider = (props: { schema: any; basePath: any; childre
         },
       },
     };
-    return <NocoBaseRecursionField basePath={basePath} schema={newSchema} onlyRenderProperties isUseFormilyField />;
+    return <EasyFlowRecursionField basePath={basePath} schema={newSchema} onlyRenderProperties isUseFormilyField />;
   }
   return props.children;
 };

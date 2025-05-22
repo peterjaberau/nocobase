@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Input, Select } from 'antd';
 import { css } from '@emotion/css';
@@ -131,7 +124,7 @@ export const ValueDynamicComponent = (props: ValueDynamicComponentProps) => {
           <span style={{ marginLeft: '.25em' }} className={'ant-formily-item-extra'}>
             {t('Syntax references')}:
           </span>
-          <a href="https://docs.nocobase.com/handbook/calculation-engines/formula" target="_blank" rel="noreferrer">
+          <a href="https://docs.easyflow.com/handbook/calculation-engines/formula" target="_blank" rel="noreferrer">
             Formula.js
           </a>
         </>

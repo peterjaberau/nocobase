@@ -1,18 +1,11 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { css } from '@emotion/css';
 import { Field, Form } from '@formily/core';
 import { SchemaExpressionScopeContext, useField, useFieldSchema, useForm } from '@formily/react';
 import { untracked } from '@formily/reactive';
-import { evaluators } from '@nocobase/evaluators/client';
-import { isURL, parse } from '@nocobase/utils/client';
+import { evaluators } from '@easyflow/evaluators/client';
+import { isURL, parse } from '@easyflow/utils/client';
 import { App, message } from 'antd';
 import _ from 'lodash';
 import get from 'lodash/get';
@@ -1655,7 +1648,6 @@ export const useAssociationNames = (dataSource?: string) => {
 
     const result = {
       appends: _.isEqual(prevAppends.current, newAppends) ? prevAppends.current : newAppends,
-      // `updateAssociationValues` needs to be recreated each time to ensure test case passes in: core/client/src/modules/blocks/data-blocks/table/__e2e__/schemaSettings.test.ts:886:9
       updateAssociationValues: newUpdateAssociationValues,
     };
 
@@ -1696,7 +1688,7 @@ function getTargetField(obj) {
 
 /**
  * 之所以不直接使用 form.reset() 是因为其无法将子表格重置为空
- * 主要用于修复这个问题：https://nocobase.height.app/T-3106
+ * 主要用于修复这个问题：https://easyflow.height.app/T-3106
  * @param form
  */
 async function resetFormCorrectly(form: Form) {

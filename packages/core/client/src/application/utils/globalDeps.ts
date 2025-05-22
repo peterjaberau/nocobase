@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import * as antdCssinjs from '@ant-design/cssinjs';
 import * as antdIcons from '@ant-design/icons';
@@ -24,10 +17,10 @@ import * as formilyJsonReactive from '@formily/reactive';
 import * as formilyReactiveReact from '@formily/reactive-react';
 import * as formilyShared from '@formily/shared';
 import * as formilyValidator from '@formily/validator';
-import * as nocobaseEvaluators from '@nocobase/evaluators/client';
-import * as nocobaseSDK from '@nocobase/sdk';
-import * as nocobaseClientUtils from '@nocobase/utils/client';
-import { dayjs } from '@nocobase/utils/client';
+import * as easyflowEvaluators from '@easyflow/evaluators/client';
+import * as easyflowSDK from '@easyflow/sdk';
+import * as easyflowClientUtils from '@easyflow/utils/client';
+import { dayjs } from '@easyflow/utils/client';
 import * as ahooks from 'ahooks';
 import * as antd from 'antd';
 import * as antdStyle from 'antd-style';
@@ -41,7 +34,7 @@ import * as reactI18next from 'react-i18next';
 import * as ReactRouter from 'react-router';
 import * as ReactRouterDom from 'react-router-dom';
 import jsxRuntime from 'react/jsx-runtime';
-import * as nocobaseClient from '../../index';
+import * as easyflowClient from '../../index';
 
 import type { RequireJS } from './requirejs';
 
@@ -79,14 +72,14 @@ export function defineGlobalDeps(requirejs: RequireJS) {
   requirejs.define('@formily/validator', () => formilyValidator);
   requirejs.define('@formily/reactive-react', () => formilyReactiveReact);
 
-  // nocobase
-  requirejs.define('@nocobase/utils', () => nocobaseClientUtils);
-  requirejs.define('@nocobase/utils/client', () => nocobaseClientUtils);
-  requirejs.define('@nocobase/client', () => nocobaseClient);
-  requirejs.define('@nocobase/client/client', () => nocobaseClient);
-  requirejs.define('@nocobase/evaluators', () => nocobaseEvaluators);
-  requirejs.define('@nocobase/evaluators/client', () => nocobaseEvaluators);
-  requirejs.define('@nocobase/sdk', () => nocobaseSDK);
+  // easyflow
+  requirejs.define('@easyflow/utils', () => easyflowClientUtils);
+  requirejs.define('@easyflow/utils/client', () => easyflowClientUtils);
+  requirejs.define('@easyflow/client', () => easyflowClient);
+  requirejs.define('@easyflow/client/client', () => easyflowClient);
+  requirejs.define('@easyflow/evaluators', () => easyflowEvaluators);
+  requirejs.define('@easyflow/evaluators/client', () => easyflowEvaluators);
+  requirejs.define('@easyflow/sdk', () => easyflowSDK);
 
   // dnd-kit 相关
   requirejs.define('@dnd-kit/accessibility', () => dndKitAccessibility);

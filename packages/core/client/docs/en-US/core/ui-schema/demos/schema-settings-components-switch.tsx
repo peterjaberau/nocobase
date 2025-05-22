@@ -2,7 +2,7 @@
  * defaultShowCode: true
  */
 import React, { FC } from 'react';
-import { Application, SchemaSettings, SchemaSettingsSwitchItem, useDesignable } from '@nocobase/client';
+import { Application, SchemaSettings, SchemaSettingsSwitchItem, useDesignable } from '@easyflow/client';
 import { appOptions } from './schema-settings-common';
 import { observer, useField } from '@formily/react';
 import { Form, Input } from 'antd';

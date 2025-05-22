@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field } from '@formily/core';
 import { observer, Schema, useField, useFieldSchema, useForm } from '@formily/react';
-import { isPortalInBody } from '@nocobase/utils/client';
+import { isPortalInBody } from '@easyflow/utils/client';
 import { App, Button } from 'antd';
 import classnames from 'classnames';
 import debounce from 'lodash/debounce';
@@ -24,7 +17,7 @@ import {
   useCollectionRecordData,
   useDataBlockRequestGetter,
 } from '../../../data-source';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { withDynamicSchemaProps } from '../../../hoc/withDynamicSchemaProps';
 import { Icon } from '../../../icon';
 import { TreeRecordProvider } from '../../../modules/blocks/data-blocks/table/TreeRecordProvider';
@@ -307,7 +300,7 @@ const InternalAction: React.FC<InternalActionProps> = observer(function Com(prop
         fieldSchema={fieldSchema}
         setSubmitted={setSubmitted}
       >
-        {popover && <NocoBaseRecursionField basePath={field.address} onlyRenderProperties schema={fieldSchema} />}
+        {popover && <EasyFlowRecursionField basePath={field.address} onlyRenderProperties schema={fieldSchema} />}
         {!popover && <RenderButton {...buttonProps} />}
         <VariablePopupRecordProvider>{!popover && props.children}</VariablePopupRecordProvider>
         {element}
@@ -592,7 +585,7 @@ const RenderButtonInner = observer(
         icon={typeof icon === 'string' ? <Icon type={icon} style={linkStyle} /> : icon}
         disabled={disabled}
         style={isLink ? restButtonStyle : buttonStyle}
-        onClick={process.env.__E2E__ ? handleButtonClick : debouncedClick} // E2E 中的点击操作都是很快的，如果加上 debounce 会导致 E2E 测试失败
+        onClick={debouncedClick}
         component={tarComponent || Button}
         className={classnames(componentCls, hashId, className, 'nb-action')}
         type={type === 'danger' ? undefined : type}

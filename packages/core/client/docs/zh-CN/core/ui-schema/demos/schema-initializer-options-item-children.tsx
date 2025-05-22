@@ -1,7 +1,7 @@
 /**
  * defaultShowCode: true
  */
-import { Application, SchemaInitializer } from '@nocobase/client';
+import { Application, SchemaInitializer } from '@easyflow/client';
 import { appOptions } from './schema-initializer-common';
 
 const myInitializer = new SchemaInitializer({

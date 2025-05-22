@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { PlusOutlined } from '@ant-design/icons';
 import { PageHeader as AntdPageHeader } from '@ant-design/pro-layout';
@@ -34,8 +27,8 @@ import { useDocumentTitle } from '../../../document-title';
 import { useGlobalTheme } from '../../../global-theme';
 import { Icon } from '../../../icon';
 import {
-  NocoBaseDesktopRouteType,
-  NocoBaseRouteContext,
+  EasyFlowDesktopRouteType,
+  EasyFlowRouteContext,
   useCurrentRoute,
 } from '../../../route-switch/antd/admin-layout';
 import { KeepAliveProvider, useKeepAlive } from '../../../route-switch/antd/admin-layout/KeepAlive';
@@ -46,7 +39,7 @@ import { RemoteSchemaComponent, SchemaComponent, SchemaComponentOptions } from '
 import { useCompile, useDesignable } from '../../hooks';
 import { useToken } from '../__builtins__';
 import { ErrorFallback } from '../error-fallback';
-import { useMenuDragEnd, useNocoBaseRoutes } from '../menu/Menu';
+import { useMenuDragEnd, useEasyFlowRoutes } from '../menu/Menu';
 import { useStyles } from './Page.style';
 import { PageDesigner, PageTabDesigner } from './PageTabDesigner';
 import { PopupRouteContextResetter } from './PopupRouteContextResetter';
@@ -83,7 +76,7 @@ const InternalPage = React.memo((props: PageProps) => {
 
   return (
     <>
-      <NocoBasePageHeader activeKey={activeKey} className={props.className} />
+      <EasyFlowPageHeader activeKey={activeKey} className={props.className} />
       <div className="nb-page-wrapper">
         <ErrorBoundary FallbackComponent={ErrorFallback} onError={console.error}>
           {currentTabUid ? (
@@ -134,7 +127,7 @@ export const Page = React.memo((props: PageProps) => {
   );
 });
 
-Page.displayName = 'NocoBasePage';
+Page.displayName = 'EasyFlowPage';
 
 export const PageTabs = () => {
   const { loading, disablePageHeader, enablePageTabs, tabUid } = useOutletContext<any>();
@@ -235,9 +228,9 @@ const InternalPageContent = (props: PageContentProps) => {
       <>
         {currentRoute.children?.map((tabRoute) => {
           return (
-            <NocoBaseRouteContext.Provider value={tabRoute} key={tabRoute.schemaUid}>
+            <EasyFlowRouteContext.Provider value={tabRoute} key={tabRoute.schemaUid}>
               <TabPane active={tabRoute.schemaUid === activeKey} uid={tabRoute.schemaUid} />
-            </NocoBaseRouteContext.Provider>
+            </EasyFlowRouteContext.Provider>
           );
         })}
       </>
@@ -246,9 +239,9 @@ const InternalPageContent = (props: PageContentProps) => {
 
   return (
     <div className={className1}>
-      <NocoBaseRouteContext.Provider value={currentRoute?.children?.[0]}>
+      <EasyFlowRouteContext.Provider value={currentRoute?.children?.[0]}>
         <RemoteSchemaComponent uid={currentRoute?.children?.[0].schemaUid} />
-      </NocoBaseRouteContext.Provider>
+      </EasyFlowRouteContext.Provider>
     </div>
   );
 };
@@ -261,7 +254,7 @@ const PageContent = memo((props: PageContentProps) => {
   );
 });
 
-const NocoBasePageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ className, activeKey }) => {
+const EasyFlowPageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ className, activeKey }) => {
   const fieldSchema = useFieldSchema();
   const { t } = useTranslation();
   const { t: routeT } = useRouteTranslation();
@@ -279,7 +272,7 @@ const NocoBasePageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ 
   const options = useContext(SchemaOptionsContext);
   const { theme } = useGlobalTheme();
   const currentRoute = useCurrentRoute();
-  const { createRoute } = useNocoBaseRoutes();
+  const { createRoute } = useEasyFlowRoutes();
   const compile = useCompile();
 
   const tabBarExtraContent = useMemo(() => {
@@ -327,7 +320,7 @@ const NocoBasePageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ 
             const tabSchemaName = uid();
 
             await createRoute({
-              type: NocoBaseDesktopRouteType.tabs,
+              type: EasyFlowDesktopRouteType.tabs,
               schemaUid,
               title: title || '{{t("Unnamed")}}',
               icon,
@@ -369,7 +362,7 @@ const NocoBasePageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ 
 
         return {
           label: (
-            <NocoBaseRouteContext.Provider value={tabRoute}>
+            <EasyFlowRouteContext.Provider value={tabRoute}>
               <SortableItem
                 id={String(tabRoute.id)}
                 className={classNames('nb-action-link', 'designerCss', className)}
@@ -379,7 +372,7 @@ const NocoBasePageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ 
                 <span>{(tabRoute.title && routeT(compile(tabRoute.title))) || t('Unnamed')}</span>
                 <PageTabDesigner />
               </SortableItem>
-            </NocoBaseRouteContext.Provider>
+            </EasyFlowRouteContext.Provider>
           ),
           key: tabRoute.schemaUid,
         };
@@ -409,7 +402,7 @@ const NocoBasePageHeaderTabs: FC<{ className: string; activeKey: string }> = ({ 
   ) : null;
 };
 
-const NocoBasePageHeader = React.memo(({ activeKey, className }: { activeKey: string; className: string }) => {
+const EasyFlowPageHeader = React.memo(({ activeKey, className }: { activeKey: string; className: string }) => {
   const fieldSchema = useFieldSchema();
   const { setTitle: setDocumentTitle } = useDocumentTitle();
   const { t } = useTranslation();
@@ -443,14 +436,14 @@ const NocoBasePageHeader = React.memo(({ activeKey, className }: { activeKey: st
           ghost={false}
           // 如果标题为空的时候会导致 PageHeader 不渲染，所以这里设置一个空白字符，然后再设置高度为 0
           title={hidePageTitle ? ' ' : (!fieldSchema.title && pageTitle ? routeT(pageTitle) : pageTitle) || ' '}
-          footer={<NocoBasePageHeaderTabs className={className} activeKey={activeKey} />}
+          footer={<EasyFlowPageHeaderTabs className={className} activeKey={activeKey} />}
         />
       )}
     </>
   );
 });
 
-NocoBasePageHeader.displayName = 'NocoBasePageHeader';
+EasyFlowPageHeader.displayName = 'EasyFlowPageHeader';
 
 export function navigateToTab({
   activeKey,

@@ -10,7 +10,7 @@ import {
   useSchemaInitializer,
   useSchemaInitializerItem,
   useSchemaInitializerRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { observer, useField } from '@formily/react';
 import { Field } from '@formily/core';
 

@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { cx } from '@emotion/css';
 import { useFieldSchema } from '@formily/react';
@@ -13,7 +6,7 @@ import { Space, SpaceProps } from 'antd';
 import React, { CSSProperties, FC, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import { useSchemaInitializerRender } from '../../../application';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { withDynamicSchemaProps } from '../../../hoc/withDynamicSchemaProps';
 import { DndContext } from '../../common';
 import { useDesignable, useProps } from '../../hooks';
@@ -80,7 +73,7 @@ const InternalActionBar: FC = (props: any) => {
               <div>
                 <Space {...spaceProps} style={{ flexWrap: 'wrap', ...(spaceProps?.style || {}) }}>
                   {fieldSchema.mapProperties((schema, key) => {
-                    return <NocoBaseRecursionField key={key} name={key} schema={schema} />;
+                    return <EasyFlowRecursionField key={key} name={key} schema={schema} />;
                   })}
                 </Space>
               </div>
@@ -127,7 +120,7 @@ const InternalActionBar: FC = (props: any) => {
               if (schema['x-align'] !== 'left') {
                 return null;
               }
-              return <NocoBaseRecursionField key={key} name={key} schema={schema} />;
+              return <EasyFlowRecursionField key={key} name={key} schema={schema} />;
             })}
           </Space>
           <Space {...spaceProps} style={{ flexWrap: 'wrap', ...(spaceProps?.style || {}) }}>
@@ -135,7 +128,7 @@ const InternalActionBar: FC = (props: any) => {
               if (schema['x-align'] === 'left') {
                 return null;
               }
-              return <NocoBaseRecursionField key={key} name={key} schema={schema} />;
+              return <EasyFlowRecursionField key={key} name={key} schema={schema} />;
             })}
           </Space>
         </DndContext>

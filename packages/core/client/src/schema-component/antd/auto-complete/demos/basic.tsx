@@ -1,9 +1,9 @@
 
 
 import { useField } from '@formily/react';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { mockApp } from '@easyflow/client/demo-utils';
 import React from 'react';
-import { SchemaComponent, Plugin } from '@nocobase/client';
+import { SchemaComponent, Plugin } from '@easyflow/client';
 
 
 const mockVal = (str: string, repeat = 1) => ({

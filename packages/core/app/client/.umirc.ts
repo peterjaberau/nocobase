@@ -1,4 +1,4 @@
-import { generatePlugins, getUmiConfig } from '@nocobase/devtools/umiConfig';
+import { generatePlugins, getUmiConfig } from '@easyflow/devtools/umiConfig';
 import path from 'path';
 import { defineConfig } from 'umi';
 
@@ -23,17 +23,17 @@ export default defineConfig({
     {
       content: isDevCmd
         ? `
-          window['__nocobase_public_path__'] = "${process.env.APP_PUBLIC_PATH || '/'}";
-          window['__nocobase_dev_public_path__'] = "/";
+          window['__easyflow_public_path__'] = "${process.env.APP_PUBLIC_PATH || '/'}";
+          window['__easyflow_dev_public_path__'] = "/";
         `
         : `
         window['__webpack_public_path__'] = '{{env.APP_PUBLIC_PATH}}';
-        window['__nocobase_public_path__'] = '{{env.APP_PUBLIC_PATH}}';
-        window['__nocobase_api_base_url__'] = '{{env.API_BASE_URL}}';
-        window['__nocobase_api_client_storage_prefix__'] = '{{env.API_CLIENT_STORAGE_PREFIX}}';
-        window['__nocobase_api_client_storage_type__'] = '{{env.API_CLIENT_STORAGE_TYPE}}';
-        window['__nocobase_ws_url__'] = '{{env.WS_URL}}';
-        window['__nocobase_ws_path__'] = '{{env.WS_PATH}}';
+        window['__easyflow_public_path__'] = '{{env.APP_PUBLIC_PATH}}';
+        window['__easyflow_api_base_url__'] = '{{env.API_BASE_URL}}';
+        window['__easyflow_api_client_storage_prefix__'] = '{{env.API_CLIENT_STORAGE_PREFIX}}';
+        window['__easyflow_api_client_storage_type__'] = '{{env.API_CLIENT_STORAGE_TYPE}}';
+        window['__easyflow_ws_url__'] = '{{env.WS_URL}}';
+        window['__easyflow_ws_path__'] = '{{env.WS_PATH}}';
       `,
     },
     {
@@ -75,7 +75,7 @@ export default defineConfig({
   },
   chainWebpack(config, { env }) {
     if (env === 'production') {
-      config.plugin('ignore nocobase plugins').use(require('webpack').IgnorePlugin, [
+      config.plugin('ignore easyflow plugins').use(require('webpack').IgnorePlugin, [
         {
           resourceRegExp: new RegExp(pluginPrefix.join('|')),
         },

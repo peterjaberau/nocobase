@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Button, Form, FormProps, Input, InputNumber, notification } from 'antd';
-import { SchemaComponent, useDataBlockResource, withDynamicSchemaProps } from '@nocobase/client';
+import { SchemaComponent, useDataBlockResource, withDynamicSchemaProps } from '@easyflow/client';
 import { ISchema } from '@formily/json-schema';
 
 import { createApp } from '../../../data-source/demos/createApp';

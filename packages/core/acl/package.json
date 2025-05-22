@@ -1,19 +1,18 @@
 {
-  "name": "@nocobase/acl",
+  "name": "@easyflow/acl",
   "version": "1.6.31",
   "description": "",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nocobase/resourcer": "1.6.31",
-    "@nocobase/utils": "1.6.31",
+    "@easyflow/resourcer": "1.6.31",
+    "@easyflow/utils": "1.6.31",
     "minimatch": "^5.1.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/easyflow/easyflow.git",
     "directory": "packages/acl"
-  },
-  "gitHead": "d0b4efe4be55f8c79a98a331d99d9f8cf99021a1"
+  }
 }

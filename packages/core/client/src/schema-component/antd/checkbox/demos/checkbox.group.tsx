@@ -4,7 +4,7 @@
  * title: 组
  */
 import { FormItem } from '@formily/antd-v5';
-import { Checkbox, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Checkbox, SchemaComponent, SchemaComponentProvider } from '@easyflow/client';
 import React from 'react';
 
 const options = [

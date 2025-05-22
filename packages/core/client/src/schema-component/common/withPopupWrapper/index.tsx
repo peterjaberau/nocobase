@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useField, useFieldSchema } from '@formily/react';
 import { cloneDeep } from 'lodash';
@@ -15,7 +8,7 @@ import { PopupVisibleProvider } from '../../antd/page/PagePopups';
 import { usePopupUtils } from '../../antd/page/pagePopupUtils';
 import { popupSchema } from './schema';
 import { CollectionProvider, useCollection } from '../../../data-source';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { VariablePopupRecordProvider } from '../../../modules/variable/variablesProvider/VariablePopupRecordProvider';
 
 const useInsertSchema = () => {
@@ -122,7 +115,7 @@ function withPopupWrapper<T>(WrappedComponent: React.ComponentType<T>) {
           <CollectionProvider name={collection.name}>
             <SchemaComponentOptions>
               <VariablePopupRecordProvider>
-                <NocoBaseRecursionField
+                <EasyFlowRecursionField
                   onlyRenderProperties
                   basePath={field?.address}
                   schema={fieldSchema}

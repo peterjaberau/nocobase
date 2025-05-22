@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { ISchema } from '@formily/json-schema';
@@ -17,7 +10,7 @@ import { useNavigateNoUpdate } from '../../../application/CustomRouterContextPro
 import { SchemaSettings } from '../../../application/schema-settings/SchemaSettings';
 import { useCurrentRoute } from '../../../route-switch';
 import { useDesignable } from '../../hooks';
-import { useNocoBaseRoutes } from '../menu/Menu';
+import { useEasyFlowRoutes } from '../menu/Menu';
 
 /**
  * @deprecated
@@ -30,7 +23,7 @@ export const pageTabSettings = new SchemaSettings({
       type: 'modal',
       useComponentProps() {
         const { t } = useTranslation();
-        const { updateRoute } = useNocoBaseRoutes();
+        const { updateRoute } = useEasyFlowRoutes();
         const currentRoute = useCurrentRoute();
 
         return {
@@ -70,7 +63,7 @@ export const pageTabSettings = new SchemaSettings({
       type: 'switch',
       useComponentProps() {
         const { t } = useTranslation();
-        const { updateRoute } = useNocoBaseRoutes();
+        const { updateRoute } = useEasyFlowRoutes();
         const currentRoute = useCurrentRoute();
 
         return {
@@ -105,7 +98,7 @@ export const pageTabSettings = new SchemaSettings({
         const { modal } = App.useApp();
         const { dn } = useDesignable();
         const { t } = useTranslation();
-        const { deleteRoute } = useNocoBaseRoutes();
+        const { deleteRoute } = useEasyFlowRoutes();
         const currentRoute = useCurrentRoute();
         const navigate = useNavigateNoUpdate();
         const schema = useFieldSchema();

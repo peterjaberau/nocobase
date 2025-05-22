@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field } from '@formily/core';
 import { connect, Schema, useField, useFieldSchema } from '@formily/react';
@@ -14,7 +7,7 @@ import { merge } from '@formily/shared';
 import { concat } from 'lodash';
 import React, { useEffect } from 'react';
 import { useFormBlockContext } from '../../block-provider/FormBlockProvider';
-import { useCollectionFieldUISchema, useIsInNocoBaseRecursionFieldContext } from '../../formily/NocoBaseRecursionField';
+import { useCollectionFieldUISchema, useIsInEasyFlowRecursionFieldContext } from '../../formily/EasyFlowRecursionField';
 import { useDynamicComponentProps } from '../../hoc/withDynamicSchemaProps';
 import { useCompile, useComponent } from '../../schema-component';
 import { useIsAllowToSetDefaultValue } from '../../schema-settings/hooks/useIsAllowToSetDefaultValue';
@@ -144,11 +137,11 @@ const CollectionFieldInternalField = (props) => {
 
 export const CollectionField = connect((props) => {
   const fieldSchema = useFieldSchema();
-  const isInNocoBaseRecursionField = useIsInNocoBaseRecursionFieldContext();
+  const isInEasyFlowRecursionField = useIsInEasyFlowRecursionFieldContext();
 
   return (
     <CollectionFieldProvider name={fieldSchema.name}>
-      {isInNocoBaseRecursionField ? (
+      {isInEasyFlowRecursionField ? (
         <CollectionFieldInternalField {...props} />
       ) : (
         <CollectionFieldInternalField_deprecated {...props} />

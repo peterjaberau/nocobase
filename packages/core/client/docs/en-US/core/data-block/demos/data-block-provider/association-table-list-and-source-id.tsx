@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select, Table, TableProps } from 'antd';
-import { SchemaComponent, UseDataBlockProps, useDataBlockRequest, withDynamicSchemaProps } from '@nocobase/client';
+import { SchemaComponent, UseDataBlockProps, useDataBlockRequest, withDynamicSchemaProps } from '@easyflow/client';
 import { ISchema } from '@formily/json-schema';
 
 import { createApp } from '../../../data-source/demos/createApp';

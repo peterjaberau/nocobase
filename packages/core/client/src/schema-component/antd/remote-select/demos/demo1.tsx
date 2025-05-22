@@ -1,9 +1,9 @@
 
 
-import { APIClientProvider, FormProvider, RemoteSelect, SchemaComponent } from '@nocobase/client';
+import { APIClientProvider, FormProvider, RemoteSelect, SchemaComponent } from '@easyflow/client';
 import React from 'react';
 import { mockAPIClient } from '../../../../testUtils';
-import { sleep } from '@nocobase/test/web';
+import { sleep } from '@easyflow/test/web';
 
 const { apiClient, mockRequest } = mockAPIClient();
 mockRequest.onGet('/posts:list').reply(async () => {

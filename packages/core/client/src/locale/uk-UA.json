@@ -773,7 +773,7 @@
   "Column width": "Ширина стовпця",
   "Sortable": "Сортований",
   "Enable link": "Включити посилання",
-  "This is likely a NocoBase internals bug. Please open an issue at <1>here</1>": "Це, ймовірно, помилка внутрішніх компонентів NocoBase. Будь ласка, створіть проблему <1>тут</1>",
+  "This is likely a EasyFlow internals bug. Please open an issue at <1>here</1>": "Це, ймовірно, помилка внутрішніх компонентів EasyFlow. Будь ласка, створіть проблему <1>тут</1>",
   "Render Failed": "Помилка відображення",
   "Feedback": "Зворотній зв'язок",
   "Try again": "Спробуйте ще раз",

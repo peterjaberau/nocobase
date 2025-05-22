@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { SchemaComponentsContext, SchemaExpressionScopeContext, SchemaOptionsContext } from '@formily/react';
 import _ from 'lodash';
@@ -116,10 +109,6 @@ interface KeepAliveProps {
 // Evaluate device performance to determine maximum number of cached pages
 // Range: minimum 5, maximum 20
 const getMaxPageCount = () => {
-  // If keep-alive is enabled in e2e environment, it makes locator selection difficult. So we disable keep-alive in e2e environment
-  if (process.env.__E2E__) {
-    return 1;
-  }
 
   const baseCount = 5;
   let performanceScore = baseCount;

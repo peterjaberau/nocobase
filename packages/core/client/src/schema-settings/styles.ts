@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { genStyleHook } from '../schema-component/antd/__builtins__/style';
 
@@ -29,10 +22,6 @@ export const useStyles = genStyleHook('nb-schema-toolbar', (token) => {
         transform: 'scale(0)',
         // Prevent element from receiving any pointer events (clicks, hovers etc) to avoid interfering with other elements
         pointerEvents: 'none',
-      },
-
-      '&.hidden-e2e': {
-        display: 'none',
       },
 
       '.ant-space-item .anticon': {

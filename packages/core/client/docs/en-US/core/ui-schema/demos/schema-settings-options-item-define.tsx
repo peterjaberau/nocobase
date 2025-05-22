@@ -2,7 +2,7 @@
  * defaultShowCode: true
  */
 import React from 'react';
-import { Application, SchemaSettings, SchemaSettingsItem } from '@nocobase/client';
+import { Application, SchemaSettings, SchemaSettingsItem } from '@easyflow/client';
 import { appOptions } from './schema-settings-common';
 
 const Demo = () => {

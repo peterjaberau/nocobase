@@ -1,5 +1,5 @@
-import { ISchema, SchemaComponent, SchemaInitializer, Plugin } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { ISchema, SchemaComponent, SchemaInitializer, Plugin } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 import React from 'react';
 
 const addActionButton = new SchemaInitializer({

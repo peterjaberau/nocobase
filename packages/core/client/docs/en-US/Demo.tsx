@@ -1,5 +1,5 @@
-import { BlockSchemaComponentPlugin, VariablesProvider } from '@nocobase/client';
-import { getAppComponent } from '@nocobase/test/web';
+import { BlockSchemaComponentPlugin, VariablesProvider } from '@easyflow/client';
+import { getAppComponent } from '@easyflow/test/web';
 
 const App = getAppComponent({
   designable: true,

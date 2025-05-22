@@ -9,7 +9,7 @@ import {
   useSchemaInitializer,
   useSchemaInitializerItem,
   useSchemaInitializerRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { Avatar } from 'antd';
 import React from 'react';
 

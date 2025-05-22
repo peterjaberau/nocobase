@@ -9,7 +9,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   useActionContext,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { createMemoryHistory } from 'history';
 import React, { useState } from 'react';
 import { Router } from 'react-router-dom';

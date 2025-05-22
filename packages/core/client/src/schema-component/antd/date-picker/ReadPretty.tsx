@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { usePrefixCls } from '@formily/antd-v5/esm/__builtins__';
 import { isArr } from '@formily/shared';
@@ -15,7 +8,7 @@ import {
   str2moment,
   Str2momentOptions,
   Str2momentValue,
-} from '@nocobase/utils/client';
+} from '@easyflow/utils/client';
 import cls from 'classnames';
 import dayjs from 'dayjs';
 import React from 'react';

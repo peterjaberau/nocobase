@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
@@ -16,7 +9,7 @@ import { spliceArrayState } from '@formily/core/esm/shared/internals';
 import { observer, Schema, SchemaOptionsContext, useField, useFieldSchema } from '@formily/react';
 import { action } from '@formily/reactive';
 import { uid } from '@formily/shared';
-import { isPortalInBody } from '@nocobase/utils/client';
+import { isPortalInBody } from '@easyflow/utils/client';
 import { useDeepCompareEffect, useMemoizedFn } from 'ahooks';
 import { Table as AntdTable, TableColumnProps } from 'antd';
 import { default as classNames, default as cls } from 'classnames';
@@ -53,10 +46,10 @@ import { useACLFieldWhitelist } from '../../../acl/ACLProvider';
 import { useTableBlockContext, useTableBlockContextBasicValue } from '../../../block-provider/TableBlockProvider';
 import { isNewRecord } from '../../../data-source/collection-record/isNewRecord';
 import {
-  NocoBaseRecursionField,
+  EasyFlowRecursionField,
   RefreshComponentProvider,
   useRefreshFieldSchema,
-} from '../../../formily/NocoBaseRecursionField';
+} from '../../../formily/EasyFlowRecursionField';
 import { withDynamicSchemaProps } from '../../../hoc/withDynamicSchemaProps';
 import { withSkeletonComponent } from '../../../hoc/withSkeletonComponent';
 import { LinkageRuleDataKeyMap } from '../../../schema-settings/LinkageRules/type';
@@ -124,7 +117,7 @@ const TableCellRender: FC<{
 
   return (
     <span role="button" className={schemaToolbarBigger}>
-      <NocoBaseRecursionField
+      <EasyFlowRecursionField
         values={record}
         basePath={basePath}
         schema={columnSchema}
@@ -199,8 +192,8 @@ const useTableColumns = (
 
   const collection = useCollection();
 
-  // 不能提取到外部，否则 NocoBaseRecursionField 的值在一开始会是 undefined。原因未知
-  const TableColumnTitle = useMemo(() => withTooltipComponent(NocoBaseRecursionField), []);
+  // 不能提取到外部，否则 EasyFlowRecursionField 的值在一开始会是 undefined。原因未知
+  const TableColumnTitle = useMemo(() => withTooltipComponent(EasyFlowRecursionField), []);
 
   const columns = useMemo(
     () =>
@@ -692,7 +685,7 @@ export const useTableElementRef = () => {
   return useContext(TableElementRefContext);
 };
 
-const InternalNocoBaseTable = React.memo(
+const InternalEasyFlowTable = React.memo(
   (props: {
     tableHeight: number;
     SortableWrapper: React.FC<{}>;
@@ -820,7 +813,7 @@ const InternalNocoBaseTable = React.memo(
   },
 );
 
-InternalNocoBaseTable.displayName = 'InternalNocoBaseTable';
+InternalEasyFlowTable.displayName = 'InternalEasyFlowTable';
 
 export const Table: any = withDynamicSchemaProps(
   withSkeletonComponent(
@@ -1154,7 +1147,7 @@ export const Table: any = withDynamicSchemaProps(
            * so setting a fixed value here improves BlockRequestLoadingContext rendering performance
            */}
           <BlockRequestLoadingContext.Provider value={false}>
-            <InternalNocoBaseTable
+            <InternalEasyFlowTable
               tableHeight={tableHeight}
               SortableWrapper={SortableWrapper}
               tableSizeRefCallback={tableSizeRefCallback}
@@ -1190,5 +1183,5 @@ export const Table: any = withDynamicSchemaProps(
       SkeletonComponent: TableSkeleton,
     },
   ),
-  { displayName: 'NocoBaseTable' },
+  { displayName: 'EasyFlowTable' },
 );

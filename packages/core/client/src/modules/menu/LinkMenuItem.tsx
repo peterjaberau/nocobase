@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { FormLayout } from '@formily/antd-v5';
 import { SchemaOptionsContext } from '@formily/react';
@@ -23,12 +16,12 @@ import {
   useDataSourceManager,
 } from '../../data-source/data-source/DataSourceManagerProvider';
 import { useGlobalTheme } from '../../global-theme';
-import { NocoBaseDesktopRouteType } from '../../route-switch/antd/admin-layout/convertRoutesToSchema';
+import { EasyFlowDesktopRouteType } from '../../route-switch/antd/admin-layout/convertRoutesToSchema';
 import {
   FormDialog,
   SchemaComponent,
   SchemaComponentOptions,
-  useNocoBaseRoutes,
+  useEasyFlowRoutes,
   useParentRoute,
 } from '../../schema-component';
 import { useStyles } from '../../schema-component/antd/menu/MenuItemInitializers';
@@ -41,7 +34,7 @@ export const LinkMenuItem = () => {
   const { componentCls, hashId } = useStyles();
   const { urlSchema, paramsSchema } = useURLAndHTMLSchema();
   const parentRoute = useParentRoute();
-  const { createRoute } = useNocoBaseRoutes();
+  const { createRoute } = useEasyFlowRoutes();
   const dm = useDataSourceManager();
   const cm = useCollectionManager();
 
@@ -90,7 +83,7 @@ export const LinkMenuItem = () => {
 
     // 创建一个路由到 desktopRoutes 表中
     await createRoute({
-      type: NocoBaseDesktopRouteType.link,
+      type: EasyFlowDesktopRouteType.link,
       title,
       icon,
       parentId: parentRoute?.id,

@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore file -- @preserve */
 
@@ -25,7 +18,7 @@ export default (app: Application) => {
       const dir = await fs.promises.realpath(resolve(process.env.NODE_MODULES_PATH, pkg));
       const filename = resolve(
         dir,
-        pkg === '@nocobase/server' ? 'src' : 'src/server',
+        pkg === '@easyflow/server' ? 'src' : 'src/server',
         'migrations',
         `${dayjs().format('YYYYMMDDHHmmss')}-${name}.ts`,
       );
@@ -37,7 +30,7 @@ export default (app: Application) => {
         }
         return `${major}.${1 + 1 * minor}.0`;
       });
-      const from = pkg === '@nocobase/server' ? `../migration` : '@nocobase/server';
+      const from = pkg === '@easyflow/server' ? `../migration` : '@easyflow/server';
       const data = `import { Migration } from '${from}';
 
 export default class extends Migration {

@@ -1,13 +1,12 @@
 {
-  "name": "@nocobase/devtools",
+  "name": "@easyflow/devtools",
   "version": "1.6.31",
   "description": "",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "main": "./src/index.js",
   "dependencies": {
-    "@nocobase/build": "1.6.31",
-    "@nocobase/client": "1.6.31",
-    "@nocobase/test": "1.6.31",
+    "@easyflow/build": "1.6.31",
+    "@easyflow/client": "1.6.31",
     "@types/koa": "^2.15.0",
     "@types/koa-bodyparser": "^4.3.4",
     "@types/lodash": "^4.14.177",
@@ -47,8 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/easyflow/easyflow.git",
     "directory": "packages/core/devtools"
-  },
-  "gitHead": "d0b4efe4be55f8c79a98a331d99d9f8cf99021a1"
+  }
 }

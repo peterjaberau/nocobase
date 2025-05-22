@@ -1,18 +1,11 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { observer, RecursionField, useField, useFieldSchema } from '@formily/react';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import React, { FC, startTransition, useCallback, useEffect, useMemo, useState } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { ErrorFallback } from '../error-fallback';
 import { useCurrentPopupContext } from '../page/PagePopups';
 import { TabsContextProvider, useTabsContext } from '../tabs/context';
@@ -63,7 +56,7 @@ const ActionDrawerContent: FC<{ footerNodeName: string; field: any; schema: any 
     }
 
     return (
-      <NocoBaseRecursionField
+      <EasyFlowRecursionField
         basePath={field.address}
         schema={schema}
         onlyRenderProperties
@@ -98,10 +91,6 @@ export const InternalActionDrawer: React.FC<ActionDrawerProps> = observer(
         display: hidden ? 'none' : 'block',
       };
     }, [hidden, drawerProps?.style, others?.style]);
-
-    if (process.env.__E2E__) {
-      useSetAriaLabelForDrawer(visible);
-    }
 
     const zIndex = getZIndex('drawer', _zIndex || parentZIndex, props.level || 0);
 

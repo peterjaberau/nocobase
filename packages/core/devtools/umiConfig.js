@@ -44,8 +44,7 @@ function getUmiConfig() {
       'process.env.API_CLIENT_STORAGE_TYPE': API_CLIENT_STORAGE_TYPE,
       'process.env.APP_ENV': process.env.APP_ENV,
       'process.env.VERSION': packageJson.version,
-      'process.env.WEBSOCKET_URL': process.env.WEBSOCKET_URL,
-      'process.env.__E2E__': process.env.__E2E__,
+      'process.env.WEBSOCKET_URL': process.env.WEBSOCKET_URL
     },
     // only proxy when using `umi dev`
     // if the assets are built, will not proxy
@@ -117,7 +116,7 @@ function getPackagePaths() {
   return pkgs;
 }
 
-function resolveNocobasePackagesAlias(config) {
+function resolveEasyflowPackagesAlias(config) {
   const pkgs = getPackagePaths();
   for (const [pkg, dir] of pkgs) {
     config.module.rules.get('ts-in-node_modules').include.add(dir);
@@ -130,7 +129,7 @@ function getNodeModulesPath(packageDir) {
   return path.join(node_modules_dir, packageDir);
 }
 class IndexGenerator {
-  nocobaseDir = getNodeModulesPath('@nocobase');
+  easyflowDir = getNodeModulesPath('@easyflow');
 
   constructor(outputPath, pluginsPath) {
     this.outputPath = outputPath;
@@ -229,10 +228,10 @@ export default function devDynamicImport(packageName: string): Promise<any> {
       absolute: true,
     });
 
-    const nocobasePluginFolders = glob
-      .sync(['plugin-*/package.json'], { cwd: this.nocobaseDir, onlyFiles: true, absolute: true })
+    const easyflowPluginFolders = glob
+      .sync(['plugin-*/package.json'], { cwd: this.easyflowDir, onlyFiles: true, absolute: true })
       .map((item) => fs.realpathSync(item));
-    const pluginInfos = Array.from(new Set([...pluginFolders, ...storagePluginFolders, ...nocobasePluginFolders]))
+    const pluginInfos = Array.from(new Set([...pluginFolders, ...storagePluginFolders, ...easyflowPluginFolders]))
       .filter((item) => {
         const dirname = path.dirname(item);
         const clientJs = path.join(dirname, 'client.js');
@@ -264,7 +263,7 @@ export default function devDynamicImport(packageName: string): Promise<any> {
 }
 
 exports.getUmiConfig = getUmiConfig;
-exports.resolveNocobasePackagesAlias = resolveNocobasePackagesAlias;
+exports.resolveEasyflowPackagesAlias = resolveEasyflowPackagesAlias;
 exports.IndexGenerator = IndexGenerator;
 
 exports.generatePlugins = function () {

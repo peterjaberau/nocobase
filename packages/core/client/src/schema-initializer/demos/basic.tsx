@@ -6,7 +6,7 @@ import {
   Plugin,
   SchemaInitializer,
   useSchemaInitializerRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const myInitializer = new SchemaInitializer({

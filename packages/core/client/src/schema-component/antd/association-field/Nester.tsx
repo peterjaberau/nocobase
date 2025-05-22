@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { CloseOutlined, PlusOutlined, ZoomInOutlined } from '@ant-design/icons';
 import { css } from '@emotion/css';
@@ -36,10 +29,10 @@ import {
 import { isNewRecord, markRecordAsNew } from '../../../data-source/collection-record/isNewRecord';
 import { FlagProvider } from '../../../flag-provider';
 import {
-  NocoBaseRecursionField,
+  EasyFlowRecursionField,
   RefreshComponentProvider,
   useRefreshComponent,
-} from '../../../formily/NocoBaseRecursionField';
+} from '../../../formily/EasyFlowRecursionField';
 import { RecordIndexProvider, RecordProvider } from '../../../record-provider';
 import { isPatternDisabled, isSystemField } from '../../../schema-settings';
 import {
@@ -278,7 +271,7 @@ const ToManyNester = observer(
                     <RecordProvider isNew={isNewRecord(value)} record={value} parent={recordData}>
                       <RecordIndexProvider index={index}>
                         <DefaultValueProvider isAllowToSetDefaultValue={isAllowToSetDefaultValue}>
-                          <NocoBaseRecursionField
+                          <EasyFlowRecursionField
                             onlyRenderProperties
                             basePath={field.address.concat(index)}
                             schema={fieldSchema}
@@ -353,7 +346,7 @@ const ToManyNester = observer(
                       useCreateActionProps,
                     }}
                   >
-                    <NocoBaseRecursionField
+                    <EasyFlowRecursionField
                       onlyRenderProperties
                       basePath={field.address}
                       schema={fieldSchema.parent}

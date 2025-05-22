@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-export enum NocoBaseDesktopRouteType {
+
+export enum EasyFlowDesktopRouteType {
   group = 'group',
   page = 'page',
   link = 'link',
@@ -17,10 +10,10 @@ export enum NocoBaseDesktopRouteType {
 /**
  * 尽量与移动端的结构保持一致
  */
-export interface NocoBaseDesktopRoute {
+export interface EasyFlowDesktopRoute {
   id?: number;
   parentId?: number;
-  children?: NocoBaseDesktopRoute[];
+  children?: EasyFlowDesktopRoute[];
 
   title?: string;
   tooltip?: string;
@@ -34,7 +27,7 @@ export interface NocoBaseDesktopRoute {
    * 注意：仅 type 为 page 时，pageSchemaUid 才有值
    */
   pageSchemaUid?: string;
-  type?: NocoBaseDesktopRouteType;
+  type?: EasyFlowDesktopRouteType;
   options?: any;
   sort?: number;
   hideInMenu?: boolean;

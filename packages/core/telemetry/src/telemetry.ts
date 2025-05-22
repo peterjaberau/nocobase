@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
 import { Resource } from '@opentelemetry/resources';
@@ -32,7 +25,7 @@ export class Telemetry {
     const { trace, metric, serviceName, version } = options || {};
     this.trace = new Trace({ tracerName: `${serviceName}-trace`, version, ...trace });
     this.metric = new Metric({ meterName: `${serviceName}-meter`, version, ...metric });
-    this.serviceName = serviceName || 'nocobase';
+    this.serviceName = serviceName || 'easyflow';
     this.version = version || '';
   }
 

@@ -7,7 +7,7 @@ import {
   SchemaInitializer,
   SchemaInitializerItemsProps,
   useSchemaInitializerRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { ButtonProps, Card, Divider, List, ListProps, Menu, MenuProps } from 'antd';
 
 // 自定义 Items 渲染为 Menu

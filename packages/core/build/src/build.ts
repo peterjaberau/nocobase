@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import execa from 'execa';
 import chalk from 'chalk';
@@ -38,7 +31,6 @@ import { getPackages } from './utils/getPackages';
 import { Package } from '@lerna/package';
 import { tarPlugin } from './tarPlugin';
 import { buildEsm } from './buildEsm';
-import { addLicense } from './utils/addlicense';
 
 const BUILD_ERROR = 'build-error';
 
@@ -58,7 +50,7 @@ export async function build(pkgs: string[]) {
     } else {
       msg = 'No package matched';
     }
-    console.warn(chalk.yellow(`[@nocobase/build]: ${msg}`));
+    console.warn(chalk.yellow(`[@easyflow/build]: ${msg}`));
     return;
   }
 
@@ -155,8 +147,6 @@ export async function buildPackage(
     log('afterBuild');
     await userConfig.afterBuild(log);
   }
-
-  await addLicense(path.join(pkg.location, targetDir), log);
 
   // tar
   if (hasTar) {

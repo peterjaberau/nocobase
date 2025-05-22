@@ -6,7 +6,7 @@ import {
   Input,
   SchemaComponent,
   SchemaComponentProvider,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { createMemoryHistory } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';

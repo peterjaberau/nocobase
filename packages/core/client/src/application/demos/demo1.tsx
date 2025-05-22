@@ -1,6 +1,6 @@
 
 
-import { Application, Plugin } from '@nocobase/client';
+import { Application, Plugin } from '@easyflow/client';
 import React, { FC } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ class Test2Plugin extends Plugin {
   }
 }
 
-class NocobasePresetPlugin extends Plugin {
+class EasyflowPresetPlugin extends Plugin {
   async afterAdd() {
     // mock load remote plugin
     await this.addRemotePlugin();
@@ -84,7 +84,7 @@ const app = new Application({
   router: {
     type: 'hash',
   },
-  plugins: [NocobasePresetPlugin],
+  plugins: [EasyflowPresetPlugin],
   components: { Root, Home, Team, About },
 });
 

@@ -1,6 +1,6 @@
 
 
-import { CardItem, FormProvider, SchemaComponent } from '@nocobase/client';
+import { CardItem, FormProvider, SchemaComponent } from '@easyflow/client';
 import React from 'react';
 
 const schema = {

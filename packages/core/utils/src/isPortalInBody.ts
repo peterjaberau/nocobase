@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /**
  * 判断一个 DOM 对象是否是由 createPortal 挂在到了 body 上
@@ -21,10 +14,6 @@ export const isPortalInBody = (dom: Element) => {
     dom = dom.parentNode as Element;
   }
 
-  // 测试环境下大部分都是直接 render 的组件，是没有以 root 为 ID 的根元素的
-  if (process.env.__TEST__) {
-    return false;
-  }
 
   if (process.env.NODE_ENV !== 'production') {
     if (!document.querySelector('#root')) {

@@ -7,7 +7,7 @@ import {
   useDataBlockResource,
   useCollectionRecordData,
   withDynamicSchemaProps,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { ISchema } from '@formily/json-schema';
 
 import { createApp } from '../../../data-source/demos/createApp';

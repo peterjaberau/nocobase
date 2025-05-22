@@ -1,7 +1,7 @@
 
 
 import { FormItem } from '@formily/antd-v5';
-import { Percent, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Percent, SchemaComponent, SchemaComponentProvider } from '@easyflow/client';
 import React from 'react';
 
 const schema = {

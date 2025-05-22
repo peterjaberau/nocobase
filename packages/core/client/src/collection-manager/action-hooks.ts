@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useField, useForm } from '@formily/react';
 import { message } from 'antd';
@@ -594,7 +587,7 @@ export const useFilterActionProps = () => {
   const options = useFilterFieldOptions(collection.fields);
   const service = useResourceActionContext();
   return useFilterFieldProps({
-    // 目前仅需要支持筛选 title 和 name，其它字段可能会报错。详见：https://nocobase.height.app/T-2745
+    // 目前仅需要支持筛选 title 和 name，其它字段可能会报错。详见：https://easyflow.height.app/T-2745
     options: options.filter((option) => ['title', 'name'].includes(option.name)),
     params: service.state?.params?.[0] || service.params,
     service,

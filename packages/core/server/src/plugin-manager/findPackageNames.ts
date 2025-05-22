@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import fg from 'fast-glob';
 import fs from 'fs-extra';
@@ -33,16 +26,16 @@ async function trim(packageNames: string[]) {
 }
 
 const excludes = [
-  '@nocobase/plugin-audit-logs',
-  '@nocobase/plugin-backup-restore',
-  '@nocobase/plugin-charts',
-  '@nocobase/plugin-disable-pm-add',
-  '@nocobase/plugin-mobile-client',
-  '@nocobase/plugin-mock-collections',
-  '@nocobase/plugin-multi-app-share-collection',
-  '@nocobase/plugin-notifications',
-  '@nocobase/plugin-snapshot-field',
-  '@nocobase/plugin-workflow-test',
+  '@easyflow/plugin-audit-logs',
+  '@easyflow/plugin-backup-restore',
+  '@easyflow/plugin-charts',
+  '@easyflow/plugin-disable-pm-add',
+  '@easyflow/plugin-mobile-client',
+  '@easyflow/plugin-mock-collections',
+  '@easyflow/plugin-multi-app-share-collection',
+  '@easyflow/plugin-notifications',
+  '@easyflow/plugin-snapshot-field',
+  '@easyflow/plugin-workflow-test',
 ];
 
 export async function findPackageNames() {
@@ -65,12 +58,12 @@ export async function findPackageNames() {
         return packageJson.name;
       }),
     );
-    const nocobasePlugins = await findNocobasePlugins();
+    const easyflowPlugins = await findEasyflowPlugins();
     const { APPEND_PRESET_BUILT_IN_PLUGINS = '', APPEND_PRESET_LOCAL_PLUGINS = '' } = process.env;
     return trim(
       packageNames
         .filter((pkg) => pkg && !excludes.includes(pkg))
-        .concat(nocobasePlugins)
+        .concat(easyflowPlugins)
         .concat(splitNames(APPEND_PRESET_BUILT_IN_PLUGINS))
         .concat(splitNames(APPEND_PRESET_LOCAL_PLUGINS)),
     );
@@ -81,15 +74,15 @@ export async function findPackageNames() {
 
 async function getPackageJson() {
   const packageJson = await fs.readJson(
-    path.resolve(process.env.NODE_MODULES_PATH, '@nocobase/preset-nocobase/package.json'),
+    path.resolve(process.env.NODE_MODULES_PATH, '@easyflow/preset-easyflow/package.json'),
   );
   return packageJson;
 }
 
-async function findNocobasePlugins() {
+async function findEasyflowPlugins() {
   try {
     const packageJson = await getPackageJson();
-    const pluginNames = Object.keys(packageJson.dependencies).filter((name) => name.startsWith('@nocobase/plugin-'));
+    const pluginNames = Object.keys(packageJson.dependencies).filter((name) => name.startsWith('@easyflow/plugin-'));
     return trim(pluginNames.filter((pkg) => pkg && !excludes.includes(pkg)));
   } catch (error) {
     return [];
@@ -108,7 +101,7 @@ export async function findBuiltInPlugins() {
 
 export async function findLocalPlugins() {
   const { APPEND_PRESET_LOCAL_PLUGINS = '' } = process.env;
-  const plugins1 = await findNocobasePlugins();
+  const plugins1 = await findEasyflowPlugins();
   const plugins2 = await findPackageNames();
   const builtInPlugins = await findBuiltInPlugins();
   const packageJson = await getPackageJson();

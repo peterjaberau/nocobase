@@ -8,7 +8,7 @@ import {
   Input,
   SchemaComponent,
   SchemaSettings,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const collection = {

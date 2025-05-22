@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { TreeSelect } from '@formily/antd-v5';
@@ -20,14 +13,14 @@ import {
   css,
   findRouteBySchemaUid,
   isVariable,
-  NocoBaseDesktopRouteType,
+  EasyFlowDesktopRouteType,
   useAllAccessDesktopRoutes,
   useCompile,
   useCurrentPageUid,
   useCurrentRoute,
   useGlobalTheme,
   useNavigateNoUpdate,
-  useNocoBaseRoutes,
+  useEasyFlowRoutes,
   useURLAndHTMLSchema,
 } from '../../..';
 import { getPageMenuSchema } from '../../../';
@@ -40,15 +33,15 @@ import {
   SchemaSettingsSubMenu,
   SchemaSettingsSwitchItem,
 } from '../../../schema-settings/SchemaSettings';
-import { NocoBaseDesktopRoute } from './convertRoutesToSchema';
+import { EasyFlowDesktopRoute } from './convertRoutesToSchema';
 
 const components = { TreeSelect };
 
-const toItems = (routes: NocoBaseDesktopRoute[], { t, compile }) => {
+const toItems = (routes: EasyFlowDesktopRoute[], { t, compile }) => {
   const items = [];
   for (const route of routes) {
     // filter out the tabs
-    if (route.type === NocoBaseDesktopRouteType.tabs) {
+    if (route.type === EasyFlowDesktopRouteType.tabs) {
       continue;
     }
 
@@ -69,7 +62,7 @@ const insertPositionToMethod = {
   afterEnd: 'insertAfter',
 };
 
-const findPrevSibling = (routes: NocoBaseDesktopRoute[], currentRoute: NocoBaseDesktopRoute | undefined) => {
+const findPrevSibling = (routes: EasyFlowDesktopRoute[], currentRoute: EasyFlowDesktopRoute | undefined) => {
   if (!currentRoute) {
     return;
   }
@@ -89,7 +82,7 @@ const findPrevSibling = (routes: NocoBaseDesktopRoute[], currentRoute: NocoBaseD
   }
 };
 
-const findNextSibling = (routes: NocoBaseDesktopRoute[], currentRoute: NocoBaseDesktopRoute | undefined) => {
+const findNextSibling = (routes: EasyFlowDesktopRoute[], currentRoute: EasyFlowDesktopRoute | undefined) => {
   if (!currentRoute) {
     return;
   }
@@ -112,7 +105,7 @@ const findNextSibling = (routes: NocoBaseDesktopRoute[], currentRoute: NocoBaseD
 export const RemoveRoute: FC = () => {
   const { t } = useTranslation();
   const { modal } = App.useApp();
-  const { deleteRoute } = useNocoBaseRoutes();
+  const { deleteRoute } = useEasyFlowRoutes();
   const currentRoute = useCurrentRoute();
   const { allAccessRoutes } = useAllAccessDesktopRoutes();
   const navigate = useNavigateNoUpdate();
@@ -162,8 +155,8 @@ const InsertMenuItems = (props) => {
   const { t } = useTranslation();
   const { urlSchema, paramsSchema } = useURLAndHTMLSchema();
   const currentRoute = useCurrentRoute();
-  const isSubMenu = currentRoute?.type === NocoBaseDesktopRouteType.group;
-  const { createRoute, moveRoute } = useNocoBaseRoutes();
+  const isSubMenu = currentRoute?.type === EasyFlowDesktopRouteType.group;
+  const { createRoute, moveRoute } = useEasyFlowRoutes();
   const insertPageSchema = useInsertPageSchema();
 
   if (!isSubMenu && insertPosition === 'beforeEnd') {
@@ -201,7 +194,7 @@ const InsertMenuItems = (props) => {
 
           // 1. 先创建一个路由
           const { data } = await createRoute({
-            type: NocoBaseDesktopRouteType.group,
+            type: EasyFlowDesktopRouteType.group,
             title,
             icon,
             // 'beforeEnd' 表示的是 Insert inner，此时需要把路由插入到当前路由的内部
@@ -253,7 +246,7 @@ const InsertMenuItems = (props) => {
 
           // 1. 先创建一个路由
           const { data } = await createRoute({
-            type: NocoBaseDesktopRouteType.page,
+            type: EasyFlowDesktopRouteType.page,
             title,
             icon,
             // 'beforeEnd' 表示的是 Insert inner，此时需要把路由插入到当前路由的内部
@@ -263,7 +256,7 @@ const InsertMenuItems = (props) => {
             enableTabs: false,
             children: [
               {
-                type: NocoBaseDesktopRouteType.tabs,
+                type: EasyFlowDesktopRouteType.tabs,
                 schemaUid: tabSchemaUid,
                 tabSchemaName,
                 hidden: true,
@@ -315,7 +308,7 @@ const InsertMenuItems = (props) => {
 
           // 1. 先创建一个路由
           const { data } = await createRoute({
-            type: NocoBaseDesktopRouteType.link,
+            type: EasyFlowDesktopRouteType.link,
             title,
             icon,
             // 'beforeEnd' 表示的是 Insert inner，此时需要把路由插入到当前路由的内部
@@ -372,14 +365,14 @@ const EditMenuItem = () => {
       icon: currentRoute.icon,
     };
   }, [currentRoute.title, currentRoute.icon]);
-  if (currentRoute.type === NocoBaseDesktopRouteType.link) {
+  if (currentRoute.type === EasyFlowDesktopRouteType.link) {
     schema.properties['href'] = urlSchema;
     schema.properties['params'] = paramsSchema;
     initialValues['href'] = currentRoute.options.href;
     initialValues['params'] = currentRoute.options.params;
   }
 
-  const { updateRoute } = useNocoBaseRoutes();
+  const { updateRoute } = useEasyFlowRoutes();
   const onEditSubmit: (values: any) => void = useCallback(({ title, icon, href, params }) => {
     // 更新菜单对应的路由
     if (currentRoute.id !== undefined) {
@@ -411,7 +404,7 @@ const EditMenuItem = () => {
 const HiddenMenuItem = () => {
   const { t } = useTranslation();
   const currentRoute = useCurrentRoute();
-  const { updateRoute } = useNocoBaseRoutes();
+  const { updateRoute } = useEasyFlowRoutes();
   const { modal } = App.useApp();
 
   return (
@@ -446,7 +439,7 @@ const MoveToMenuItem = () => {
         const [, type] = field?.value?.split?.('||') || [];
         field.query('position').take((f: Field) => {
           f.dataSource =
-            type === NocoBaseDesktopRouteType.group
+            type === EasyFlowDesktopRouteType.group
               ? [
                   { label: t('Before'), value: 'beforeBegin' },
                   { label: t('After'), value: 'afterEnd' },
@@ -492,7 +485,7 @@ const MoveToMenuItem = () => {
     } as ISchema;
   }, [items, t]);
 
-  const { moveRoute } = useNocoBaseRoutes();
+  const { moveRoute } = useEasyFlowRoutes();
   const currentRoute = useCurrentRoute();
   const onMoveToSubmit: (values: any) => void = useCallback(
     async ({ target, position }) => {
@@ -547,7 +540,7 @@ const MoveToMenuItem = () => {
 const EditTooltip = () => {
   const { t } = useTranslation();
   const currentRoute = useCurrentRoute();
-  const { updateRoute } = useNocoBaseRoutes();
+  const { updateRoute } = useEasyFlowRoutes();
 
   const editTooltipSchema = useMemo(() => {
     return {

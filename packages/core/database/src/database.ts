@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { createConsoleLogger, createLogger, Logger, LoggerOptions } from '@nocobase/logger';
-import { applyMixins, AsyncEmitter } from '@nocobase/utils';
+
+import { createConsoleLogger, createLogger, Logger, LoggerOptions } from '@easyflow/logger';
+import { applyMixins, AsyncEmitter } from '@easyflow/utils';
 import chalk from 'chalk';
 import merge from 'deepmerge';
 import { EventEmitter } from 'events';
@@ -310,7 +303,7 @@ export class Database extends EventEmitter implements AsyncEmitter {
       timestamps: false,
       dumpRules: 'required',
       migrationRules: ['schema-only', 'overwrite'],
-      origin: '@nocobase/database',
+      origin: '@easyflow/database',
       fields: [{ type: 'string', name: 'name', primaryKey: true }],
     });
 

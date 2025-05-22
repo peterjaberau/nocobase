@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { onFieldInputValueChange } from '@formily/core';
@@ -18,7 +11,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   ClearCollectionFieldContext,
-  NocoBaseRecursionField,
+  EasyFlowRecursionField,
   RecordProvider,
   SchemaComponentContext,
   useAPIClient,
@@ -196,7 +189,7 @@ const InternalAssociationSelect = observer(
                 <VariablePopupRecordProvider>
                   {/* 快捷添加按钮添加的添加的是一个普通的 form 区块（非关系区块），不应该与任何字段有关联，所以在这里把字段相关的上下文给清除掉 */}
                   <ClearCollectionFieldContext>
-                    <NocoBaseRecursionField
+                    <EasyFlowRecursionField
                       onlyRenderProperties
                       basePath={field.address}
                       schema={fieldSchema}

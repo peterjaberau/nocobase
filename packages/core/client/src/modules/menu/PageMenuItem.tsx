@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { FormLayout } from '@formily/antd-v5';
 import { SchemaOptionsContext } from '@formily/react';
@@ -15,12 +8,12 @@ import { useTranslation } from 'react-i18next';
 import { useAPIClient } from '../../api-client/hooks/useAPIClient';
 import { SchemaInitializerItem } from '../../application';
 import { useGlobalTheme } from '../../global-theme';
-import { NocoBaseDesktopRouteType } from '../../route-switch/antd/admin-layout/convertRoutesToSchema';
+import { EasyFlowDesktopRouteType } from '../../route-switch/antd/admin-layout/convertRoutesToSchema';
 import {
   FormDialog,
   SchemaComponent,
   SchemaComponentOptions,
-  useNocoBaseRoutes,
+  useEasyFlowRoutes,
   useParentRoute,
 } from '../../schema-component';
 import { useStyles } from '../../schema-component/antd/menu/MenuItemInitializers';
@@ -45,7 +38,7 @@ export const PageMenuItem = () => {
   const { theme } = useGlobalTheme();
   const { componentCls, hashId } = useStyles();
   const parentRoute = useParentRoute();
-  const { createRoute } = useNocoBaseRoutes();
+  const { createRoute } = useEasyFlowRoutes();
   const insertPageSchema = useInsertPageSchema();
 
   const handleClick = useCallback(async () => {
@@ -87,7 +80,7 @@ export const PageMenuItem = () => {
 
     // 创建一个路由到 desktopRoutes 表中
     await createRoute({
-      type: NocoBaseDesktopRouteType.page,
+      type: EasyFlowDesktopRouteType.page,
       title: values.title,
       icon: values.icon,
       parentId: parentRoute?.id,
@@ -96,7 +89,7 @@ export const PageMenuItem = () => {
       enableTabs: false,
       children: [
         {
-          type: NocoBaseDesktopRouteType.tabs,
+          type: EasyFlowDesktopRouteType.tabs,
           schemaUid: tabSchemaUid,
           tabSchemaName,
           hidden: true,

@@ -7,7 +7,7 @@ import {
   SchemaComponentPlugin,
   SchemaSettings,
   useSchemaSettingsRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 
 const mySchemaSetting = new SchemaSettings({
   name: 'MySchemaSetting',

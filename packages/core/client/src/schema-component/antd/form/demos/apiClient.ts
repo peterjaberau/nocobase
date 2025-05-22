@@ -1,6 +1,6 @@
 
 
-import { APIClient } from '@nocobase/client';
+import { APIClient } from '@easyflow/client';
 import MockAdapter from 'axios-mock-adapter';
 
 export const apiClient = new APIClient();

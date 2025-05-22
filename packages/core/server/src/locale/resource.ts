@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { requireModule } from '@nocobase/utils';
+
+import { requireModule } from '@easyflow/utils';
 
 const arr2obj = (items: any[]) => {
   const obj = {};
@@ -22,9 +15,9 @@ export const getResource = (packageName: string, lang: string, isPlugin = true) 
   const prefixes = [isPlugin ? 'dist' : 'lib'];
   if (process.env.APP_ENV !== 'production') {
     try {
-      require.resolve('@nocobase/client/src');
-      if (packageName === '@nocobase/plugin-client') {
-        packageName = '@nocobase/client';
+      require.resolve('@easyflow/client/src');
+      if (packageName === '@easyflow/plugin-client') {
+        packageName = '@easyflow/client';
       }
     } catch (error) {
       // empty

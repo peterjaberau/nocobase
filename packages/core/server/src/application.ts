@@ -1,17 +1,10 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { registerActions } from '@nocobase/actions';
-import { actions as authActions, AuthManager, AuthManagerOptions } from '@nocobase/auth';
-import { Cache, CacheManager, CacheManagerOptions } from '@nocobase/cache';
-import { DataSourceManager, SequelizeCollectionManager, SequelizeDataSource } from '@nocobase/data-source-manager';
-import Database, { CollectionOptions, IDatabaseOptions } from '@nocobase/database';
+
+import { registerActions } from '@easyflow/actions';
+import { actions as authActions, AuthManager, AuthManagerOptions } from '@easyflow/auth';
+import { Cache, CacheManager, CacheManagerOptions } from '@easyflow/cache';
+import { DataSourceManager, SequelizeCollectionManager, SequelizeDataSource } from '@easyflow/data-source-manager';
+import Database, { CollectionOptions, IDatabaseOptions } from '@easyflow/database';
 import {
   createLogger,
   createSystemLogger,
@@ -21,11 +14,11 @@ import {
   RequestLoggerOptions,
   SystemLogger,
   SystemLoggerOptions,
-} from '@nocobase/logger';
-import { ResourceOptions, Resourcer } from '@nocobase/resourcer';
-import { Telemetry, TelemetryOptions } from '@nocobase/telemetry';
+} from '@easyflow/logger';
+import { ResourceOptions, Resourcer } from '@easyflow/resourcer';
+import { Telemetry, TelemetryOptions } from '@easyflow/telemetry';
 
-import { LockManager, LockManagerOptions } from '@nocobase/lock-manager';
+import { LockManager, LockManagerOptions } from '@easyflow/lock-manager';
 import {
   applyMixins,
   AsyncEmitter,
@@ -33,7 +26,7 @@ import {
   Toposort,
   ToposortOptions,
   wrapMiddlewareWithLogging,
-} from '@nocobase/utils';
+} from '@easyflow/utils';
 
 import { Command, CommandOptions, ParseOptions } from 'commander';
 import { randomUUID } from 'crypto';
@@ -757,7 +750,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
   async loadCoreMigrations() {
     const migrations = await this.loadMigrations({
       directory: resolve(__dirname, 'migrations'),
-      namespace: '@nocobase/server',
+      namespace: '@easyflow/server',
     });
     return {
       beforeLoad: {
@@ -855,7 +848,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
 
     if (options.checkInstall && !(await this.isInstalled())) {
       throw new ApplicationNotInstall(
-        `Application ${this.name} is not installed, Please run 'yarn nocobase install' command first`,
+        `Application ${this.name} is not installed, Please run 'yarn easyflow install' command first`,
       );
     }
 
@@ -1079,7 +1072,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     // }, 'Sync');
     await this.emitAsync('afterUpgrade', this, options);
     await this.restart();
-    // this.log.debug(chalk.green(`✨  NocoBase has been upgraded to v${this.getVersion()}`));
+    // this.log.debug(chalk.green(`✨  EasyFlow has been upgraded to v${this.getVersion()}`));
     // if (this._started) {
     //   await measureExecutionTime(async () => {
     //     await this.restart();
@@ -1116,7 +1109,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
   }
 
   protected createCLI() {
-    const command = new AppCommand('nocobase')
+    const command = new AppCommand('easyflow')
       .usage('[command] [options]')
       .hook('preAction', async (_, actionCommand) => {
         this._actionCommand = actionCommand;
@@ -1234,7 +1227,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     });
 
     this._telemetry = new Telemetry({
-      serviceName: `nocobase-${this.name}`,
+      serviceName: `easyflow-${this.name}`,
       version: this.getVersion(),
       ...options.telemetry,
     });

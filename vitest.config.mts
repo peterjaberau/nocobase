@@ -1,3 +1,2 @@
-import { defineConfig } from '@nocobase/test/vitest.mjs';
-
+import { defineConfig } from "vitest/config"
 export default defineConfig();

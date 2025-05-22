@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
-import { logger } from '@nocobase/logger';
-import { findAllPlugins, PluginManager } from '@nocobase/server';
-import { importModule } from '@nocobase/utils';
+
+import { logger } from '@easyflow/logger';
+import { findAllPlugins, PluginManager } from '@easyflow/server';
+import { importModule } from '@easyflow/utils';
 
 export async function runPluginStaticImports() {
   const packages = await findAllPlugins();

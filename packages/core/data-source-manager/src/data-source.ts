@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { ACL } from '@nocobase/acl';
-import { Logger } from '@nocobase/logger';
-import { getNameByParams, parseRequest, ResourceManager } from '@nocobase/resourcer';
-import { wrapMiddlewareWithLogging } from '@nocobase/utils';
+
+import { ACL } from '@easyflow/acl';
+import { Logger } from '@easyflow/logger';
+import { getNameByParams, parseRequest, ResourceManager } from '@easyflow/resourcer';
+import { wrapMiddlewareWithLogging } from '@easyflow/utils';
 import EventEmitter from 'events';
 import compose from 'koa-compose';
 import { DataSourceManager } from './data-source-manager';

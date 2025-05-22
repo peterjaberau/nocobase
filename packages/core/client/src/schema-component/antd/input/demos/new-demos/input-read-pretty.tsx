@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { mockApp } from '@nocobase/client/demo-utils';
-import { SchemaComponent, Plugin, ISchema } from '@nocobase/client';
+import { mockApp } from '@easyflow/client/demo-utils';
+import { SchemaComponent, Plugin, ISchema } from '@easyflow/client';
 
 const schema: ISchema = {
   type: 'void',
@@ -14,7 +14,7 @@ const schema: ISchema = {
       type: 'string',
       title: 'Test',
       default:
-        'NocoBase is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
+        'EasyFlow is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
     },
@@ -22,7 +22,7 @@ const schema: ISchema = {
       type: 'string',
       title: 'Test(ellipsis)',
       default:
-        'NocoBase is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
+        'EasyFlow is a scalability-first, open-source no-code/low-code platform for building business applications and enterprise solutions.',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {

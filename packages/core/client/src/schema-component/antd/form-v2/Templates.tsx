@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useFieldSchema } from '@formily/react';
-import { error, forEach } from '@nocobase/utils/client';
+import { error, forEach } from '@easyflow/utils/client';
 import { Select, Space } from 'antd';
 import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
@@ -206,7 +199,7 @@ export const Templates = React.memo(({ style = {}, form }: { style?: React.CSSPr
   );
 });
 
-Templates.displayName = 'NocoBaseFormDataTemplates';
+Templates.displayName = 'EasyFlowFormDataTemplates';
 
 function findDataTemplates(fieldSchema): ITemplate {
   const formSchema = findFormBlock(fieldSchema);

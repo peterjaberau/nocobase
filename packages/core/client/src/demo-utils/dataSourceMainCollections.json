@@ -263,7 +263,7 @@
       }
     ],
     "category": [],
-    "origin": "@nocobase/plugin-users",
+    "origin": "@easyflow/plugin-users",
     "dumpRules": {
       "group": "user"
     },
@@ -483,7 +483,7 @@
       }
     ],
     "category": [],
-    "origin": "@nocobase/plugin-acl",
+    "origin": "@easyflow/plugin-acl",
     "dumpRules": "required",
     "autoGenId": false,
     "model": "RoleModel",

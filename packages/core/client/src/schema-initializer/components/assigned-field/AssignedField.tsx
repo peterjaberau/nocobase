@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field } from '@formily/core';
 import { useField, useFieldSchema } from '@formily/react';
@@ -117,7 +110,7 @@ export const AssignedField = (props: AssignedFieldProps) => {
       const currentForm = scope.find((item) => item.value === '$nForm');
       const fields = getCollectionFields(name);
 
-      // fix https://nocobase.height.app/T-1355
+      // fix https://easyflow.height.app/T-1355
       // 工作流人工节点的 `自定义表单` 区块，与其它表单区块不同，根据它的数据表名称，获取到的字段列表为空，所以需要在这里特殊处理一下
       if (!fields?.length && currentForm) {
         currentForm.children = formatVariableScop(currentFormFields);

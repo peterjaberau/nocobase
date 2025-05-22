@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 const chalk = require('chalk');
 const { Command } = require('commander');
@@ -44,7 +37,7 @@ module.exports = (cli) => {
       } else if (pkg.version.includes('beta')) {
         distTag = 'beta';
       }
-      const { stdout } = await run('npm', ['info', `@nocobase/cli@${distTag}`, 'version'], {
+      const { stdout } = await run('npm', ['info', `@easyflow/cli@${distTag}`, 'version'], {
         stdio: 'pipe',
       });
       if (!options.force && pkg.version === stdout) {
@@ -56,11 +49,11 @@ module.exports = (cli) => {
       const descJson = await readJSON(descPath, 'utf8');
       const sourcePath = resolve(__dirname, '../../templates/create-app-package.json');
       const sourceJson = await readJSON(sourcePath, 'utf8');
-      if (descJson['dependencies']?.['@nocobase/cli']) {
-        descJson['dependencies']['@nocobase/cli'] = stdout;
+      if (descJson['dependencies']?.['@easyflow/cli']) {
+        descJson['dependencies']['@easyflow/cli'] = stdout;
       }
-      if (descJson['devDependencies']?.['@nocobase/devtools']) {
-        descJson['devDependencies']['@nocobase/devtools'] = stdout;
+      if (descJson['devDependencies']?.['@easyflow/devtools']) {
+        descJson['devDependencies']['@easyflow/devtools'] = stdout;
       }
       const json = deepmerge(descJson, sourceJson);
       await writeJSON(descPath, json, { spaces: 2, encoding: 'utf8' });

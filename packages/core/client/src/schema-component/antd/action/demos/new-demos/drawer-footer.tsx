@@ -1,7 +1,7 @@
 
-import { ISchema, useActionContext } from '@nocobase/client';
-import { SchemaComponent, Plugin } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { ISchema, useActionContext } from '@easyflow/client';
+import { SchemaComponent, Plugin } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 import React from 'react';
 
 const useCloseActionProps = () => {

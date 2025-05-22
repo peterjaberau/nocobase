@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore next -- @preserve */
 
-import { importModule, isURL, requireResolve } from '@nocobase/utils';
-import { createStoragePluginSymLink } from '@nocobase/utils/plugin-symlink';
+import { importModule, isURL, requireResolve } from '@easyflow/utils';
+import { createStoragePluginSymLink } from '@easyflow/utils/plugin-symlink';
 import axios, { AxiosRequestConfig } from 'axios';
 import decompress from 'decompress';
 import fg from 'fast-glob';
@@ -38,7 +31,7 @@ import { PluginData } from './types';
  * get temp dir
  *
  * @example
- * getTempDir() => '/tmp/nocobase'
+ * getTempDir() => '/tmp/easyflow'
  */
 export async function getTempDir() {
   const temporaryDirectory = await fs.realpath(os.tmpdir());
@@ -277,7 +270,7 @@ export async function getPluginInfoByNpm(options: GetPluginInfoOptions) {
  * scan `src/server` directory to get server packages
  *
  * @example
- * getServerPackages('src/server') => ['dayjs', '@nocobase/plugin-bbb']
+ * getServerPackages('src/server') => ['dayjs', '@easyflow/plugin-bbb']
  */
 export function getServerPackages(packageDir: string) {
   function isBuiltinModule(packageName: string) {
@@ -549,7 +542,7 @@ export async function getCompatible(packageName: string) {
     const packageVersion = externalVersion[packageName];
     const globalPackageName = deps[packageName]
       ? packageName
-      : deps[packageName.split('/')[0]] // @nocobase and @formily
+      : deps[packageName.split('/')[0]] // @easyflow and @formily
         ? packageName.split('/')[0]
         : undefined;
 

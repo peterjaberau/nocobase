@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { EllipsisOutlined, HighlightOutlined } from '@ant-design/icons';
 import ProLayout, { RouteContext, RouteContextType } from '@ant-design/pro-layout';
@@ -49,28 +42,28 @@ import { withTooltipComponent } from '../../../hoc/withTooltipComponent';
 import { menuItemInitializer } from '../../../modules/menu/menuItemInitializer';
 import { useMenuTranslation } from '../../../schema-component/antd/menu/locale';
 import { KeepAlive } from './KeepAlive';
-import { NocoBaseDesktopRoute, NocoBaseDesktopRouteType } from './convertRoutesToSchema';
+import { EasyFlowDesktopRoute, EasyFlowDesktopRouteType } from './convertRoutesToSchema';
 import { MenuSchemaToolbar, ResetThemeTokenAndKeepAlgorithm } from './menuItemSettings';
 import { userCenterSettings } from './userCenterSettings';
 
-export { KeepAlive, NocoBaseDesktopRouteType };
+export { KeepAlive, EasyFlowDesktopRouteType };
 
-export const NocoBaseRouteContext = createContext<NocoBaseDesktopRoute | null>(null);
-NocoBaseRouteContext.displayName = 'NocoBaseRouteContext';
+export const EasyFlowRouteContext = createContext<EasyFlowDesktopRoute | null>(null);
+EasyFlowRouteContext.displayName = 'EasyFlowRouteContext';
 
 export const CurrentRouteProvider: FC<{ uid: string }> = ({ children, uid }) => {
   const { allAccessRoutes } = useAllAccessDesktopRoutes();
   const routeNode = useMemo(() => findRouteBySchemaUid(uid, allAccessRoutes), [uid, allAccessRoutes]);
-  return <NocoBaseRouteContext.Provider value={routeNode}>{children}</NocoBaseRouteContext.Provider>;
+  return <EasyFlowRouteContext.Provider value={routeNode}>{children}</EasyFlowRouteContext.Provider>;
 };
 
 export const useCurrentRoute = () => {
-  return useContext(NocoBaseRouteContext) || {};
+  return useContext(EasyFlowRouteContext) || {};
 };
 
 const emptyArray = [];
 const AllAccessDesktopRoutesContext = createContext<{
-  allAccessRoutes: NocoBaseDesktopRoute[];
+  allAccessRoutes: EasyFlowDesktopRoute[];
   refresh: () => void;
 }>({
   allAccessRoutes: emptyArray,
@@ -112,7 +105,7 @@ const RoutesRequestProvider: FC = ({ children }) => {
   );
 };
 
-const noAccessPermission = (currentPageUid: string, allAccessRoutes: NocoBaseDesktopRoute[]) => {
+const noAccessPermission = (currentPageUid: string, allAccessRoutes: EasyFlowDesktopRoute[]) => {
   if (!currentPageUid) {
     return false;
   }
@@ -231,7 +224,7 @@ export const LayoutContent = () => {
   );
 };
 
-const NocoBaseLogo = () => {
+const EasyFlowLogo = () => {
   const result = useSystemSettings();
   const { token } = useToken();
   const fontSizeStyle = useMemo(() => ({ fontSize: token.fontSizeHeading3 }), [token.fontSizeHeading3]);
@@ -276,12 +269,12 @@ const GroupItem: FC<{ item: any }> = (props) => {
 
   return (
     <ParentRouteContext.Provider value={item._parentRoute}>
-      <NocoBaseRouteContext.Provider value={item._route}>
+      <EasyFlowRouteContext.Provider value={item._route}>
         <SortableItem id={item._route.id} schema={fakeSchema} aria-label={item.name}>
           {props.children}
           {designable && <MenuSchemaToolbarWithContainer />}
         </SortableItem>
-      </NocoBaseRouteContext.Provider>
+      </EasyFlowRouteContext.Provider>
     </ParentRouteContext.Provider>
   );
 };
@@ -351,18 +344,18 @@ const MenuItem: FC<{ item: any; options: { isMobile: boolean; collapsed: boolean
       <div ref={divRef}>
         <ResetThemeTokenAndKeepAlgorithm>
           <ParentRouteContext.Provider value={item._parentRoute}>
-            <NocoBaseRouteContext.Provider value={item._route}>{props.children}</NocoBaseRouteContext.Provider>
+            <EasyFlowRouteContext.Provider value={item._route}>{props.children}</EasyFlowRouteContext.Provider>
           </ParentRouteContext.Provider>
         </ResetThemeTokenAndKeepAlgorithm>
       </div>
     );
   }
 
-  if (item._route?.type === NocoBaseDesktopRouteType.link) {
+  if (item._route?.type === EasyFlowDesktopRouteType.link) {
     // fake schema used to pass routing information to SortableItem
     return (
       <ParentRouteContext.Provider value={item._parentRoute}>
-        <NocoBaseRouteContext.Provider value={item._route}>
+        <EasyFlowRouteContext.Provider value={item._route}>
           <SortableItem id={item._route.id} schema={fakeSchema}>
             <div onClick={handleClickLink}>
               {/* 这里是为了扩大点击区域 */}
@@ -372,7 +365,7 @@ const MenuItem: FC<{ item: any; options: { isMobile: boolean; collapsed: boolean
             </div>
             <MenuSchemaToolbar />
           </SortableItem>
-        </NocoBaseRouteContext.Provider>
+        </EasyFlowRouteContext.Provider>
       </ParentRouteContext.Provider>
     );
   }
@@ -382,11 +375,11 @@ const MenuItem: FC<{ item: any; options: { isMobile: boolean; collapsed: boolean
 
   return (
     <ParentRouteContext.Provider value={item._parentRoute}>
-      <NocoBaseRouteContext.Provider value={item._route}>
+      <EasyFlowRouteContext.Provider value={item._route}>
         <SortableItem id={item._route.id} schema={fakeSchema}>
           <WithTooltip
             title={item.name}
-            hidden={item._route.type === NocoBaseDesktopRouteType.group || item._depth > 0}
+            hidden={item._route.type === EasyFlowDesktopRouteType.group || item._depth > 0}
           >
             <Link to={path} aria-label={item.name}>
               {props.children}
@@ -394,7 +387,7 @@ const MenuItem: FC<{ item: any; options: { isMobile: boolean; collapsed: boolean
           </WithTooltip>
           <MenuSchemaToolbar />
         </SortableItem>
-      </NocoBaseRouteContext.Provider>
+      </EasyFlowRouteContext.Provider>
     </ParentRouteContext.Provider>
   );
 };
@@ -582,7 +575,7 @@ export const InternalAdminLayout = () => {
         location={location}
         route={route}
         actionsRender={actionsRender}
-        logo={<NocoBaseLogo />}
+        logo={<EasyFlowLogo />}
         title={''}
         layout="mix"
         splitMenus
@@ -627,7 +620,7 @@ const NavigateToDefaultPage: FC = (props) => {
   );
 };
 
-const findRouteByMenuSchemaUid = (schemaUid: string, routes: NocoBaseDesktopRoute[]) => {
+const findRouteByMenuSchemaUid = (schemaUid: string, routes: EasyFlowDesktopRoute[]) => {
   if (!routes) return;
 
   for (const route of routes) {
@@ -748,7 +741,7 @@ const MenuTitleWithIcon: FC<{ icon: any; title: string }> = (props) => {
 };
 
 function convertRoutesToLayout(
-  routes: NocoBaseDesktopRoute[],
+  routes: EasyFlowDesktopRoute[],
   { designable, parentRoute, isMobile, t, depth = 0 }: any,
 ) {
   if (!routes) return;
@@ -768,7 +761,7 @@ function convertRoutesToLayout(
   const result: any[] = routes.map((item) => {
     const name = depth > 1 ? <MenuTitleWithIcon icon={item.icon} title={t(item.title)} /> : t(item.title); // ProLayout 组件不显示第二级菜单的 icon，所以这里自己实现
 
-    if (item.type === NocoBaseDesktopRouteType.link) {
+    if (item.type === EasyFlowDesktopRouteType.link) {
       return {
         name,
         icon: item.icon ? <Icon type={item.icon} /> : null,
@@ -779,7 +772,7 @@ function convertRoutesToLayout(
       };
     }
 
-    if (item.type === NocoBaseDesktopRouteType.page) {
+    if (item.type === EasyFlowDesktopRouteType.page) {
       return {
         name,
         icon: item.icon ? <Icon type={item.icon} /> : null,
@@ -791,7 +784,7 @@ function convertRoutesToLayout(
       };
     }
 
-    if (item.type === NocoBaseDesktopRouteType.group) {
+    if (item.type === EasyFlowDesktopRouteType.group) {
       const children =
         convertRoutesToLayout(item.children, { designable, parentRoute: item, depth: depth + 1, t }) || [];
 
@@ -825,9 +818,9 @@ function convertRoutesToLayout(
   return result;
 }
 
-function isGroup(groupId: string, allAccessRoutes: NocoBaseDesktopRoute[]) {
+function isGroup(groupId: string, allAccessRoutes: EasyFlowDesktopRoute[]) {
   const route = findRouteById(groupId, allAccessRoutes);
-  return route?.type === NocoBaseDesktopRouteType.group;
+  return route?.type === EasyFlowDesktopRouteType.group;
 }
 
 function findRouteById(id: string, treeArray: any[]) {
@@ -846,15 +839,15 @@ function findRouteById(id: string, treeArray: any[]) {
   return null;
 }
 
-export function findFirstPageRoute(routes: NocoBaseDesktopRoute[]) {
+export function findFirstPageRoute(routes: EasyFlowDesktopRoute[]) {
   if (!routes) return;
 
   for (const route of routes.filter((item) => !item.hideInMenu)) {
-    if (route.type === NocoBaseDesktopRouteType.page) {
+    if (route.type === EasyFlowDesktopRouteType.page) {
       return route;
     }
 
-    if (route.type === NocoBaseDesktopRouteType.group && route.children?.length) {
+    if (route.type === EasyFlowDesktopRouteType.group && route.children?.length) {
       const result = findFirstPageRoute(route.children);
       if (result) return result;
     }

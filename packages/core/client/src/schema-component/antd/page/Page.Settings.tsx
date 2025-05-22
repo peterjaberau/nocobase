@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ISchema, useField, useFieldSchema } from '@formily/react';
 import { useTranslation } from 'react-i18next';
-import { useDesignable, useNocoBaseRoutes } from '../..';
+import { useDesignable, useEasyFlowRoutes } from '../..';
 import { SchemaSettings } from '../../../application/schema-settings';
 import { useSchemaToolbar } from '../../../application/schema-toolbar';
 import { useCurrentRoute } from '../../../route-switch';
@@ -134,7 +127,7 @@ export const pageSettings = new SchemaSettings({
         const { t } = useTranslation();
         const fieldSchema = useFieldSchema();
         const currentRoute = useCurrentRoute();
-        const { updateRoute } = useNocoBaseRoutes();
+        const { updateRoute } = useEasyFlowRoutes();
         return {
           title: t('Enable page tabs'),
           checked: currentRoute.enableTabs,
@@ -144,7 +137,7 @@ export const pageSettings = new SchemaSettings({
               enableTabs: v,
             });
 
-            // enableTabs 已经保存在 route 中了，按说这里不需要加了。但 E2E 中需要这个参数。
+            // enableTabs has been saved in route, so it is said that there is no need to add it here. But this parameter is required in E2E.
             fieldSchema['x-component-props'] = fieldSchema['x-component-props'] || {};
             fieldSchema['x-component-props']['enablePageTabs'] = v;
             dn.emit('patch', {

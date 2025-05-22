@@ -3,7 +3,7 @@ const Path = require('path');
 const { exec } = require('child_process');
 const glob = require('glob');
 const { Command, Option } = require('commander');
-const { parse } = require('@nocobase/utils');
+const { parse } = require('@easyflow/utils');
 
 async function addEnKeysFromZh(filePath) {
   const enFilePath = filePath.replace(/zh-CN.json$/, 'en-US.json');

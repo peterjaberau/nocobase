@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useIsDetailBlock } from '../../../../../block-provider/FormBlockProvider';
 import { useCollection } from '../../../../../data-source/collection/CollectionProvider';
@@ -14,7 +7,7 @@ import { useDesignable } from '../../../../../schema-component/hooks/useDesignab
 
 /**
  * 用于在继承表的场景下，隐藏区块。
- * 具体文档：https://nocobase.feishu.cn/docx/A3L9dNZhnoMBjRxVciBcFzwLnae
+ * 具体文档：https://easyflow.feishu.cn/docx/A3L9dNZhnoMBjRxVciBcFzwLnae
  */
 export const useHiddenForInherit = (props) => {
   const record = useRecord();

@@ -9,7 +9,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   useActionContext,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const dataSource = [

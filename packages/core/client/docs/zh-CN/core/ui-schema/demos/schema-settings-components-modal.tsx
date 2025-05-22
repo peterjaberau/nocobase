@@ -9,7 +9,7 @@ import {
   SchemaSettings,
   SchemaSettingsModalItem,
   useSchemaSettings,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 import { appOptions } from './schema-settings-common';
 

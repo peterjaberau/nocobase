@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useEffect } from 'react';
 import { useGetAriaLabelOfDrawer } from './useGetAriaLabelOfDrawer';
@@ -13,14 +6,14 @@ import { useGetAriaLabelOfDrawer } from './useGetAriaLabelOfDrawer';
 export function useSetAriaLabelForDrawer(visible: boolean) {
   const { getAriaLabel } = useGetAriaLabelOfDrawer();
 
-  // 因 Drawer 设置 aria-label 无效，所以使用下面这种方式设置，方便 e2e 录制工具选中
+  // Because the Drawer setting aria-label is invalid, the following method is used to facilitate the selection of the e2e recording tool.
   useEffect(() => {
     if (visible) {
-      // 因为 Action 是点击后渲染内容，所以需要延迟一下
+      // Because Action is rendered after clicking, it needs to be delayed
       setTimeout(() => {
         const wrappers = [...document.querySelectorAll('.ant-drawer-wrapper-body')];
         const masks = [...document.querySelectorAll('.ant-drawer-mask')];
-        // 如果存在多个 mask，最后一个 mask 为当前打开的 mask；wrapper 也是同理
+        // If there are multiple masks, the last mask is the currently opened mask; the same is true for wrapper
         const currentMask = masks[masks.length - 1];
         const currentWrapper = wrappers[wrappers.length - 1];
         if (currentMask) {
@@ -29,7 +22,7 @@ export function useSetAriaLabelForDrawer(visible: boolean) {
         }
         if (currentWrapper) {
           currentWrapper.setAttribute('role', 'button');
-          // 都设置一下，让 e2e 录制工具自己选择
+          // Set them all up and let the e2e recording tool choose by yourself
           currentWrapper.setAttribute('data-testid', getAriaLabel());
           currentWrapper.setAttribute('aria-label', getAriaLabel());
         }

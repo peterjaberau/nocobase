@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-const publicPath = window['__nocobase_dev_public_path__'] || window['__nocobase_public_path__'] || '/';
+
+const publicPath = window['__easyflow_dev_public_path__'] || window['__easyflow_public_path__'] || '/';
 
 export const UPLOAD_PLACEHOLDER = [
   {

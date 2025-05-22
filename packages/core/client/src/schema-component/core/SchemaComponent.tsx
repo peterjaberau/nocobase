@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { IRecursionFieldProps, ISchemaFieldProps, Schema } from '@formily/react';
 import _ from 'lodash';
 import React, { createContext, memo, useContext, useMemo } from 'react';
-import { NocoBaseRecursionField } from '../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../formily/EasyFlowRecursionField';
 import { SchemaComponentContext } from '../context';
 import { SchemaComponentOptions } from './SchemaComponentOptions';
 
@@ -86,7 +79,7 @@ const RecursionSchemaComponent = memo(
       <SchemaComponentOnChangeContext.Provider value={onChangeValue}>
         <SchemaComponentContext.Provider value={value}>
           <SchemaComponentOptions inherit components={components} scope={scope}>
-            <NocoBaseRecursionField {...others} schema={schema} isUseFormilyField parentSchema={parentSchema} />
+            <EasyFlowRecursionField {...others} schema={schema} isUseFormilyField parentSchema={parentSchema} />
           </SchemaComponentOptions>
         </SchemaComponentContext.Provider>
       </SchemaComponentOnChangeContext.Provider>

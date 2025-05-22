@@ -1,5 +1,5 @@
 import React from 'react';
-import { CollectionProvider, useCollection } from '@nocobase/client';
+import { CollectionProvider, useCollection } from '@easyflow/client';
 import { createApp } from '../createApp';
 
 const Demo = () => {

@@ -1,4 +1,4 @@
-const basename = window['__nocobase_public_path__'] || '/';
+const basename = window['__easyflow_public_path__'] || '/';
 let currentPath = window.location.pathname;
 if (currentPath === basename.slice(0, -1)) {
   const newUrl = `${window.location.origin}${basename}${window.location.search}${window.location.hash}`;

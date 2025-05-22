@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from 'axios';
 import qs from 'qs';
@@ -285,7 +278,7 @@ export class APIClient {
   axios: AxiosInstance;
   auth: Auth;
   storage: Storage;
-  storagePrefix = 'NOCOBASE_';
+  storagePrefix = 'EASYFLOW_';
 
   getHeaders() {
     const headers = {};
@@ -309,7 +302,7 @@ export class APIClient {
     if (typeof options === 'function') {
       this.axios = options;
     } else {
-      const { authClass, storageType, storageClass, storagePrefix = 'NOCOBASE_', ...others } = options || {};
+      const { authClass, storageType, storageClass, storagePrefix = 'EASYFLOW_', ...others } = options || {};
       this.storagePrefix = storagePrefix;
       this.axios = axios.create(others);
       this.initStorage(storageClass, storageType);

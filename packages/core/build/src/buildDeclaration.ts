@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import gulp from 'gulp';
 import gulpTs from 'gulp-typescript';
@@ -23,13 +16,8 @@ export const buildDeclaration = (cwd: string, targetDir: string) => {
       path.join(srcPath, '**/*.{ts,tsx}'),
       `!${path.join(srcPath, '**/fixtures{,/**}')}`,
       `!${path.join(srcPath, '**/demos{,/**}')}`,
-      `!${path.join(srcPath, '**/__test__{,/**}')}`,
-      `!${path.join(srcPath, '**/__tests__{,/**}')}`,
-      `!${path.join(srcPath, '**/__benchmarks__{,/**}')}`,
-      `!${path.join(srcPath, '**/__e2e__{,/**}')}`,
       `!${path.join(srcPath, '**/*.mdx')}`,
       `!${path.join(srcPath, '**/*.md')}`,
-      `!${path.join(srcPath, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`,
       `!${path.join(srcPath, '**/tsconfig{,.*}.json')}`,
       `!${path.join(srcPath, '.umi{,-production,-test}{,/**}')}`,
     ];

@@ -1,8 +1,8 @@
 import { App as AntdApp } from 'antd';
-import { useAPIClient, useActionContext } from '@nocobase/client';
+import { useAPIClient, useActionContext } from '@easyflow/client';
 import { useForm } from '@formily/react';
-import { SchemaComponent, Plugin } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { SchemaComponent, Plugin } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 import React from 'react';
 
 const useCloseActionProps = () => {

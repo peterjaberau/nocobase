@@ -11,7 +11,7 @@ import {
   SchemaComponentProvider,
   Tabs,
   AntdSchemaComponentProvider,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const schema: ISchema = {

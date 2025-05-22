@@ -1,6 +1,6 @@
 
 
-import { Application, Plugin, RouterManager, useApp } from '@nocobase/client';
+import { Application, Plugin, RouterManager, useApp } from '@easyflow/client';
 import React, { useMemo } from 'react';
 import { Link, Navigate, Outlet, useParams } from 'react-router-dom';
 
@@ -69,7 +69,7 @@ const AdminSetting = () => {
   );
 };
 
-class NocobasePresetPlugin extends Plugin {
+class EasyflowPresetPlugin extends Plugin {
   async load() {
     this.router.add('root', {
       path: '/',
@@ -92,7 +92,7 @@ class NocobasePresetPlugin extends Plugin {
 
 const app = new Application({
   router: { type: 'hash' },
-  plugins: [NocobasePresetPlugin],
+  plugins: [EasyflowPresetPlugin],
 });
 
 export default app.getRootComponent();

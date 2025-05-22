@@ -12,8 +12,8 @@ import {
   useFormBlockContext,
   useFormBlockProps,
   useTableBlockProps,
-} from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+} from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 import { App as AntdApp } from 'antd';
 import React from 'react';
 

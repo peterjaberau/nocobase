@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { createConsoleLogger, createLogger, Logger, LoggerOptions } from '@nocobase/logger';
-import { ToposortOptions } from '@nocobase/utils';
+
+import { createConsoleLogger, createLogger, Logger, LoggerOptions } from '@easyflow/logger';
+import { ToposortOptions } from '@easyflow/utils';
 import { DataSource } from './data-source';
 import { DataSourceFactory } from './data-source-factory';
 

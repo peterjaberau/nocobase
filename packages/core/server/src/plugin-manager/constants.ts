@@ -1,52 +1,45 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-export const APP_NAME = 'nocobase';
+
+export const APP_NAME = 'easyflow';
 export const DEFAULT_PLUGIN_STORAGE_PATH = 'storage/plugins';
 export const DEFAULT_PLUGIN_PATH = 'packages/plugins/';
 export const pluginPrefix = (
-  process.env.PLUGIN_PACKAGE_PREFIX || '@nocobase/plugin-,@nocobase/preset-,@nocobase/plugin-pro-'
+  process.env.PLUGIN_PACKAGE_PREFIX || '@easyflow/plugin-,@easyflow/preset-,@easyflow/plugin-pro-'
 ).split(',');
 export const requireRegex = /require\s*\(['"`](.*?)['"`]\)/g;
 export const importRegex = /^import(?:['"\s]*([\w*${}\s,]+)from\s*)?['"\s]['"\s](.*[@\w_-]+)['"\s].*/gm;
 export const EXTERNAL = [
-  // nocobase
-  '@nocobase/acl',
-  '@nocobase/actions',
-  '@nocobase/auth',
-  '@nocobase/cache',
-  '@nocobase/client',
-  '@nocobase/database',
-  '@nocobase/evaluators',
-  '@nocobase/logger',
-  '@nocobase/resourcer',
-  '@nocobase/sdk',
-  '@nocobase/server',
-  '@nocobase/test',
-  '@nocobase/utils',
+  // easyflow
+  '@easyflow/acl',
+  '@easyflow/actions',
+  '@easyflow/auth',
+  '@easyflow/cache',
+  '@easyflow/client',
+  '@easyflow/database',
+  '@easyflow/evaluators',
+  '@easyflow/logger',
+  '@easyflow/resourcer',
+  '@easyflow/sdk',
+  '@easyflow/server',
+  '@easyflow/test',
+  '@easyflow/utils',
 
-  // @nocobase/auth
+  // @easyflow/auth
   'jsonwebtoken',
 
-  // @nocobase/cache
+  // @easyflow/cache
   'cache-manager',
 
-  // @nocobase/database
+  // @easyflow/database
   'sequelize',
   'umzug',
   'async-mutex',
 
-  // @nocobase/evaluators
+  // @easyflow/evaluators
   '@formulajs/formulajs',
   'mathjs',
 
-  // @nocobase/logger
+  // @easyflow/logger
   'winston',
   'winston-daily-rotate-file',
 

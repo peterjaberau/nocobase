@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { createSystemLogger, getLoggerFilePath, SystemLogger } from '@nocobase/logger';
-import { Registry, Toposort, ToposortOptions, uid } from '@nocobase/utils';
-import { createStoragePluginsSymlink } from '@nocobase/utils/plugin-symlink';
+
+import { createSystemLogger, getLoggerFilePath, SystemLogger } from '@easyflow/logger';
+import { Registry, Toposort, ToposortOptions, uid } from '@easyflow/utils';
+import { createStoragePluginsSymlink } from '@easyflow/utils/plugin-symlink';
 import { Command } from 'commander';
 import compression from 'compression';
 import { randomUUID } from 'crypto';
@@ -211,14 +204,14 @@ export class Gateway extends EventEmitter {
       });
     }
 
-    // pathname example: /static/plugins/@nocobase/plugins-acl/README.md
+    // pathname example: /static/plugins/@easyflow/plugins-acl/README.md
     // protect server files
     if (pathname.startsWith(PLUGIN_STATICS_PATH) && !pathname.includes('/server/')) {
       await compress(req, res);
       const packageName = getPackageNameByExposeUrl(pathname);
-      // /static/plugins/@nocobase/plugins-acl/README.md => /User/projects/nocobase/plugins/acl
+      // /static/plugins/@easyflow/plugins-acl/README.md => /User/projects/easyflow/plugins/acl
       const publicDir = getPackageDirByExposeUrl(pathname);
-      // /static/plugins/@nocobase/plugins-acl/README.md => README.md
+      // /static/plugins/@easyflow/plugins-acl/README.md => README.md
       const destination = pathname.replace(PLUGIN_STATICS_PATH, '').replace(packageName, '');
       return handler(req, res, {
         public: publicDir,

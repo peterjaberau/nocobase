@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { EditOutlined } from '@ant-design/icons';
 import { css } from '@emotion/css';
@@ -65,10 +58,6 @@ export const InternalPopoverNester = observer(
       setVisible(open);
     }, []);
     const overlayStyle = useMemo(() => ({ padding: '0px' }), []);
-
-    if (process.env.__E2E__) {
-      useSetAriaLabelForPopover(visible);
-    }
 
     return (
       <ActionContextProvider value={{ ...ctx, modalProps }}>

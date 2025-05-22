@@ -10,7 +10,7 @@ import {
   SchemaComponentProvider,
   SchemaInitializer,
   useApp,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const addActionInitializer = new SchemaInitializer({

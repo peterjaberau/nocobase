@@ -1,18 +1,11 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Popover as AntdPopover, PopoverProps } from 'antd';
 import React, { useCallback, useRef } from 'react';
 
 /**
  * 参见：https://github.com/ant-design/ant-design/issues/44119
- * fix https://nocobase.height.app/T-1508
+ * fix https://easyflow.height.app/T-1508
  * @param props
  * @returns
  */

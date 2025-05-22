@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { css } from '@emotion/css';
 import { connect, mapReadPretty } from '@formily/react';
-import { error } from '@nocobase/utils/client';
+import { error } from '@easyflow/utils/client';
 import cronstrue from 'cronstrue';
 import React, { useMemo } from 'react';
 import { CronProps as ReactJsCronProps, Cron as ReactCron } from 'react-js-cron';

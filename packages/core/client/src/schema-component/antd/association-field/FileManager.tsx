@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { PlusOutlined } from '@ant-design/icons';
 import { connect, useExpressionScope, useField, useFieldSchema } from '@formily/react';
@@ -33,7 +26,7 @@ import {
   useCollection_deprecated,
   useCollectionManager_deprecated,
 } from '../../../collection-manager';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { useCompile } from '../../hooks';
 import { ActionContextProvider } from '../action';
 import { EllipsisWithTooltip } from '../input';
@@ -257,7 +250,7 @@ const InternalFileManager = (props) => {
             <FormProvider>
               <TableSelectorParamsProvider params={{}}>
                 <SchemaComponentOptions scope={{ usePickActionProps, useTableSelectorProps }}>
-                  <NocoBaseRecursionField
+                  <EasyFlowRecursionField
                     onlyRenderProperties
                     basePath={field.address}
                     schema={fieldSchema}

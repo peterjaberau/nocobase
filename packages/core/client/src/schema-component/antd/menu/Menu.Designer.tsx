@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { TreeSelect } from '@formily/antd-v5';
@@ -16,7 +9,7 @@ import { Modal } from 'antd';
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { findByUid } from '.';
-import { createDesignable, useCompile, useNocoBaseRoutes } from '../..';
+import { createDesignable, useCompile, useEasyFlowRoutes } from '../..';
 import {
   GeneralSchemaDesigner,
   getPageMenuSchema,
@@ -31,7 +24,7 @@ import {
   useURLAndHTMLSchema,
 } from '../../../';
 import { useInsertPageSchema } from '../../../modules/menu/PageMenuItem';
-import { NocoBaseDesktopRouteType } from '../../../route-switch/antd/admin-layout/convertRoutesToSchema';
+import { EasyFlowDesktopRouteType } from '../../../route-switch/antd/admin-layout/convertRoutesToSchema';
 
 const insertPositionToMethod = {
   beforeBegin: 'insertBefore',
@@ -75,7 +68,7 @@ const InsertMenuItems = (props) => {
   const fieldSchema = useFieldSchema();
   const { urlSchema, paramsSchema } = useURLAndHTMLSchema();
   const isSubMenu = fieldSchema['x-component'] === 'Menu.SubMenu';
-  const { createRoute, moveRoute } = useNocoBaseRoutes();
+  const { createRoute, moveRoute } = useEasyFlowRoutes();
   const insertPageSchema = useInsertPageSchema();
 
   if (!isSubMenu && insertPosition === 'beforeEnd') {
@@ -115,7 +108,7 @@ const InsertMenuItems = (props) => {
 
           // 1. 先创建一个路由
           const { data } = await createRoute({
-            type: NocoBaseDesktopRouteType.group,
+            type: EasyFlowDesktopRouteType.group,
             title,
             icon,
             // 'beforeEnd' 表示的是 Insert inner，此时需要把路由插入到当前路由的内部
@@ -168,7 +161,7 @@ const InsertMenuItems = (props) => {
 
           // 1. 先创建一个路由
           const { data } = await createRoute({
-            type: NocoBaseDesktopRouteType.page,
+            type: EasyFlowDesktopRouteType.page,
             title,
             icon,
             // 'beforeEnd' 表示的是 Insert inner，此时需要把路由插入到当前路由的内部
@@ -178,7 +171,7 @@ const InsertMenuItems = (props) => {
             enableTabs: false,
             children: [
               {
-                type: NocoBaseDesktopRouteType.tabs,
+                type: EasyFlowDesktopRouteType.tabs,
                 schemaUid: tabSchemaUid,
                 tabSchemaName,
                 hidden: true,
@@ -232,7 +225,7 @@ const InsertMenuItems = (props) => {
           // 1. 先创建一个路由
           const { data } = await createRoute(
             {
-              type: NocoBaseDesktopRouteType.link,
+              type: EasyFlowDesktopRouteType.link,
               title,
               icon,
               // 'beforeEnd' 表示的是 Insert inner，此时需要把路由插入到当前路由的内部
@@ -264,7 +257,7 @@ const InsertMenuItems = (props) => {
 const components = { TreeSelect };
 
 export const MenuDesigner = () => {
-  const { updateRoute, deleteRoute } = useNocoBaseRoutes();
+  const { updateRoute, deleteRoute } = useEasyFlowRoutes();
   const field = useField();
   const fieldSchema = useFieldSchema();
   const api = useAPIClient();
@@ -436,7 +429,7 @@ export const MenuDesigner = () => {
     } as ISchema;
   }, [items, t]);
 
-  const { moveRoute } = useNocoBaseRoutes();
+  const { moveRoute } = useEasyFlowRoutes();
 
   const onMoveToSubmit: (values: any) => void = useCallback(
     async ({ target, position }) => {

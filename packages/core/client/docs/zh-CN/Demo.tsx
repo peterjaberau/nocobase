@@ -1,5 +1,5 @@
-import { BlockSchemaComponentPlugin, FormBlockProvider, VariablesProvider } from '@nocobase/client';
-import { getAppComponent, withSchema } from '@nocobase/test/web';
+import { BlockSchemaComponentPlugin, FormBlockProvider, VariablesProvider } from '@easyflow/client';
+import { getAppComponent, withSchema } from '@easyflow/test/web';
 
 const FormBlockProviderWithSchema = withSchema(FormBlockProvider);
 

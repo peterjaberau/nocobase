@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { MenuOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
@@ -62,7 +55,7 @@ const useTableColumns = () => {
           const index = field.value?.indexOf(record);
           return (
             <RecordIndexProvider index={index}>
-              {/* fix https://nocobase.height.app/T-3232/description */}
+              {/* fix https://easyflow.height.app/T-3232/description */}
               {/* 如果作为关系表格区块，则 parentRecordData 应该有值；如果作为普通表格使用（如数据源管理页面的表格）则应该使用 recordData，且 parentRecordData 为空 */}
               <RecordProvider record={record} parent={parentRecordData || recordData}>
                 <span

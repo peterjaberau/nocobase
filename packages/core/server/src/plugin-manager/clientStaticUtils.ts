@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore file -- @preserve */
 
@@ -71,7 +64,7 @@ export function getExposeChangelogUrl(packageName: string) {
  *
  * @example
  * getPluginNameByClientStaticUrl('/static/plugins/dayjs/index.js') => 'dayjs'
- * getPluginNameByClientStaticUrl('/static/plugins/@nocobase/foo/README.md') => '@nocobase/foo'
+ * getPluginNameByClientStaticUrl('/static/plugins/@easyflow/foo/README.md') => '@easyflow/foo'
  */
 export function getPackageNameByExposeUrl(pathname: string) {
   pathname = pathname.replace(process.env.PLUGIN_STATICS_PATH, '');

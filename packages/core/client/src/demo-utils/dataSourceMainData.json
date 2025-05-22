@@ -6,14 +6,14 @@
         "updatedAt": "2024-04-07T06:50:37.797Z",
         "appLang": null,
         "createdById": null,
-        "email": "admin@nocobase.com",
+        "email": "admin@easyflow.com",
         "f_1gx8uyn3wva": 1,
         "id": 1,
         "nickname": "Super Admin",
         "phone": null,
         "systemSettings": {},
         "updatedById": null,
-        "username": "nocobase",
+        "username": "easyflow",
         "roles": [
           {
             "createdAt": "2024-04-07T06:50:37.700Z",
@@ -103,14 +103,14 @@
       "updatedAt": "2024-04-07T06:50:37.797Z",
       "appLang": null,
       "createdById": null,
-      "email": "admin@nocobase.com",
+      "email": "admin@easyflow.com",
       "f_1gx8uyn3wva": 1,
       "id": 1,
       "nickname": "Super Admin",
       "phone": null,
       "systemSettings": {},
       "updatedById": null,
-      "username": "nocobase",
+      "username": "easyflow",
       "roles": [
         {
           "createdAt": "2024-04-07T06:50:37.700Z",

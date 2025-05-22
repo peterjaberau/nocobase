@@ -6,7 +6,7 @@ import {
   ExtendCollectionsProvider,
   SchemaComponent,
   SchemaComponentProvider,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const schema: ISchema = {

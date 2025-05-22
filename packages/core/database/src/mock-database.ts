@@ -1,15 +1,8 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 /* istanbul ignore file -- @preserve */
-import { Database, IDatabaseOptions } from '@nocobase/database';
-import { merge } from '@nocobase/utils';
+import { Database, IDatabaseOptions } from '@easyflow/database';
+import { merge } from '@easyflow/utils';
 import { customAlphabet } from 'nanoid';
 import fetch from 'node-fetch';
 import path from 'path';
@@ -45,7 +38,7 @@ export function getConfigByEnv() {
   };
 
   if (process.env.DB_DIALECT == 'postgres') {
-    options.dialectOptions['application_name'] = 'nocobase.main';
+    options.dialectOptions['application_name'] = 'easyflow.main';
   }
 
   return options;
@@ -61,7 +54,7 @@ function customLogger(queryString, queryObject) {
 export async function createMockDatabase(options: IDatabaseOptions = {}) {
   try {
     // @ts-ignore
-    const { runPluginStaticImports } = await import('@nocobase/server');
+    const { runPluginStaticImports } = await import('@easyflow/server');
     await runPluginStaticImports();
   } catch (error) {
     // error

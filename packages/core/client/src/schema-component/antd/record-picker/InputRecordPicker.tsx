@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ArrayField } from '@formily/core';
 import { useField, useFieldSchema } from '@formily/react';
@@ -18,7 +11,7 @@ import {
   useTableSelectorProps as useTsp,
 } from '../../../block-provider/TableSelectorProvider';
 import { CollectionProvider_deprecated, useCollection_deprecated } from '../../../collection-manager';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { FormProvider, SchemaComponentOptions } from '../../core';
 import { useCompile } from '../../hooks';
 import { ActionContextProvider, useActionContext } from '../action';
@@ -278,7 +271,7 @@ const Drawer: React.FunctionComponent<{
           <FormProvider>
             <TableSelectorParamsProvider params={{ filter: getFilter() }}>
               <SchemaComponentOptions scope={{ useTableSelectorProps, usePickActionProps }}>
-                <NocoBaseRecursionField
+                <EasyFlowRecursionField
                   schema={fieldSchema}
                   onlyRenderProperties
                   filterProperties={(s) => {

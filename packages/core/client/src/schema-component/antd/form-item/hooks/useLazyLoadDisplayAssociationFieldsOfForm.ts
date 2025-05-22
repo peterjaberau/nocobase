@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field } from '@formily/core';
 import { useField, useFieldSchema, useForm } from '@formily/react';
 import { untracked } from '@formily/reactive';
-import { nextTick } from '@nocobase/utils/client';
+import { nextTick } from '@easyflow/utils/client';
 import _ from 'lodash';
 import { useEffect, useMemo, useRef } from 'react';
 import { useAssociationNames } from '../../../../block-provider/hooks';
@@ -96,7 +89,7 @@ const useLazyLoadDisplayAssociationFieldsOfForm = () => {
       .then(({ value }) => {
         nextTick(() => {
           const result = transformVariableValue(value, { targetCollectionField: collectionFieldRef.current });
-          // fix https://nocobase.height.app/T-2608
+          // fix https://easyflow.height.app/T-2608
           if (_.isEmpty(result) && !_.isNumber(result)) {
             field.value = null;
           } else {

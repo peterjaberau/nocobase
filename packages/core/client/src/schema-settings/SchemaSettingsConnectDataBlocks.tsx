@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { useFieldSchema } from '@formily/react';
-import { error } from '@nocobase/utils/client';
+import { error } from '@easyflow/utils/client';
 import { Empty } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

@@ -4,7 +4,7 @@
  * title: DatePicker.RangePicker
  */
 import { FormItem } from '@formily/antd-v5';
-import { DatePicker, Input, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { DatePicker, Input, SchemaComponent, SchemaComponentProvider } from '@easyflow/client';
 import dayjs from 'dayjs';
 import React from 'react';
 

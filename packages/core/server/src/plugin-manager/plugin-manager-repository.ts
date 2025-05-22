@@ -1,14 +1,7 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import Topo from '@hapi/topo';
-import { Repository } from '@nocobase/database';
+import { Repository } from '@easyflow/database';
 import { default as _, default as lodash } from 'lodash';
 import { PluginManager } from './plugin-manager';
 

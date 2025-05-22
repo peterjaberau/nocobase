@@ -7,7 +7,7 @@ import {
   SchemaInitializer,
   useDesignable,
   useSchemaInitializerRender,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import { Button } from 'antd';
 import React from 'react';
 

@@ -1,7 +1,7 @@
 
 
 import { FormItem } from '@formily/antd-v5';
-import { RichText, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { RichText, SchemaComponent, SchemaComponentProvider } from '@easyflow/client';
 import React from 'react';
 import 'react-quill/dist/quill.snow.css'; // ES6
 

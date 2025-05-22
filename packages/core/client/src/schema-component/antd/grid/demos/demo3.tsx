@@ -12,7 +12,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   SchemaInitializer,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
 
 const gridRowColWrap = (schema) => {

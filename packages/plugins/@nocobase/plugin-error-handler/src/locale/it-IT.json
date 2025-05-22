@@ -1,5 +1,0 @@
-{
-  "unique violation": "{{field}} già esiste",
-  "notNull violation": "{{field}} non può essere vuoto",
-  "Validation error": "{{field}} errore di convalida"  
-}

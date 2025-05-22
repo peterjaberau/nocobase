@@ -1,8 +1,8 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallback } from '../ErrorFallback';
-import { Plugin } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { Plugin } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 
 const App = () => {
   throw new Error('error message');

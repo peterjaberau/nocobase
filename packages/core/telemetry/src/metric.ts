@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { Registry } from '@nocobase/utils';
+
+import { Registry } from '@easyflow/utils';
 import {
   MetricReader,
   PeriodicExportingMetricReader,
@@ -37,7 +30,7 @@ export class Metric {
   constructor(options?: MetricOptions) {
     const { meterName, readerName, version } = options || {};
     this.readerName = readerName || 'console';
-    this.meterName = meterName || 'nocobase-meter';
+    this.meterName = meterName || 'easyflow-meter';
     this.version = version || '';
     this.registerReader(
       'console',

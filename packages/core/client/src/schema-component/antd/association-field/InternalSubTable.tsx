@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { css } from '@emotion/css';
 import { FormLayout } from '@formily/antd-v5';
@@ -13,7 +6,7 @@ import { SchemaOptionsContext, observer, useField, useFieldSchema } from '@formi
 import React, { useEffect } from 'react';
 import { ACLCollectionProvider, useACLActionParamsContext } from '../../../acl';
 import { CollectionProvider_deprecated } from '../../../collection-manager';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { FormItem, useSchemaOptionsContext } from '../../../schema-component';
 import Select from '../select/Select';
 import { useAssociationFieldContext, useInsertSchema } from './hooks';
@@ -88,7 +81,7 @@ export const InternalSubTable = observer(
                 components,
               }}
             >
-              <NocoBaseRecursionField
+              <EasyFlowRecursionField
                 onlyRenderProperties
                 basePath={field.address}
                 schema={fieldSchema}

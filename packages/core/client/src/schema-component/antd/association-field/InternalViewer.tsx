@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { observer, useField, useFieldSchema } from '@formily/react';
 import { toArr } from '@formily/shared';
@@ -14,7 +7,7 @@ import React, { FC, Fragment, useCallback, useEffect, useMemo, useRef, useState 
 import { useDesignable, usePopupSettings } from '../../';
 import { WithoutTableFieldResource } from '../../../block-provider';
 import { CollectionRecordProvider, useCollectionManager, useCollectionRecordData } from '../../../data-source';
-import { NocoBaseRecursionField } from '../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../formily/EasyFlowRecursionField';
 import { useOpenModeContext } from '../../../modules/popup/OpenModeProvider';
 import { VariablePopupRecordProvider } from '../../../modules/variable/variablesProvider/VariablePopupRecordProvider';
 import { useCompile } from '../../hooks';
@@ -321,7 +314,7 @@ export const ReadPrettyInternalViewer: React.FC<ReadPrettyInternalViewerProps> =
         // The recordData here is only provided when the popup is opened, not the current row record
         <VariablePopupRecordProvider>
           <WithoutTableFieldResource.Provider value={true}>
-            <NocoBaseRecursionField
+            <EasyFlowRecursionField
               schema={fieldSchema}
               onlyRenderProperties
               basePath={field.address}
@@ -339,7 +332,7 @@ export const ReadPrettyInternalViewer: React.FC<ReadPrettyInternalViewerProps> =
         {/* The recordData here is only provided when the popup is opened, not the current row record */}
         <VariablePopupRecordProvider>
           <WithoutTableFieldResource.Provider value={true}>
-            <NocoBaseRecursionField schema={fieldSchema} onlyRenderProperties basePath={field.address} />
+            <EasyFlowRecursionField schema={fieldSchema} onlyRenderProperties basePath={field.address} />
           </WithoutTableFieldResource.Provider>
         </VariablePopupRecordProvider>
       </CollectionRecordProvider>

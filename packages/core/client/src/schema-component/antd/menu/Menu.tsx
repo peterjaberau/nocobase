@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { css } from '@emotion/css';
 import {
@@ -17,14 +10,14 @@ import {
   useFieldSchema,
 } from '@formily/react';
 import { uid } from '@formily/shared';
-import { error } from '@nocobase/utils/client';
+import { error } from '@easyflow/utils/client';
 import { Menu as AntdMenu, MenuProps } from 'antd';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { createDesignable, DndContext, SchemaComponentContext, SortableItem, useDesignable, useDesigner } from '../..';
 import {
   Icon,
-  NocoBaseRecursionField,
+  EasyFlowRecursionField,
   useAllAccessDesktopRoutes,
   useAPIClient,
   useParseURLAndParams,
@@ -38,8 +31,8 @@ import { findKeysByUid, findMenuItem } from './util';
 
 import { useUpdate } from 'ahooks';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { useRefreshComponent, useRefreshFieldSchema } from '../../../formily/NocoBaseRecursionField';
-import { NocoBaseDesktopRoute } from '../../../route-switch/antd/admin-layout/convertRoutesToSchema';
+import { useRefreshComponent, useRefreshFieldSchema } from '../../../formily/EasyFlowRecursionField';
+import { EasyFlowDesktopRoute } from '../../../route-switch/antd/admin-layout/convertRoutesToSchema';
 import { withTooltipComponent } from '../../../hoc/withTooltipComponent';
 
 const subMenuDesignerCss = css`
@@ -214,7 +207,7 @@ const MenuItemTitle: React.FC<{
 
 const MenuItemTitleWithTooltip = withTooltipComponent(MenuItemTitle);
 
-export const ParentRouteContext = createContext<NocoBaseDesktopRoute>(null);
+export const ParentRouteContext = createContext<EasyFlowDesktopRoute>(null);
 ParentRouteContext.displayName = 'ParentRouteContext';
 
 export const useParentRoute = () => {
@@ -226,13 +219,13 @@ export const useParentRoute = () => {
  * @param collectionName
  * @returns
  */
-export const useNocoBaseRoutes = (collectionName = 'desktopRoutes') => {
+export const useEasyFlowRoutes = (collectionName = 'desktopRoutes') => {
   const api = useAPIClient();
   const resource = useMemo(() => api.resource(collectionName), [api, collectionName]);
   const { refresh: refreshRoutes } = useAllAccessDesktopRoutes();
 
   const createRoute = useCallback(
-    async (values: NocoBaseDesktopRoute, refreshAfterCreate = true) => {
+    async (values: EasyFlowDesktopRoute, refreshAfterCreate = true) => {
       const res = await resource.create({
         values,
       });
@@ -243,7 +236,7 @@ export const useNocoBaseRoutes = (collectionName = 'desktopRoutes') => {
   );
 
   const updateRoute = useCallback(
-    async (filterByTk: any, values: NocoBaseDesktopRoute, refreshAfterUpdate = true) => {
+    async (filterByTk: any, values: EasyFlowDesktopRoute, refreshAfterUpdate = true) => {
       const res = await resource.update({
         filterByTk,
         values,
@@ -455,7 +448,7 @@ const SideMenu = React.memo<SideMenuProps>(
 
     const items = useMemo(() => {
       const result = getMenuItems(() => {
-        return <NocoBaseRecursionField key={uid()} schema={sideMenuSchema} onlyRenderProperties />;
+        return <EasyFlowRecursionField key={uid()} schema={sideMenuSchema} onlyRenderProperties />;
       });
 
       if (designable) {
@@ -525,7 +518,7 @@ const MenuItemDesignerContext = createContext(null);
 MenuItemDesignerContext.displayName = 'MenuItemDesignerContext';
 
 export const useMenuDragEnd = () => {
-  const { moveRoute } = useNocoBaseRoutes();
+  const { moveRoute } = useEasyFlowRoutes();
 
   const onDragEnd = useCallback(
     (event) => {
@@ -853,7 +846,7 @@ Menu.SubMenu = observer(
           </SchemaContext.Provider>
         ),
         children: getMenuItems(() => {
-          return <NocoBaseRecursionField schema={schema} onlyRenderProperties />;
+          return <EasyFlowRecursionField schema={schema} onlyRenderProperties />;
         }),
       };
     }, [field.title, icon, schema, children, Designer]);

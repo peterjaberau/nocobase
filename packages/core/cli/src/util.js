@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 const net = require('net');
 const chalk = require('chalk');
@@ -165,11 +158,11 @@ exports.promptForTs = () => {
 };
 
 exports.downloadPro = async () => {
-  const { NOCOBASE_PKG_USERNAME, NOCOBASE_PKG_PASSWORD } = process.env;
-  if (!(NOCOBASE_PKG_USERNAME && NOCOBASE_PKG_PASSWORD)) {
+  const { EASYFLOW_PKG_USERNAME, EASYFLOW_PKG_PASSWORD } = process.env;
+  if (!(EASYFLOW_PKG_USERNAME && EASYFLOW_PKG_PASSWORD)) {
     return;
   }
-  await exports.run('yarn', ['nocobase', 'pkg', 'download-pro']);
+  await exports.run('yarn', ['easyflow', 'pkg', 'download-pro']);
 };
 
 exports.updateJsonFile = async (target, fn) => {
@@ -179,13 +172,13 @@ exports.updateJsonFile = async (target, fn) => {
 };
 
 exports.getVersion = async () => {
-  const { stdout } = await execa('npm', ['v', '@nocobase/app-server', 'versions']);
+  const { stdout } = await execa('npm', ['v', '@easyflow/app-server', 'versions']);
   const versions = new Function(`return (${stdout})`)();
   return versions[versions.length - 1];
 };
 
 exports.generateAppDir = function generateAppDir() {
-  const appPkgPath = dirname(dirname(require.resolve('@nocobase/app/src/index.ts')));
+  const appPkgPath = dirname(dirname(require.resolve('@easyflow/app/src/index.ts')));
   const appDevDir = resolve(process.cwd(), './storage/.app-dev');
   if (exports.isDev() && !exports.hasCorePackages() && appPkgPath.includes('node_modules')) {
     if (!existsSync(appDevDir)) {
@@ -233,16 +226,10 @@ exports.genTsConfigPaths = function genTsConfigPaths() {
     paths[`${packageJsonName}/client`] = [`${relativePath}/src/client`];
     paths[`${packageJsonName}/package.json`] = [`${relativePath}/package.json`];
     paths[packageJsonName] = [`${relativePath}/src`];
-    if (packageJsonName === '@nocobase/test') {
-      paths[`${packageJsonName}/server`] = [`${relativePath}/src/server`];
-      paths[`${packageJsonName}/e2e`] = [`${relativePath}/src/e2e`];
-      paths[`${packageJsonName}/web`] = [`${relativePath}/src/web`];
-    }
-    if (packageJsonName === '@nocobase/client') {
+    if (packageJsonName === '@easyflow/client') {
       paths[`${packageJsonName}/demo-utils`] = [`${relativePath}/src/demo-utils`];
     }
-    if (packageJsonName === '@nocobase/plugin-workflow-test') {
-      paths[`${packageJsonName}/e2e`] = [`${relativePath}/src/e2e`];
+    if (packageJsonName === '@easyflow/plugin-workflow-test') {
     }
   });
 
@@ -251,23 +238,6 @@ exports.genTsConfigPaths = function genTsConfigPaths() {
   writeFileSync(tsConfigJsonPath, JSON.stringify(content, null, 2), 'utf-8');
   return content;
 };
-
-function generatePlaywrightPath(clean = false) {
-  try {
-    const playwright = resolve(process.cwd(), 'storage/playwright/tests');
-    if (clean && fs.existsSync(playwright)) {
-      fs.rmSync(dirname(playwright), { force: true, recursive: true });
-    }
-    if (!fs.existsSync(playwright)) {
-      const testPkg = require.resolve('@nocobase/test/package.json');
-      fs.cpSync(resolve(dirname(testPkg), 'playwright/tests'), playwright, { recursive: true });
-    }
-  } catch (error) {
-    // empty
-  }
-}
-
-exports.generatePlaywrightPath = generatePlaywrightPath;
 
 function parseEnv(name) {
   if (name === 'DB_UNDERSCORED') {
@@ -333,8 +303,8 @@ function generateGatewayPath() {
     }
     return resolve(process.cwd(), process.env.SOCKET_PATH);
   }
-  if (process.env.NOCOBASE_RUNNING_IN_DOCKER === 'true') {
-    return resolve(os.homedir(), '.nocobase', 'gateway.sock');
+  if (process.env.EASYFLOW_RUNNING_IN_DOCKER === 'true') {
+    return resolve(os.homedir(), '.easyflow', 'gateway.sock');
   }
   return resolve(process.cwd(), 'storage/gateway.sock');
 }
@@ -346,8 +316,8 @@ function generatePm2Home() {
     }
     return resolve(process.cwd(), process.env.PM2_HOME);
   }
-  if (process.env.NOCOBASE_RUNNING_IN_DOCKER === 'true') {
-    return resolve(os.homedir(), '.nocobase', 'pm2');
+  if (process.env.EASYFLOW_RUNNING_IN_DOCKER === 'true') {
+    return resolve(os.homedir(), '.easyflow', 'pm2');
   }
   return resolve(process.cwd(), './storage/.pm2');
 }
@@ -358,10 +328,10 @@ exports.initEnv = function initEnv() {
     APP_KEY: 'test-jwt-secret',
     APP_PORT: 13000,
     API_BASE_PATH: '/api/',
-    API_CLIENT_STORAGE_PREFIX: 'NOCOBASE_',
+    API_CLIENT_STORAGE_PREFIX: 'EASYFLOW_',
     API_CLIENT_STORAGE_TYPE: 'localStorage',
     // DB_DIALECT: 'sqlite',
-    DB_STORAGE: 'storage/db/nocobase.sqlite',
+    DB_STORAGE: 'storage/db/easyflow.sqlite',
     // DB_TIMEZONE: '+00:00',
     DB_UNDERSCORED: parseEnv('DB_UNDERSCORED'),
     DEFAULT_STORAGE_TYPE: 'local',
@@ -373,7 +343,7 @@ exports.initEnv = function initEnv() {
     // PM2_HOME: generatePm2Home(),
     // SOCKET_PATH: generateGatewayPath(),
     NODE_MODULES_PATH: resolve(process.cwd(), 'node_modules'),
-    PLUGIN_PACKAGE_PREFIX: '@nocobase/plugin-,@nocobase/plugin-sample-,@nocobase/preset-',
+    PLUGIN_PACKAGE_PREFIX: '@easyflow/plugin-,@easyflow/plugin-sample-,@easyflow/preset-',
     SERVER_TSCONFIG_PATH: './tsconfig.server.json',
     PLAYWRIGHT_AUTH_FILE: resolve(process.cwd(), 'storage/playwright/.auth/admin.json'),
     CACHE_DEFAULT_STORE: 'memory',
@@ -386,36 +356,9 @@ exports.initEnv = function initEnv() {
     WATCH_FILE: resolve(process.cwd(), 'storage/app.watch.ts'),
   };
 
-  if (
-    !process.env.APP_ENV_PATH &&
-    process.argv[2] &&
-    ['test', 'test:client', 'test:server', 'benchmark'].includes(process.argv[2])
-  ) {
-    if (fs.existsSync(resolve(process.cwd(), '.env.test'))) {
-      process.env.APP_ENV_PATH = '.env.test';
-    }
-  }
-
-  if (!process.env.APP_ENV_PATH && process.argv[2] === 'e2e') {
-    // 用于存放 playwright 自动生成的相关的文件
-    generatePlaywrightPath();
-    if (!fs.existsSync('.env.e2e') && fs.existsSync('.env.e2e.example')) {
-      const env = fs.readFileSync('.env.e2e.example');
-      fs.writeFileSync('.env.e2e', env);
-    }
-    if (!fs.existsSync('.env.e2e')) {
-      throw new Error('Please create .env.e2e file first!');
-    }
-    process.env.APP_ENV_PATH = '.env.e2e';
-  }
-
   dotenv.config({
     path: resolve(process.cwd(), process.env.APP_ENV_PATH || '.env'),
   });
-
-  if (process.argv[2] === 'e2e' && !process.env.APP_BASE_URL) {
-    process.env.APP_BASE_URL = `http://127.0.0.1:${process.env.APP_PORT}`;
-  }
 
   for (const key in env) {
     if (!process.env[key]) {
@@ -461,10 +404,10 @@ exports.initEnv = function initEnv() {
   fs.mkdirpSync(dirname(process.env.SOCKET_PATH), { force: true, recursive: true });
   fs.mkdirpSync(process.env.PM2_HOME, { force: true, recursive: true });
   const pkgs = [
-    '@nocobase/plugin-multi-app-manager',
-    '@nocobase/plugin-departments',
-    '@nocobase/plugin-field-attachment-url',
-    '@nocobase/plugin-workflow-response-message',
+    '@easyflow/plugin-multi-app-manager',
+    '@easyflow/plugin-departments',
+    '@easyflow/plugin-field-attachment-url',
+    '@easyflow/plugin-workflow-response-message',
   ];
   for (const pkg of pkgs) {
     const pkgDir = resolve(process.cwd(), 'storage/plugins', pkg);
@@ -480,8 +423,8 @@ exports.checkDBDialect = function () {
 
 exports.generatePlugins = function () {
   try {
-    require.resolve('@nocobase/devtools/umiConfig');
-    const { generatePlugins } = require('@nocobase/devtools/umiConfig');
+    require.resolve('@easyflow/devtools/umiConfig');
+    const { generatePlugins } = require('@easyflow/devtools/umiConfig');
     generatePlugins();
   } catch (error) {
     return;

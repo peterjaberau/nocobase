@@ -1,7 +1,7 @@
 /**
  * defaultShowCode: true
  */
-import { Application, SchemaSettings } from '@nocobase/client';
+import { Application, SchemaSettings } from '@easyflow/client';
 import { appOptions } from './schema-settings-common';
 
 const mySettings = new SchemaSettings({

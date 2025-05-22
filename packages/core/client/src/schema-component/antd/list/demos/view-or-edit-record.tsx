@@ -9,9 +9,9 @@ import {
   useDataBlockRequest,
   useDataBlockResource,
   SchemaComponent, Plugin,
-} from '@nocobase/client';
+} from '@easyflow/client';
 import React from 'react';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { mockApp } from '@easyflow/client/demo-utils';
 
 import { App as AntdApp } from 'antd';
 

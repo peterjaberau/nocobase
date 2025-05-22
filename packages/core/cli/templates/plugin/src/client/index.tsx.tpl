@@ -1,4 +1,4 @@
-import { Plugin } from '@nocobase/client';
+import { Plugin } from '@easyflow/client';
 
 export class {{{pascalCaseName}}}Client extends Plugin {
   async afterAdd() {

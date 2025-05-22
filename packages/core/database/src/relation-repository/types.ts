@@ -1,13 +1,6 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
 
-import { AssociationKeysToBeUpdate, BlackList, Values, WhiteList } from '@nocobase/database';
+
+import { AssociationKeysToBeUpdate, BlackList, Values, WhiteList } from '@easyflow/database';
 import { Transaction } from 'sequelize';
 import {
   CreateOptions as SequelizeCreateOptions,

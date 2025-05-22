@@ -1,8 +1,8 @@
 
 import { App as AntdApp } from 'antd';
-import { ISchema, useAPIClient } from '@nocobase/client';
-import { SchemaComponent, Plugin, ActionProps } from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+import { ISchema, useAPIClient } from '@easyflow/client';
+import { SchemaComponent, Plugin, ActionProps } from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 import React from 'react';
 
 const useCustomActionProps = (): ActionProps => {

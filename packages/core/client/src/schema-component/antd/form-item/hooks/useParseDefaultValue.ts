@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { Field } from '@formily/core';
 import { useField, useFieldSchema } from '@formily/react';
 import { reaction } from '@formily/reactive';
-import { getValuesByPath } from '@nocobase/utils/client';
+import { getValuesByPath } from '@easyflow/utils/client';
 import _ from 'lodash';
 import { useCallback, useEffect } from 'react';
 import { useRecordIndex } from '../../../../../src/record-provider';
@@ -63,7 +56,7 @@ const useParseDefaultValue = () => {
   );
 
   useEffect(() => {
-    // fix https://tasks.aliyun.nocobase.com/admin/ugmnj2ycfgg/popups/1qlw5c38t3b/puid/dz42x7ffr7i/filterbytk/182
+    // fix https://tasks.aliyun.easyflow.com/admin/ugmnj2ycfgg/popups/1qlw5c38t3b/puid/dz42x7ffr7i/filterbytk/182
     // to clear the default value of the field
     if (type === 'update' && fieldSchema.default && field.form === form) {
       field.setValue?.(record?.data?.[fieldSchema.name]);
@@ -165,7 +158,7 @@ const useParseDefaultValue = () => {
           const obj = { [variableName]: variable?.ctx || {} };
           const path = getPath(fieldSchema.default);
           const value = getValuesByPath(obj, path);
-          // fix https://nocobase.height.app/T-2212
+          // fix https://easyflow.height.app/T-2212
           if (value === undefined) {
             // 返回一个随机值，确保能触发 run 函数
             return Math.random();

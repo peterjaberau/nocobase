@@ -1,13 +1,13 @@
 {
-  "name": "@nocobase/logger",
+  "name": "@easyflow/logger",
   "version": "1.6.31",
-  "description": "nocobase logging library",
-  "license": "AGPL-3.0",
+  "description": "easyflow logging library",
+  "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/easyflow/easyflow.git",
     "directory": "packages/logger"
   },
   "dependencies": {
@@ -17,6 +17,5 @@
     "winston": "^3.13.0",
     "winston-daily-rotate-file": "^5.0.0",
     "winston-transport": "^4.7.0"
-  },
-  "gitHead": "d0b4efe4be55f8c79a98a331d99d9f8cf99021a1"
+  }
 }

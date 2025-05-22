@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs/promises');
 const lerna = require('./lerna.json');
 
-const files = glob.sync(path.resolve(__dirname, './node_modules/@nocobase/**/package.json'));
+const files = glob.sync(path.resolve(__dirname, './node_modules/@easyflow/**/package.json'));
 
 (async () => {
   for (const file of files) {

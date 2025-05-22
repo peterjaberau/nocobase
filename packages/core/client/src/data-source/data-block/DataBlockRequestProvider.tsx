@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 // @ts-ignore
 import React, { FC, createContext, useContext, useDeferredValue, useMemo, useRef } from 'react';
@@ -46,13 +39,13 @@ function useRecordRequest<T>(options: Omit<AllDataBlockProps, 'type'>) {
   const defaultService = (customParams) => {
     if (record) return Promise.resolve({ data: record });
     if (!action) {
-      throw new Error(`[nocobase]: The 'action' parameter is missing in the 'DataBlockRequestProvider' component`);
+      throw new Error(`[easyflow]: The 'action' parameter is missing in the 'DataBlockRequestProvider' component`);
     }
 
-    // fix https://nocobase.height.app/T-4876/description
+    // fix https://easyflow.height.app/T-4876/description
     if (action === 'get' && _.isNil(params.filterByTk)) {
       return console.warn(
-        '[nocobase]: The "filterByTk" parameter is missing in the "DataBlockRequestProvider" component',
+        '[easyflow]: The "filterByTk" parameter is missing in the "DataBlockRequestProvider" component',
       );
     }
 

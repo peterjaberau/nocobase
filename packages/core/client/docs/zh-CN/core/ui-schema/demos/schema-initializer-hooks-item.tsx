@@ -2,7 +2,7 @@
  * defaultShowCode: true
  */
 import { TableOutlined } from '@ant-design/icons';
-import { Application, SchemaInitializer, SchemaInitializerItem, useSchemaInitializerItem } from '@nocobase/client';
+import { Application, SchemaInitializer, SchemaInitializerItem, useSchemaInitializerItem } from '@easyflow/client';
 import React, { ReactNode } from 'react';
 import { appOptions } from './schema-initializer-common';
 

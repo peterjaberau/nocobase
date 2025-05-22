@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { mockApp } from '@nocobase/client/demo-utils';
-import { SchemaComponent, Plugin, SchemaSettings, ISchema } from '@nocobase/client';
+import { mockApp } from '@easyflow/client/demo-utils';
+import { SchemaComponent, Plugin, SchemaSettings, ISchema } from '@easyflow/client';
 
 const simpleSettings = new SchemaSettings({
   name: 'simpleSettings',

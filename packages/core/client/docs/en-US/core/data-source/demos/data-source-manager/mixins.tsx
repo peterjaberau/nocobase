@@ -1,5 +1,5 @@
 import React from 'react';
-import { CollectionProvider, Collection, useCollection, Plugin } from '@nocobase/client';
+import { CollectionProvider, Collection, useCollection, Plugin } from '@easyflow/client';
 import { createApp } from '../createApp';
 
 class TestMixin extends Collection {

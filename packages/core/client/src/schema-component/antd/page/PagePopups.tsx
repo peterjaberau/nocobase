@@ -1,11 +1,4 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { ISchema, Schema } from '@formily/json-schema';
 import { useFieldSchema } from '@formily/react';
@@ -84,15 +77,6 @@ const VisibleProvider: FC<{ popupuid: string }> = React.memo(({ children, popupu
     (visible: boolean) => {
       if (!visible) {
         _setVisible(false);
-
-        if (process.env.__E2E__) {
-          setTimeout(() => {
-            closePopup();
-            // Deleting here ensures that the next time the same popup is opened, it will generate another random key.
-            deleteRandomNestedSchemaKey(popupuid);
-          });
-          return;
-        }
 
         // Leave some time to refresh the block data
         setTimeout(() => {

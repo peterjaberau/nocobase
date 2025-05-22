@@ -4,7 +4,7 @@
  * title: Select
  */
 import { FormItem } from '@formily/antd-v5';
-import { SchemaComponent, SchemaComponentProvider, Select } from '@nocobase/client';
+import { SchemaComponent, SchemaComponentProvider, Select } from '@easyflow/client';
 import React from 'react';
 
 const dataSource = [

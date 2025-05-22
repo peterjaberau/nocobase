@@ -6,8 +6,8 @@ import {
   SchemaComponent,
   Plugin,
   ISchema
-} from '@nocobase/client';
-import { mockApp } from '@nocobase/client/demo-utils';
+} from '@easyflow/client';
+import { mockApp } from '@easyflow/client/demo-utils';
 
 const schema: ISchema = {
   type: 'void',

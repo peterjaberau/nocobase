@@ -1,5 +1,5 @@
-import { BlockSchemaComponentPlugin, VariablesProvider } from '@nocobase/client';
-import { renderAppOptions } from '@nocobase/test/client';
+import { BlockSchemaComponentPlugin, VariablesProvider } from '@easyflow/client';
+import { renderAppOptions } from '@easyflow/test/client';
 
 export const renderDemo9 = () =>
   renderAppOptions({

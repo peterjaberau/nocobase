@@ -1,16 +1,9 @@
-/**
- * This file is part of the NocoBase (R) project.
- * Copyright (c) 2020-2024 NocoBase Co., Ltd.
- * Authors: NocoBase Team.
- *
- * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
- * For more information, please refer to: https://www.nocobase.com/agreement.
- */
+
 
 import { observer, useField, useFieldSchema } from '@formily/react';
 import React, { useState } from 'react';
 import { CollectionProvider_deprecated, useCollectionManager_deprecated } from '../../../../collection-manager';
-import { NocoBaseRecursionField } from '../../../../formily/NocoBaseRecursionField';
+import { EasyFlowRecursionField } from '../../../../formily/EasyFlowRecursionField';
 import { CreateAction } from '../../../../schema-initializer/components';
 import { ActionContextProvider, useActionContext } from '../../action';
 import { useAssociationFieldContext, useInsertSchema } from '../hooks';
@@ -41,7 +34,7 @@ export const CreateRecordAction = observer(
         <ActionContextProvider value={{ ...ctx, visible: visibleAddNewer, setVisible: setVisibleAddNewer }}>
           <CollectionProvider_deprecated name={currentCollection} dataSource={currentDataSource}>
             <TabsContextProvider>
-              <NocoBaseRecursionField
+              <EasyFlowRecursionField
                 onlyRenderProperties
                 basePath={field.address}
                 schema={fieldSchema}
