@@ -6,8 +6,8 @@
   "types": "./lib/index.d.ts",
   "license": "MIT",
   "dependencies": {
-    "@formulajs/formulajs": "4.4.9",
     "@easyflow/utils": "1.6.31",
+    "@formulajs/formulajs": "4.4.9",
     "mathjs": "^10.6.0"
   },
   "repository": {

@@ -1,4 +1,11 @@
-
+/**
+ * This file is part of the NocoBase (R) project.
+ * Copyright (c) 2020-2024 NocoBase Co., Ltd.
+ * Authors: NocoBase Team.
+ *
+ * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
+ * For more information, please refer to: https://www.nocobase.com/agreement.
+ */
 const _ = require('lodash');
 const { Command } = require('commander');
 const { run, postCheck, downloadPro, promptForTs, checkDBDialect } = require('../util');
@@ -59,7 +66,7 @@ module.exports = (cli) => {
 
       const restart = _.debounce(async () => {
         console.log('restarting...');
-        await run('yarn', ['easyflow', 'pm2-restart']);
+        await run('yarn', ['nocobase', 'pm2-restart']);
       }, 500);
 
       watcher

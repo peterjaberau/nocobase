@@ -5,15 +5,17 @@
     "node": ">=18"
   },
   "scripts": {
-    "easyflow": "easyflow",
-    "pm": "easyflow pm",
-    "pm2": "easyflow pm2",
-    "dev": "easyflow dev",
-    "start": "easyflow start",
-    "clean": "easyflow clean",
-    "build": "easyflow build",
-    "tar": "easyflow tar",
-    "postinstall": "easyflow postinstall",
+    "nocobase": "nocobase",
+    "pm": "nocobase pm",
+    "pm2": "nocobase pm2",
+    "dev": "nocobase dev",
+    "start": "nocobase start",
+    "clean": "nocobase clean",
+    "build": "nocobase build",
+    "test": "nocobase test",
+    "e2e": "nocobase e2e",
+    "tar": "nocobase tar",
+    "postinstall": "nocobase postinstall",
     "lint": "eslint ."
   },
   "resolutions": {

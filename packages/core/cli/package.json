@@ -1,14 +1,14 @@
 {
-  "name": "@easyflow/cli",
+  "name": "@nocobase/cli",
   "version": "1.6.31",
   "description": "",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "main": "./src/index.js",
   "bin": {
-    "easyflow": "./bin/index.js"
+    "nocobase": "./bin/index.js"
   },
   "dependencies": {
-    "@easyflow/app": "1.6.31",
+    "@nocobase/app": "1.6.31",
     "@types/fs-extra": "^11.0.1",
     "@umijs/utils": "3.5.20",
     "chalk": "^4.1.1",
@@ -26,11 +26,12 @@
     "tsx": "^4.19.0"
   },
   "devDependencies": {
-    "@easyflow/devtools": "1.6.31"
+    "@nocobase/devtools": "1.6.31"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/easyflow/easyflow.git",
+    "url": "git+https://github.com/nocobase/nocobase.git",
     "directory": "packages/core/cli"
-  }
+  },
+  "gitHead": "d0b4efe4be55f8c79a98a331d99d9f8cf99021a1"
 }

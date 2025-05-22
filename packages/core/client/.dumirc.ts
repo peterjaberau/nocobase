@@ -1,6 +1,6 @@
 import { getUmiConfig } from '@easyflow/devtools/umiConfig';
 import { defineConfig } from 'dumi';
-import { defineThemeConfig } from 'dumi-theme-easyflow';
+import { defineThemeConfig } from 'dumi-theme-nocobase';
 
 const umiConfig = getUmiConfig();
 process.env.DOC_LANG = process.env.DOC_LANG || 'zh-CN';

@@ -1,4 +1,11 @@
-
+/**
+ * This file is part of the NocoBase (R) project.
+ * Copyright (c) 2020-2024 NocoBase Co., Ltd.
+ * Authors: NocoBase Team.
+ *
+ * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
+ * For more information, please refer to: https://www.nocobase.com/agreement.
+ */
 
 const chalk = require('chalk');
 const { existsSync } = require('fs');
@@ -39,13 +46,13 @@ class PluginGenerator extends Generator {
 
   async getContext() {
     const { name } = this.context;
-    const easyflowVersion = require('@easyflow/server/package.json').version;
+    const nocobaseVersion = require('@nocobase/server/package.json').version;
     const packageVersion = await getProjectVersion();
     return {
       ...this.context,
       packageName: name,
       packageVersion,
-      easyflowVersion,
+      nocobaseVersion,
       pascalCaseName: capitalize(camelize(name.split('/').pop())),
     };
   }

@@ -18,11 +18,8 @@
     "start": "easyflow start",
     "build": "easyflow build",
     "tar": "easyflow tar",
-    "ts": "easyflow",
-    "tc": "easyflow",
     "benchmark": "easyflow benchmark",
     "doc": "easyflow doc",
-    "doc:cn": "easyflow doc --lang=zh-CN",
     "postinstall": "easyflow postinstall",
     "lint": "eslint .",
     "clean": "easyflow clean",
@@ -61,5 +58,5 @@
     "node": "20.14.0",
     "yarn": "1.22.19"
   },
-  "dependencies": {}
+  "packageManager": "yarn@3.6.4+sha512.e70835d4d6d62c07be76b3c1529cb640c7443f0fe434ef4b6478a5a399218cbaf1511b396b3c56eb03bc86424cff2320f6167ad2fde273aa0df6e60b7754029f"
 }

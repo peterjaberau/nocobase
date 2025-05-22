@@ -1,4 +1,11 @@
-
+/**
+ * This file is part of the NocoBase (R) project.
+ * Copyright (c) 2020-2024 NocoBase Co., Ltd.
+ * Authors: NocoBase Team.
+ *
+ * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
+ * For more information, please refer to: https://www.nocobase.com/agreement.
+ */
 
 const { Command } = require('commander');
 const { isPackageValid, generateAppDir } = require('../util');
@@ -16,9 +23,13 @@ module.exports = (cli) => {
   require('./tar')(cli);
   require('./dev')(cli);
   require('./start')(cli);
+  require('./e2e')(cli);
   require('./clean')(cli);
   require('./doc')(cli);
   require('./pm2')(cli);
+  require('./test')(cli);
+  require('./test-coverage')(cli);
+  require('./benchmark')(cli);
   require('./umi')(cli);
   require('./update-deps')(cli);
   require('./upgrade')(cli);

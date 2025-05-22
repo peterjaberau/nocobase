@@ -1,4 +1,11 @@
-
+/**
+ * This file is part of the NocoBase (R) project.
+ * Copyright (c) 2020-2024 NocoBase Co., Ltd.
+ * Authors: NocoBase Team.
+ *
+ * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
+ * For more information, please refer to: https://www.nocobase.com/agreement.
+ */
 
 const { Command } = require('commander');
 const axios = require('axios');
@@ -6,7 +13,7 @@ const fs = require('fs-extra');
 const zlib = require('zlib');
 const tar = require('tar');
 const path = require('path');
-const { createStoragePluginsSymlink } = require('@easyflow/utils/plugin-symlink');
+const { createStoragePluginsSymlink } = require('@nocobase/utils/plugin-symlink');
 const chalk = require('chalk');
 
 class Package {
@@ -175,6 +182,30 @@ class PackageManager {
     return new Package(packageName, this);
   }
 
+  async getProPackages() {
+    const res = await axios.get(this.url('pro-packages'), {
+      headers: {
+        Authorization: `Bearer ${this.token}`,
+      },
+      responseType: 'json',
+    });
+    return {
+      licensed_plugins: res.data?.data || [],
+      commercial_plugins: res.data?.meta?.commercial_plugins || [],
+    };
+  }
+
+  async getPackages() {
+    const pkgs = await this.getProPackages();
+
+    if (Array.isArray(pkgs)) {
+      return {
+        commercial_plugins: pkgs,
+        licensed_plugins: pkgs,
+      };
+    }
+    return pkgs;
+  }
 
   async removePackage(packageName) {
     const dir = path.resolve(process.env.PLUGIN_STORAGE_PATH, packageName);
@@ -184,6 +215,23 @@ class PackageManager {
       await fs.rm(dir, { force: true, recursive: true });
     }
   }
+
+  async download(options = {}) {
+    const { version } = options;
+    if (!this.token) {
+      return;
+    }
+    const { commercial_plugins, licensed_plugins } = await this.getPackages();
+    for (const pkg of commercial_plugins) {
+      if (!licensed_plugins.includes(pkg)) {
+        await this.removePackage(pkg);
+      }
+    }
+    for (const pkg of licensed_plugins) {
+      await this.getPackage(pkg).download({ version });
+    }
+  }
+}
 
 /**
  *
@@ -196,15 +244,15 @@ module.exports = (cli) => {
     .option('-V, --version [version]')
     .action(async () => {
       const {
-        EASYFLOW_PKG_URL = 'https://pkg.easyflow.com/',
-        EASYFLOW_PKG_USERNAME,
-        EASYFLOW_PKG_PASSWORD,
+        NOCOBASE_PKG_URL = 'https://pkg.nocobase.com/',
+        NOCOBASE_PKG_USERNAME,
+        NOCOBASE_PKG_PASSWORD,
       } = process.env;
-      if (!(EASYFLOW_PKG_USERNAME && EASYFLOW_PKG_PASSWORD)) {
+      if (!(NOCOBASE_PKG_USERNAME && NOCOBASE_PKG_PASSWORD)) {
         return;
       }
-      const credentials = { username: EASYFLOW_PKG_USERNAME, password: EASYFLOW_PKG_PASSWORD };
-      const pm = new PackageManager({ baseURL: EASYFLOW_PKG_URL });
+      const credentials = { username: NOCOBASE_PKG_USERNAME, password: NOCOBASE_PKG_PASSWORD };
+      const pm = new PackageManager({ baseURL: NOCOBASE_PKG_URL });
       await pm.login(credentials);
       const file = path.resolve(__dirname, '../../package.json');
       const json = await fs.readJson(file);

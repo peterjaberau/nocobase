@@ -1,4 +1,11 @@
-
+/**
+ * This file is part of the NocoBase (R) project.
+ * Copyright (c) 2020-2024 NocoBase Co., Ltd.
+ * Authors: NocoBase Team.
+ *
+ * This project is dual-licensed under AGPL-3.0 and NocoBase Commercial License.
+ * For more information, please refer to: https://www.nocobase.com/agreement.
+ */
 
 const chalk = require('chalk');
 const { Command } = require('commander');
@@ -33,8 +40,8 @@ module.exports = (cli) => {
       if (options.skipCodeUpdate) {
         await runAppCommand('upgrade');
       } else {
-        await run('easyflow', ['update-deps']);
-        await run('easyflow', ['upgrade', '--skip-code-update']);
+        await run('nocobase', ['update-deps']);
+        await run('nocobase', ['upgrade', '--skip-code-update']);
       }
     });
 };
