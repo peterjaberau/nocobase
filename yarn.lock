@@ -4717,6 +4717,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@easyflow-lab/plugin-add-page@workspace:packages/plugins/@easyflow-lab/plugin-add-page":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-add-page@workspace:packages/plugins/@easyflow-lab/plugin-add-page"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-json-viewer@workspace:packages/plugins/@easyflow-lab/plugin-json-viewer":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-json-viewer@workspace:packages/plugins/@easyflow-lab/plugin-json-viewer"
+  dependencies:
+    react18-json-view: 0.2.9
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
 "@easyflow/acl@1.6.31, @easyflow/acl@workspace:packages/core/acl":
   version: 0.0.0-use.local
   resolution: "@easyflow/acl@workspace:packages/core/acl"
@@ -35910,6 +35932,17 @@ __metadata:
     react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
   checksum: 00259ab12f3bfe9eeae1424dc0d09bfd04f2c090ad98c5a7ac0052427bd3cc95fa401b46d03bd0a9e7e1ca637ae74e309969d4cff5ec81f8274e7198382e5464
+  languageName: node
+  linkType: hard
+
+"react18-json-view@npm:0.2.9":
+  version: 0.2.9
+  resolution: "react18-json-view@npm:0.2.9"
+  dependencies:
+    copy-to-clipboard: ^3.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: ab599ccf03c5c7d41216b0ba353787b83802c9a8ffe5669f0295b771d6f4e17cadd4547fec09158d35e9264ae8a09695b8ba424a80359151930472f37edd4a76
   languageName: node
   linkType: hard
 
