@@ -5126,6 +5126,86 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@easyflow-lab/plugin-block-carousel@workspace:packages/plugins/@easyflow-lab/plugin-block-carousel":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-block-carousel@workspace:packages/plugins/@easyflow-lab/plugin-block-carousel"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-block-form@workspace:packages/plugins/@easyflow-lab/plugin-block-form":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-block-form@workspace:packages/plugins/@easyflow-lab/plugin-block-form"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-component-and-scope-global@workspace:packages/plugins/@easyflow-lab/plugin-component-and-scope-global":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-component-and-scope-global@workspace:packages/plugins/@easyflow-lab/plugin-component-and-scope-global"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-component-and-scope-local@workspace:packages/plugins/@easyflow-lab/plugin-component-and-scope-local":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-component-and-scope-local@workspace:packages/plugins/@easyflow-lab/plugin-component-and-scope-local"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-field-component-value@workspace:packages/plugins/@easyflow-lab/plugin-field-component-value":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-field-component-value@workspace:packages/plugins/@easyflow-lab/plugin-field-component-value"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-field-component-without-value@workspace:packages/plugins/@easyflow-lab/plugin-field-component-without-value":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-field-component-without-value@workspace:packages/plugins/@easyflow-lab/plugin-field-component-without-value"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-field-interface@workspace:packages/plugins/@easyflow-lab/plugin-field-interface":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-field-interface@workspace:packages/plugins/@easyflow-lab/plugin-field-interface"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-file-storage-demo@workspace:packages/plugins/@easyflow-lab/plugin-file-storage-demo":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-file-storage-demo@workspace:packages/plugins/@easyflow-lab/plugin-file-storage-demo"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
 "@easyflow-lab/plugin-json-viewer@workspace:packages/plugins/@easyflow-lab/plugin-json-viewer":
   version: 0.0.0-use.local
   resolution: "@easyflow-lab/plugin-json-viewer@workspace:packages/plugins/@easyflow-lab/plugin-json-viewer"
