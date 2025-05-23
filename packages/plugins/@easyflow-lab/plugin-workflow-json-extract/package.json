@@ -1,0 +1,23 @@
+{
+  "name": "@easyflow-lab/plugin-workflow-json-extract",
+  "version": "1.0.0",
+  "displayName": "Workflow: JSON Extract",
+  "description": "Extract JSON Values from workflow scope",
+  "author": "David Fecke (leptoquark1)",
+  "license": "MIT",
+  "homepage": "//github.com/leptoquark1/EasyFlow-plugins",
+  "main": "dist/server/index.js",
+  "keywords": [
+    "Workflow"
+  ],
+  "devDependencies": {
+    "lodash": "4.x"
+  },
+  "peerDependencies": {
+    "@easyflow/client": "1.x",
+    "@easyflow/plugin-workflow": "1.x",
+    "@easyflow/server": "1.x",
+    "@easyflow/test": "1.x",
+    "@easyflow/utils": "1.x"
+  }
+}
