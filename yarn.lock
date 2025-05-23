@@ -5096,6 +5096,36 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@easyflow-lab/plugin-add-setting-page-layout-routes@workspace:packages/plugins/@easyflow-lab/plugin-add-setting-page-layout-routes":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-add-setting-page-layout-routes@workspace:packages/plugins/@easyflow-lab/plugin-add-setting-page-layout-routes"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-add-setting-page-single-route@workspace:packages/plugins/@easyflow-lab/plugin-add-setting-page-single-route":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-add-setting-page-single-route@workspace:packages/plugins/@easyflow-lab/plugin-add-setting-page-single-route"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-add-setting-page-tabs-routes@workspace:packages/plugins/@easyflow-lab/plugin-add-setting-page-tabs-routes":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-add-setting-page-tabs-routes@workspace:packages/plugins/@easyflow-lab/plugin-add-setting-page-tabs-routes"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
 "@easyflow-lab/plugin-json-viewer@workspace:packages/plugins/@easyflow-lab/plugin-json-viewer":
   version: 0.0.0-use.local
   resolution: "@easyflow-lab/plugin-json-viewer@workspace:packages/plugins/@easyflow-lab/plugin-json-viewer"
@@ -5133,6 +5163,96 @@ __metadata:
     tiny-invariant: ^1.3.3
     ts-results: ^3.3.0
     xstate: ^5.18.2
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-provider-context@workspace:packages/plugins/@easyflow-lab/plugin-provider-context":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-provider-context@workspace:packages/plugins/@easyflow-lab/plugin-provider-context"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-replace-page@workspace:packages/plugins/@easyflow-lab/plugin-replace-page":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-replace-page@workspace:packages/plugins/@easyflow-lab/plugin-replace-page"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-resource-define@workspace:packages/plugins/@easyflow-lab/plugin-resource-define":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-resource-define@workspace:packages/plugins/@easyflow-lab/plugin-resource-define"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-schema-settings-add-item@workspace:packages/plugins/@easyflow-lab/plugin-schema-settings-add-item":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-schema-settings-add-item@workspace:packages/plugins/@easyflow-lab/plugin-schema-settings-add-item"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-schema-settings-new@workspace:packages/plugins/@easyflow-lab/plugin-schema-settings-new":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-schema-settings-new@workspace:packages/plugins/@easyflow-lab/plugin-schema-settings-new"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-settings-form@workspace:packages/plugins/@easyflow-lab/plugin-settings-form":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-settings-form@workspace:packages/plugins/@easyflow-lab/plugin-settings-form"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-settings-table-multiple-forms@workspace:packages/plugins/@easyflow-lab/plugin-settings-table-multiple-forms":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-settings-table-multiple-forms@workspace:packages/plugins/@easyflow-lab/plugin-settings-table-multiple-forms"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-lab/plugin-settings-table@workspace:packages/plugins/@easyflow-lab/plugin-settings-table":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-lab/plugin-settings-table@workspace:packages/plugins/@easyflow-lab/plugin-settings-table"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@easyflow-labs/plugin-provider-content@workspace:packages/plugins/@easyflow-lab/plugin-provider-content":
+  version: 0.0.0-use.local
+  resolution: "@easyflow-labs/plugin-provider-content@workspace:packages/plugins/@easyflow-lab/plugin-provider-content"
   peerDependencies:
     "@easyflow/client": 1.x
     "@easyflow/server": 1.x
@@ -9018,6 +9138,76 @@ __metadata:
   checksum: c6e072de07e93941dd1aa41eeddd00a844ddecc393b522ca163ab1aa174dd99ac06ace0ff659da8b20ae61df06402e8576cd426c9cd29fce7c643241fb9286a3
   languageName: node
   linkType: hard
+
+"@lab/plugin-initializer-action-modal@workspace:packages/plugins/@easyflow-lab/plugin-initializer-action-modal":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-action-modal@workspace:packages/plugins/@easyflow-lab/plugin-initializer-action-modal"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@lab/plugin-initializer-action-simple@workspace:packages/plugins/@easyflow-lab/plugin-initializer-action-simple":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-action-simple@workspace:packages/plugins/@easyflow-lab/plugin-initializer-action-simple"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@lab/plugin-initializer-block-data-modal@workspace:packages/plugins/@easyflow-lab/plugin-initializer-block-data-modal":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-block-data-modal@workspace:packages/plugins/@easyflow-lab/plugin-initializer-block-data-modal"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@lab/plugin-initializer-block-simple@workspace:packages/plugins/@easyflow-lab/plugin-initializer-block-simple":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-block-simple@workspace:packages/plugins/@easyflow-lab/plugin-initializer-block-simple"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@lab/plugin-initializer-configure-actions@workspace:packages/plugins/@easyflow-lab/plugin-initializer-configure-actions":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-configure-actions@workspace:packages/plugins/@easyflow-lab/plugin-initializer-configure-actions"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@lab/plugin-initializer-configure-fields@workspace:packages/plugins/@easyflow-lab/plugin-initializer-configure-fields":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-configure-fields@workspace:packages/plugins/@easyflow-lab/plugin-initializer-configure-fields"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
+
+"@lab/plugin-initializer-data-block@workspace:packages/plugins/@easyflow-lab/plugin-initializer-block-data":
+  version: 0.0.0-use.local
+  resolution: "@lab/plugin-initializer-data-block@workspace:packages/plugins/@easyflow-lab/plugin-initializer-block-data"
+  peerDependencies:
+    "@easyflow/client": 1.x
+    "@easyflow/server": 1.x
+    "@easyflow/test": 1.x
+  languageName: unknown
+  linkType: soft
 
 "@langchain/core@npm:^0.3.39":
   version: 0.3.42

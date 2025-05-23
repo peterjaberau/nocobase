@@ -1,0 +1,10 @@
+{
+  "name": "@easyflow-lab/plugin-settings-table",
+  "version": "0.1.0",
+  "main": "dist/server/index.js",
+  "peerDependencies": {
+    "@easyflow/client": "1.x",
+    "@easyflow/server": "1.x",
+    "@easyflow/test": "1.x"
+  }
+}
