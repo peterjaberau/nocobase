@@ -6,10 +6,10 @@ import {
   getEdgeLabelForServiceAsTarget,
   generatedIdForEdge,
   createEdge,
-} from '@utils/node-graphs/utils/utils';
+} from './utils/utils';
 import { getNodesAndEdges as getServicesNodeAndEdges } from './services-node-graph';
 import merge from 'lodash.merge';
-import { getItemsFromCollectionByIdAndSemverOrLatest } from '@utils/collections/util';
+import { getItemsFromCollectionByIdAndSemverOrLatest } from '../collections/util';
 import type { Node } from '@xyflow/react';
 import { getProducersOfMessage } from '@utils/collections/services';
 

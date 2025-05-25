@@ -36,7 +36,7 @@ import DownloadButton from './DownloadButton';
 // import { buildUrl } from '@utils/url-builder';
 import ChannelNode from './Nodes/Channel';
 import { CogIcon } from '@heroicons/react/20/solid';
-import { useEventCatalogVisualiser } from 'src/hooks/eventcatalog-visualizer';
+import { useEventCatalogVisualiser } from '../../hooks/eventcatalog-visualizer';
 interface Props {
   nodes: any;
   edges: any;
