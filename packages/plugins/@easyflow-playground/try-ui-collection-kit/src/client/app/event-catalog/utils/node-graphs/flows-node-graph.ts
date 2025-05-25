@@ -1,9 +1,9 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from '../database';
 import dagre from 'dagre';
-import { createDagreGraph, calculatedNodes } from '@utils/node-graphs/utils/utils';
+import { createDagreGraph, calculatedNodes } from './utils/utils';
 import { MarkerType } from '@xyflow/react';
 import type { Node as NodeType } from '@xyflow/react';
-import { getItemsFromCollectionByIdAndSemverOrLatest } from '@utils/collections/util';
+import { getItemsFromCollectionByIdAndSemverOrLatest } from '../collections';
 
 type DagreGraph = any;
 
@@ -15,8 +15,12 @@ interface Props {
   renderAllEdges?: boolean;
 }
 
-const getServiceNode = (step: any, services: CollectionEntry<'services'>[]) => {
-  const servicesForVersion = getItemsFromCollectionByIdAndSemverOrLatest(services, step.service.id, step.service.version);
+const getServiceNode = (step: any, services: any[]) => {
+  const servicesForVersion = getItemsFromCollectionByIdAndSemverOrLatest(
+    services,
+    step.service.id,
+    step.service.version,
+  );
   const service = servicesForVersion?.[0];
   return {
     ...step,
@@ -25,7 +29,7 @@ const getServiceNode = (step: any, services: CollectionEntry<'services'>[]) => {
   };
 };
 
-const getFlowNode = (step: any, flows: CollectionEntry<'flows'>[]) => {
+const getFlowNode = (step: any, flows: any[]) => {
   const flowsForVersion = getItemsFromCollectionByIdAndSemverOrLatest(flows, step.flow.id, step.flow.version);
   const flow = flowsForVersion?.[0];
   return {
@@ -35,8 +39,12 @@ const getFlowNode = (step: any, flows: CollectionEntry<'flows'>[]) => {
   };
 };
 
-const getMessageNode = (step: any, messages: CollectionEntry<'events' | 'commands' | 'queries'>[]) => {
-  const messagesForVersion = getItemsFromCollectionByIdAndSemverOrLatest(messages, step.message.id, step.message.version);
+const getMessageNode = (step: any, messages: any[]) => {
+  const messagesForVersion = getItemsFromCollectionByIdAndSemverOrLatest(
+    messages,
+    step.message.id,
+    step.message.version,
+  );
   const message = messagesForVersion[0];
   return {
     ...step,
@@ -45,7 +53,13 @@ const getMessageNode = (step: any, messages: CollectionEntry<'events' | 'command
   };
 };
 
-export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simple', renderAllEdges = false }: Props) => {
+export const getNodesAndEdges = async ({
+  id,
+  defaultFlow,
+  version,
+  mode = 'simple',
+  renderAllEdges = false,
+}: Props) => {
   const graph = defaultFlow || createDagreGraph({ ranksep: 360, nodesep: 200 });
   const nodes = [] as any,
     edges = [] as any;

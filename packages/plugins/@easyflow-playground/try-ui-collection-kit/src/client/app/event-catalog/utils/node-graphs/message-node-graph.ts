@@ -1,6 +1,5 @@
 // import { getColor } from '@utils/colors';
-import { getEvents } from '@utils/events';
-import type { CollectionEntry } from 'astro:content';
+import { getEvents } from '../events';
 import dagre from 'dagre';
 import {
   calculatedNodes,
@@ -13,10 +12,9 @@ import {
   getEdgeLabelForServiceAsTarget,
 } from './utils/utils';
 import { MarkerType } from '@xyflow/react';
-import { findMatchingNodes } from '@utils/collections/util';
-import type { CollectionMessageTypes } from '@types';
-import { getCommands } from '@utils/commands';
-import { getQueries } from '@utils/queries';
+import { findMatchingNodes } from '../collections';
+import { getCommands } from '../commands';
+import { getQueries } from '../queries';
 
 type DagreGraph = any;
 
@@ -25,7 +23,7 @@ interface Props {
   version: string;
   defaultFlow?: DagreGraph;
   mode?: 'simple' | 'full';
-  collection?: CollectionEntry<CollectionMessageTypes>[];
+  collection?: any[];
 }
 
 const getNodesAndEdges = async ({ id, version, defaultFlow, mode = 'simple', collection = [] }: Props) => {
@@ -45,9 +43,9 @@ const getNodesAndEdges = async ({ id, version, defaultFlow, mode = 'simple', col
     };
   }
 
-  const producers = (message.data.producers as CollectionEntry<'services'>[]) || [];
-  const consumers = (message.data.consumers as CollectionEntry<'services'>[]) || [];
-  const channels = (message.data.messageChannels as CollectionEntry<'channels'>[]) || [];
+  const producers = (message.data.producers as any[]) || [];
+  const consumers = (message.data.consumers as any[]) || [];
+  const channels = (message.data.messageChannels as any[]) || [];
 
   // Track nodes that are both sent and received
   const bothSentAndReceived = findMatchingNodes(producers, consumers);

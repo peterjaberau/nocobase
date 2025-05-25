@@ -1,4 +1,4 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from '../database';
 import dagre from 'dagre';
 import {
   createDagreGraph,
@@ -7,10 +7,9 @@ import {
   calculatedNodes,
   createEdge,
   getChannelNodesAndEdges,
-} from '@utils/node-graphs/utils/utils';
-import { findMatchingNodes, getItemsFromCollectionByIdAndSemverOrLatest } from '@utils/collections/util';
+} from './utils/utils';
+import { findMatchingNodes, getItemsFromCollectionByIdAndSemverOrLatest } from '../collections';
 import { MarkerType } from '@xyflow/react';
-import type { CollectionMessageTypes } from '@types';
 
 type DagreGraph = any;
 
@@ -47,12 +46,18 @@ const getReceivesMessageByMessageType = (messageType: string) => {
   }
 };
 
-export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simple', renderAllEdges = false }: Props) => {
+export const getNodesAndEdges = async ({
+  id,
+  defaultFlow,
+  version,
+  mode = 'simple',
+  renderAllEdges = false,
+}: Props) => {
   const flow = defaultFlow || createDagreGraph({ ranksep: 300, nodesep: 50 });
   const nodes = [] as any,
     edges = [] as any;
 
-  const services = await getCollection('services');
+  const services = getCollection('services');
 
   const service = services.find((service) => service.data.id === id && service.data.version === version);
 
@@ -67,10 +72,10 @@ export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simpl
   const receivesRaw = service?.data.receives || [];
   const sendsRaw = service?.data.sends || [];
 
-  const events = await getCollection('events');
-  const commands = await getCollection('commands');
-  const queries = await getCollection('queries');
-  const channels = await getCollection('channels');
+  const events = getCollection('events');
+  const commands = getCollection('commands');
+  const queries = getCollection('queries');
+  const channels = getCollection('channels');
 
   const messages = [...events, ...commands, ...queries];
 
@@ -84,8 +89,8 @@ export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simpl
     .flat()
     .filter((e) => e !== undefined);
 
-  const receives = (receivesHydrated as CollectionEntry<CollectionMessageTypes>[]) || [];
-  const sends = (sendsHydrated as CollectionEntry<CollectionMessageTypes>[]) || [];
+  const receives = (receivesHydrated as any[]) || [];
+  const sends = (sendsHydrated as any[]) || [];
 
   // Track messages that are both sent and received
   const bothSentAndReceived = findMatchingNodes(receives, sends);
@@ -124,7 +129,7 @@ export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simpl
           target: generateIdForNode(service),
           label: getReceivesMessageByMessageType(receive?.collection),
           data: { message: receive },
-        })
+        }),
       );
     }
   });
@@ -170,7 +175,7 @@ export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simpl
           target: generateIdForNode(send),
           label: getSendsMessageByMessageType(send?.collection),
           data: { message: send },
-        })
+        }),
       );
     }
   });
@@ -182,7 +187,9 @@ export const getNodesAndEdges = async ({ id, defaultFlow, version, mode = 'simpl
         id: generatedIdForEdge(service, message) + '-both',
         source: generateIdForNode(service),
         target: generateIdForNode(message),
-        label: `${getSendsMessageByMessageType(message?.collection)} & ${getReceivesMessageByMessageType(message?.collection)}`,
+        label: `${getSendsMessageByMessageType(message?.collection)} & ${getReceivesMessageByMessageType(
+          message?.collection,
+        )}`,
         animated: false,
         data: { message },
         markerEnd: {

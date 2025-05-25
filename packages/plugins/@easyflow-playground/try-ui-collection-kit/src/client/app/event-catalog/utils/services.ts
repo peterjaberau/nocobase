@@ -1,0 +1,189 @@
+import { getItemsFromCollectionByIdAndSemverOrLatest, getVersionForCollectionItem } from './collections';
+import { getCollection } from './database';
+import path from 'path';
+import semver from 'semver';
+const PROJECT_DIR = process.env.PROJECT_DIR || process.cwd();
+
+interface Props {
+  getAllVersions?: boolean;
+}
+
+// Cache for build time
+let cachedServices: Record<string, any[]> = {
+  allVersions: [],
+  currentVersions: [],
+};
+
+export const getServices = async ({ getAllVersions = true }: Props = {}): Promise<any[]> => {
+  const cacheKey = getAllVersions ? 'allVersions' : 'currentVersions';
+
+  // Check if we have cached domains for this specific getAllVersions value
+  if (cachedServices[cacheKey].length > 0) {
+    return cachedServices[cacheKey];
+  }
+
+  // Get services that are not versioned
+  const allServices = await getCollection('services');
+  const services = allServices.filter((service) => {
+    return (getAllVersions || !service.filePath?.includes('versioned')) && service.data.hidden !== true;
+  });
+
+  const events = await getCollection('events');
+  const commands = await getCollection('commands');
+  const queries = await getCollection('queries');
+  const entities = await getCollection('entities');
+  const allMessages = [...events, ...commands, ...queries];
+
+  // @ts-ignore // TODO: Fix this type
+  cachedServices[cacheKey] = services.map((service) => {
+    const { latestVersion, versions } = getVersionForCollectionItem(service, services);
+
+    const sendsMessages = service.data.sends || [];
+    const receivesMessages = service.data.receives || [];
+    const serviceEntities = service.data.entities || [];
+
+    const sends = sendsMessages
+      .map((message: any) => getItemsFromCollectionByIdAndSemverOrLatest(allMessages, message.id, message.version))
+      .flat()
+      .filter((e: any) => e !== undefined);
+
+    const receives = receivesMessages
+      .map((message: any) => getItemsFromCollectionByIdAndSemverOrLatest(allMessages, message.id, message.version))
+      .flat()
+      .filter((e: any) => e !== undefined);
+
+    const mappedEntities = serviceEntities
+      .map((entity: any) => getItemsFromCollectionByIdAndSemverOrLatest(entities, entity.id, entity.version))
+      .flat()
+      .filter((e: any) => e !== undefined);
+
+    return {
+      ...service,
+      data: {
+        ...service.data,
+        receives,
+        sends,
+        versions,
+        latestVersion,
+        entities: mappedEntities,
+      },
+      // TODO: verify if it could be deleted.
+      nodes: {
+        receives,
+        sends,
+      },
+      catalog: {
+        // TODO: avoid use string replace at path due to win32
+        path: path.join(service.collection, service.id.replace('/index.mdx', '')),
+        absoluteFilePath: path.join(PROJECT_DIR, service.collection, service.id.replace('/index.mdx', '/index.md')),
+        astroContentFilePath: path.join(process.cwd(), 'src', 'content', service.collection, service.id),
+        filePath: path.join(
+          process.cwd(),
+          'src',
+          'catalog-files',
+          service.collection,
+          service.id.replace('/index.mdx', ''),
+        ),
+        // service will be MySerive-0.0.1 remove the version
+        publicPath: path.join('/generated', service.collection, service.id.replace(`-${service.data.version}`, '')),
+        type: 'service',
+      },
+    };
+  });
+
+  // order them by the name of the service
+  cachedServices[cacheKey].sort((a, b) => {
+    return (a.data.name || a.data.id).localeCompare(b.data.name || b.data.id);
+  });
+
+  return cachedServices[cacheKey];
+};
+
+export const getProducersOfMessage = (services: any[], message: any) => {
+  return services.filter((service) => {
+    return service.data.sends?.some((send) => {
+      const idMatch = send.id === message.data.id;
+
+      // If no version specified in send, treat as 'latest'
+      if (!send.version) return idMatch;
+
+      // If version is 'latest', match any version
+      if (send.version === 'latest') return idMatch;
+
+      // Use semver to compare versions
+      return idMatch && semver.satisfies(message.data.version, send.version);
+    });
+  });
+};
+
+export const getConsumersOfMessage = (services: any[], message: any) => {
+  return services.filter((service) => {
+    return service.data.receives?.some((receive) => {
+      const idMatch = receive.id === message.data.id;
+
+      // If no version specified in send, treat as 'latest'
+      if (!receive.version) return idMatch;
+
+      // If version is 'latest', match any version
+      if (receive.version === 'latest') return idMatch;
+
+      // Use semver to compare versions
+      return idMatch && semver.satisfies(message.data.version, receive.version);
+    });
+  });
+};
+
+export const getSpecificationsForService = (service: any) => {
+  const specifications = Array.isArray(service.data.specifications) ? service.data.specifications : [];
+
+  if (service.data.specifications && !Array.isArray(service.data.specifications)) {
+    if (service.data.specifications.asyncapiPath) {
+      specifications.push({
+        type: 'asyncapi',
+        path: service.data.specifications.asyncapiPath,
+        name: 'AsyncAPI',
+      });
+    }
+    if (service.data.specifications.openapiPath) {
+      specifications.push({
+        type: 'openapi',
+        path: service.data.specifications.openapiPath,
+        name: 'OpenAPI',
+      });
+    }
+  }
+
+  return specifications.map((spec) => ({
+    ...spec,
+    name: spec.name || (spec.type === 'asyncapi' ? 'AsyncAPI' : 'OpenAPI'),
+    filename: path.basename(spec.path),
+    filenameWithoutExtension: path.basename(spec.path, path.extname(spec.path)),
+  }));
+};
+
+// Get services for channel
+export const getProducersAndConsumersForChannel = async (channel: any) => {
+  const messages = channel.data.messages ?? [];
+  const services = await getServices({ getAllVersions: false });
+
+  const producers = services.filter((service) => {
+    const sends = service.data.sends ?? [];
+    return sends.some((send) => {
+      // @ts-ignore
+      return messages.some((m) => m.id === send.data.id);
+    });
+  });
+
+  const consumers = services.filter((service) => {
+    const receives = service.data.receives ?? [];
+    return receives.some((receive) => {
+      // @ts-ignore
+      return messages.some((m) => m.id === receive.data.id);
+    });
+  });
+
+  return {
+    producers: producers ?? [],
+    consumers: consumers ?? [],
+  };
+};

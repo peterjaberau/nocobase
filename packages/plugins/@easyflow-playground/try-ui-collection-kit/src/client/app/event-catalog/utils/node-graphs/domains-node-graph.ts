@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content';
+import { getCollection } from '../database';
 import {
   createDagreGraph,
   calculatedNodes,
@@ -9,9 +9,9 @@ import {
 } from './utils/utils';
 import { getNodesAndEdges as getServicesNodeAndEdges } from './services-node-graph';
 import merge from 'lodash.merge';
-import { getItemsFromCollectionByIdAndSemverOrLatest } from '../collections/util';
+import { getItemsFromCollectionByIdAndSemverOrLatest } from '../collections';
 import type { Node } from '@xyflow/react';
-import { getProducersOfMessage } from '@utils/collections/services';
+import { getProducersOfMessage } from '../services';
 
 type DagreGraph = any;
 

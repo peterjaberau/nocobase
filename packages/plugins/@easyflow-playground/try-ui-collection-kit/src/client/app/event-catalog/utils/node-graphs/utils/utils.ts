@@ -1,9 +1,7 @@
-// Can't use the CollectionEntry type from astro:content  because a client component is using this util
-// import { type CollectionEntry } from 'astro:content';
-import catalog from '@utils/eventcatalog-config/catalog';
+import catalog from '../../catalog';
 import { MarkerType, Position, type Edge, type Node } from '@xyflow/react';
 import dagre from 'dagre';
-import { getItemsFromCollectionByIdAndSemverOrLatest } from '@utils/collections/util';
+import { getItemsFromCollectionByIdAndSemverOrLatest } from '../../collections';
 interface BaseCollectionData {
   id: string;
   version: string;
