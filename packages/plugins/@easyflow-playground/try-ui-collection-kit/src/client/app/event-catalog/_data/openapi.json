@@ -1,0 +1,874 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "definitions": {},
+  "properties": {
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "domains": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "services": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version"
+                            ]
+                          }
+                        },
+                        "entities": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version"
+                            ]
+                          }
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "badges": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "content": {
+                                "type": "string"
+                              },
+                              "backgroundColor": {
+                                "type": "string"
+                              },
+                              "textColor": {
+                                "type": "string"
+                              },
+                              "icon": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "content",
+                              "backgroundColor",
+                              "textColor"
+                            ]
+                          }
+                        },
+                        "owners": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          }
+                        },
+                        "resourceGroups": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "version",
+                                    "type"
+                                  ]
+                                }
+                              },
+                              "limit": {
+                                "type": "number"
+                              },
+                              "sidebar": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "title",
+                              "items",
+                              "limit",
+                              "sidebar"
+                            ]
+                          }
+                        },
+                        "summary": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "services",
+                        "entities",
+                        "id",
+                        "name",
+                        "version",
+                        "badges",
+                        "owners"
+                      ]
+                    },
+                    "body": {
+                      "type": "string"
+                    },
+                    "filePath": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "deferredRender": {
+                      "type": "boolean"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "data",
+                    "body",
+                    "filePath",
+                    "digest",
+                    "deferredRender",
+                    "collection"
+                  ]
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "badges": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string"
+                    },
+                    "backgroundColor": {
+                      "type": "string"
+                    },
+                    "textColor": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "backgroundColor",
+                    "textColor"
+                  ]
+                }
+              },
+              "owners": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "resourceGroups": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version",
+                          "type"
+                        ]
+                      }
+                    },
+                    "limit": {
+                      "type": "number"
+                    },
+                    "sidebar": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "items",
+                    "limit",
+                    "sidebar"
+                  ]
+                }
+              },
+              "services": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "sends": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version"
+                            ]
+                          }
+                        },
+                        "receives": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version"
+                            ]
+                          }
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "summary": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "owners": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          }
+                        },
+                        "repository": {
+                          "type": "object",
+                          "properties": {
+                            "language": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "language",
+                            "url"
+                          ]
+                        },
+                        "deprecated": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            },
+                            "date": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "message",
+                            "date"
+                          ]
+                        },
+                        "schemaPath": {
+                          "type": "string"
+                        },
+                        "specifications": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "path": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "path"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "sends",
+                        "receives",
+                        "id",
+                        "name",
+                        "summary",
+                        "version",
+                        "owners",
+                        "repository"
+                      ]
+                    },
+                    "body": {
+                      "type": "string"
+                    },
+                    "filePath": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "deferredRender": {
+                      "type": "boolean"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "data",
+                    "body",
+                    "filePath",
+                    "digest",
+                    "deferredRender",
+                    "collection"
+                  ]
+                }
+              },
+              "entities": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "aggregateRoot": {
+                          "type": "boolean"
+                        },
+                        "identifier": {
+                          "type": "string"
+                        },
+                        "properties": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "required": {
+                                "type": "boolean"
+                              },
+                              "description": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "type",
+                              "required",
+                              "description"
+                            ]
+                          }
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "summary": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "identifier",
+                        "properties",
+                        "id",
+                        "name",
+                        "summary",
+                        "version"
+                      ]
+                    },
+                    "body": {
+                      "type": "string"
+                    },
+                    "filePath": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "deferredRender": {
+                      "type": "boolean"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "data",
+                    "body",
+                    "filePath",
+                    "digest",
+                    "deferredRender",
+                    "collection"
+                  ]
+                }
+              },
+              "latestVersion": {
+                "type": "string"
+              },
+              "versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "domains",
+              "id",
+              "name",
+              "version",
+              "badges",
+              "owners",
+              "services",
+              "entities",
+              "latestVersion",
+              "versions"
+            ]
+          },
+          "filePath": {
+            "type": "string"
+          },
+          "digest": {
+            "type": "string"
+          },
+          "deferredRender": {
+            "type": "boolean"
+          },
+          "collection": {
+            "type": "string"
+          },
+          "sends": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "channels": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "env": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "env"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version"
+                        ]
+                      }
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "badges": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string"
+                          },
+                          "backgroundColor": {
+                            "type": "string"
+                          },
+                          "textColor": {
+                            "type": "string"
+                          },
+                          "icon": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "content",
+                          "backgroundColor",
+                          "textColor"
+                        ]
+                      }
+                    },
+                    "owners": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      }
+                    },
+                    "schemaPath": {
+                      "type": "string"
+                    },
+                    "sidebar": {
+                      "type": "object",
+                      "properties": {
+                        "badge": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "badge"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "summary",
+                    "version",
+                    "owners"
+                  ]
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "digest": {
+                  "type": "string"
+                },
+                "deferredRender": {
+                  "type": "boolean"
+                },
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "data",
+                "filePath",
+                "digest",
+                "deferredRender",
+                "collection"
+              ]
+            }
+          },
+          "receives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "channels": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "env": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "env"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version"
+                        ]
+                      }
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "badges": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string"
+                          },
+                          "backgroundColor": {
+                            "type": "string"
+                          },
+                          "textColor": {
+                            "type": "string"
+                          },
+                          "icon": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "content",
+                          "backgroundColor",
+                          "textColor"
+                        ]
+                      }
+                    },
+                    "owners": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      }
+                    },
+                    "schemaPath": {
+                      "type": "string"
+                    },
+                    "sidebar": {
+                      "type": "object",
+                      "properties": {
+                        "badge": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "badge"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "summary",
+                    "version",
+                    "owners"
+                  ]
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "digest": {
+                  "type": "string"
+                },
+                "deferredRender": {
+                  "type": "boolean"
+                },
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "data",
+                "filePath",
+                "digest",
+                "deferredRender",
+                "collection"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

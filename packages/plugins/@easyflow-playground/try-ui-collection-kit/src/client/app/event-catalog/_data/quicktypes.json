@@ -1,0 +1,1076 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Coordinate",
+  "definitions": {
+    "Coordinate": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CoordinateDomain"
+          }
+        }
+      },
+      "required": [],
+      "title": "Coordinate"
+    },
+    "CoordinateDomain": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "collection": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/PurpleData"
+        },
+        "deferredRender": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "receives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DomainReceive"
+          }
+        },
+        "sends": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DomainSend"
+          }
+        }
+      },
+      "required": [],
+      "title": "CoordinateDomain"
+    },
+    "PurpleData": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "badges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleBadge"
+          }
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataDomain"
+          }
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyEntity"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "latestVersion": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyOwner"
+          }
+        },
+        "resourceGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyResourceGroup"
+          }
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyService"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "badges",
+        "domains",
+        "entities",
+        "id",
+        "latestVersion",
+        "name",
+        "owners",
+        "services",
+        "version",
+        "versions"
+      ],
+      "title": "PurpleData"
+    },
+    "PurpleBadge": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "backgroundColor": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "textColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "backgroundColor",
+        "content",
+        "textColor"
+      ],
+      "title": "PurpleBadge"
+    },
+    "DataDomain": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/FluffyData"
+        },
+        "deferredRender": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "body",
+        "collection",
+        "data",
+        "deferredRender",
+        "digest",
+        "filePath",
+        "id"
+      ],
+      "title": "DataDomain"
+    },
+    "FluffyData": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "badges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyBadge"
+          }
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleEntity"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleOwner"
+          }
+        },
+        "resourceGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleResourceGroup"
+          }
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleService"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "badges",
+        "entities",
+        "id",
+        "name",
+        "owners",
+        "services",
+        "version"
+      ],
+      "title": "FluffyData"
+    },
+    "FluffyBadge": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "backgroundColor": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "textColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "backgroundColor",
+        "content",
+        "textColor"
+      ],
+      "title": "FluffyBadge"
+    },
+    "PurpleEntity": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "PurpleEntity"
+    },
+    "PurpleOwner": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "PurpleOwner"
+    },
+    "PurpleResourceGroup": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleItem"
+          }
+        },
+        "limit": {
+          "type": "number"
+        },
+        "sidebar": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "items",
+        "limit",
+        "sidebar",
+        "title"
+      ],
+      "title": "PurpleResourceGroup"
+    },
+    "PurpleItem": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "version"
+      ],
+      "title": "PurpleItem"
+    },
+    "PurpleService": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "PurpleService"
+    },
+    "FluffyEntity": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/EntityData"
+        },
+        "deferredRender": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "body",
+        "collection",
+        "data",
+        "deferredRender",
+        "digest",
+        "filePath",
+        "id"
+      ],
+      "title": "FluffyEntity"
+    },
+    "EntityData": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "aggregateRoot": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Property"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "identifier",
+        "name",
+        "properties",
+        "summary",
+        "version"
+      ],
+      "title": "EntityData"
+    },
+    "Property": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "name",
+        "required",
+        "type"
+      ],
+      "title": "Property"
+    },
+    "FluffyOwner": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "FluffyOwner"
+    },
+    "FluffyResourceGroup": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyItem"
+          }
+        },
+        "limit": {
+          "type": "number"
+        },
+        "sidebar": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "items",
+        "limit",
+        "sidebar",
+        "title"
+      ],
+      "title": "FluffyResourceGroup"
+    },
+    "FluffyItem": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "version"
+      ],
+      "title": "FluffyItem"
+    },
+    "FluffyService": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/ServiceData"
+        },
+        "deferredRender": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "body",
+        "collection",
+        "data",
+        "deferredRender",
+        "digest",
+        "filePath",
+        "id"
+      ],
+      "title": "FluffyService"
+    },
+    "ServiceData": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "deprecated": {
+          "$ref": "#/definitions/Deprecated"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TentacledOwner"
+          }
+        },
+        "receives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataReceive"
+          }
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository"
+        },
+        "schemaPath": {
+          "type": "string"
+        },
+        "sends": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataSend"
+          }
+        },
+        "specifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Specification"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "owners",
+        "receives",
+        "repository",
+        "sends",
+        "summary",
+        "version"
+      ],
+      "title": "ServiceData"
+    },
+    "Deprecated": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "message"
+      ],
+      "title": "Deprecated"
+    },
+    "TentacledOwner": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "TentacledOwner"
+    },
+    "DataReceive": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "DataReceive"
+    },
+    "Repository": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "language": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "language",
+        "url"
+      ],
+      "title": "Repository"
+    },
+    "DataSend": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "DataSend"
+    },
+    "Specification": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "type"
+      ],
+      "title": "Specification"
+    },
+    "DomainReceive": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "collection": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/ReceiveData"
+        },
+        "deferredRender": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "collection",
+        "data",
+        "deferredRender",
+        "digest",
+        "filePath",
+        "id"
+      ],
+      "title": "DomainReceive"
+    },
+    "ReceiveData": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "badges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TentacledBadge"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleChannel"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StickyOwner"
+          }
+        },
+        "schemaPath": {
+          "type": "string"
+        },
+        "sidebar": {
+          "$ref": "#/definitions/PurpleSidebar"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "owners",
+        "summary",
+        "version"
+      ],
+      "title": "ReceiveData"
+    },
+    "TentacledBadge": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "backgroundColor": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "textColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "backgroundColor",
+        "content",
+        "textColor"
+      ],
+      "title": "TentacledBadge"
+    },
+    "PurpleChannel": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/definitions/PurpleParameters"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "PurpleChannel"
+    },
+    "PurpleParameters": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "env": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "env"
+      ],
+      "title": "PurpleParameters"
+    },
+    "StickyOwner": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "StickyOwner"
+    },
+    "PurpleSidebar": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "badge": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "badge"
+      ],
+      "title": "PurpleSidebar"
+    },
+    "DomainSend": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "collection": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/SendData"
+        },
+        "deferredRender": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "collection",
+        "data",
+        "deferredRender",
+        "digest",
+        "filePath",
+        "id"
+      ],
+      "title": "DomainSend"
+    },
+    "SendData": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "badges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StickyBadge"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyChannel"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndigoOwner"
+          }
+        },
+        "schemaPath": {
+          "type": "string"
+        },
+        "sidebar": {
+          "$ref": "#/definitions/FluffySidebar"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "owners",
+        "summary",
+        "version"
+      ],
+      "title": "SendData"
+    },
+    "StickyBadge": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "backgroundColor": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "textColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "backgroundColor",
+        "content",
+        "textColor"
+      ],
+      "title": "StickyBadge"
+    },
+    "FluffyChannel": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/definitions/FluffyParameters"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "FluffyChannel"
+    },
+    "FluffyParameters": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "env": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "env"
+      ],
+      "title": "FluffyParameters"
+    },
+    "IndigoOwner": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "IndigoOwner"
+    },
+    "FluffySidebar": {
+      "type": "object",
+      "additionalProperties": {},
+      "properties": {
+        "badge": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "badge"
+      ],
+      "title": "FluffySidebar"
+    }
+  }
+}

@@ -1,0 +1,616 @@
+{
+  "inventory": {
+    "stockItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "StockItem",
+      "description": "Schema for a stock item in FlowMart inventory",
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "string",
+          "description": "Stock Keeping Unit"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Identifier of the product associated with this stock item"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Current quantity in stock",
+          "minimum": 0
+        },
+        "location": {
+          "type": "string",
+          "description": "Warehouse or location identifier"
+        },
+        "lowStockThreshold": {
+          "type": "integer",
+          "description": "Threshold at which a low stock alert is triggered",
+          "minimum": 0
+        },
+        "lastStockUpdate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["sku", "productId", "quantity", "location"]
+    },
+    "StockLevelUpdatedEvent": {
+      "type": "record",
+      "name": "StockLevelUpdatedEvent",
+      "namespace": "com.flowmart.inventory.events",
+      "doc": "Event triggered when the stock level of an item is updated.",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        },
+        {
+          "name": "sku",
+          "type": "string",
+          "doc": "Stock Keeping Unit"
+        },
+        {
+          "name": "productId",
+          "type": "string"
+        },
+        {
+          "name": "newQuantity",
+          "type": "int"
+        },
+        {
+          "name": "previousQuantity",
+          "type": "int"
+        },
+        {
+          "name": "updateReason",
+          "type": ["null", "string"],
+          "default": null,
+          "doc": "Reason for the stock update (e.g., SALE, RETURN, ADJUSTMENT)"
+        }
+      ]
+    }
+  },
+  "order": {
+    "Order": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Order",
+      "description": "Schema for a customer order in FlowMart",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Identifier of the user who placed the order"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "order_item_v1.json"
+          }
+        },
+        "totalAmount": {
+          "type": "number",
+          "format": "float",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "default": "USD"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["PENDING", "PROCESSING", "SHIPPED", "DELIVERED", "CANCELLED", "RETURNED"]
+        },
+        "shippingAddressId": {
+          "type": "string",
+          "description": "Identifier for the shipping address (references an address schema)"
+        },
+        "billingAddressId": {
+          "type": "string",
+          "description": "Identifier for the billing address (references an address schema)"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["orderId", "userId", "items", "totalAmount", "status", "shippingAddressId", "createdAt"]
+    },
+    "OrderItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "OrderItem",
+      "description": "Schema for an item within an order",
+      "type": "object",
+      "properties": {
+        "orderItemId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Identifier of the product"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "unitPrice": {
+          "type": "number",
+          "format": "float",
+          "description": "Price per unit at the time of order"
+        },
+        "totalPrice": {
+          "type": "number",
+          "format": "float",
+          "description": "Total price for this item (quantity * unitPrice)"
+        }
+      },
+      "required": ["orderItemId", "productId", "quantity", "unitPrice", "totalPrice"]
+    },
+    "OrderCancelledEvent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "OrderCancelledEvent",
+      "description": "Schema for an event when an order is cancelled",
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for cancellation"
+        },
+        "cancelledBy": {
+          "type": "string",
+          "enum": ["USER", "SYSTEM", "ADMIN"],
+          "description": "Who initiated the cancellation"
+        }
+      },
+      "required": ["eventId", "timestamp", "orderId", "reason", "cancelledBy"]
+    },
+    "OrderCreatedEvent": {
+      "type": "record",
+      "name": "OrderCreatedEvent",
+      "namespace": "com.flowmart.orders.events",
+      "doc": "Event triggered when a new order is successfully created.",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        },
+        {
+          "name": "orderId",
+          "type": "string"
+        },
+        {
+          "name": "userId",
+          "type": "string"
+        },
+        {
+          "name": "totalAmount",
+          "type": "double"
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "USD"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        }
+      ]
+    }
+  },
+  "payments": {
+    "Payment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Payment",
+      "description": "Schema for a payment transaction in FlowMart",
+      "type": "object",
+      "properties": {
+        "paymentId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "Identifier of the order this payment is for"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Identifier of the user making the payment"
+        },
+        "amount": {
+          "type": "number",
+          "format": "float",
+          "minimum": 0.01
+        },
+        "currency": {
+          "type": "string",
+          "default": "USD"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "enum": ["CREDIT_CARD", "PAYPAL", "BANK_TRANSFER", "GIFT_CARD"]
+        },
+        "paymentStatus": {
+          "type": "string",
+          "enum": ["PENDING", "SUCCESSFUL", "FAILED", "REFUNDED"]
+        },
+        "transactionId": {
+          "type": ["string", "null"],
+          "description": "Transaction ID from the payment gateway"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "paymentId",
+        "orderId",
+        "userId",
+        "amount",
+        "currency",
+        "paymentMethod",
+        "paymentStatus",
+        "createdAt"
+      ]
+    },
+    "PaymentProcessedEvent": {
+      "type": "record",
+      "name": "PaymentProcessedEvent",
+      "namespace": "com.flowmart.payments.events",
+      "doc": "Event triggered when a payment has been successfully processed.",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        },
+        {
+          "name": "paymentId",
+          "type": "string"
+        },
+        {
+          "name": "orderId",
+          "type": "string"
+        },
+        {
+          "name": "transactionId",
+          "type": "string",
+          "doc": "Transaction ID from the payment gateway"
+        },
+        {
+          "name": "amount",
+          "type": "double"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "products": {
+    "Category": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Category",
+      "description": "Schema for a product category in FlowMart",
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "string",
+          "description": "Unique identifier for the category"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the category"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "Optional description of the category"
+        },
+        "parentCategoryId": {
+          "type": ["string", "null"],
+          "description": "Identifier of the parent category, if this is a sub-category"
+        }
+      },
+      "required": ["categoryId", "name"]
+    },
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "description": "Schema for a product in FlowMart",
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "description": "Unique identifier for the product",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the product"
+        },
+        "price": {
+          "type": "number",
+          "format": "float",
+          "description": "Price of the product in USD",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code (e.g., USD, EUR)",
+          "default": "USD"
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "Identifier for the product category"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags associated with the product"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the product image"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the product was created"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the product was last updated"
+        }
+      },
+      "required": ["productId", "name", "price", "categoryId"]
+    },
+    "ProductViewedEvent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ProductViewedEvent",
+      "description": "Schema for an event when a user views a product",
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "userId": {
+          "type": ["string", "null"],
+          "description": "Identifier of the user who viewed the product (null if anonymous)"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Identifier of the viewed product"
+        },
+        "sessionId": {
+          "type": ["string", "null"],
+          "description": "Session identifier for tracking user activity"
+        }
+      },
+      "required": ["eventId", "timestamp", "productId"]
+    },
+    "ProductCreatedEvent": {
+      "type": "record",
+      "name": "ProductCreatedEvent",
+      "namespace": "com.flowmart.products.events",
+      "doc": "Event triggered when a new product is created.",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string",
+          "doc": "Unique identifier for the event"
+        },
+        {
+          "name": "timestamp",
+          "type": "long",
+          "logicalType": "timestamp-millis",
+          "doc": "Timestamp of when the event occurred"
+        },
+        {
+          "name": "productId",
+          "type": "string",
+          "doc": "Unique identifier for the product"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "doc": "Name of the product"
+        },
+        {
+          "name": "price",
+          "type": "double",
+          "doc": "Price of the product"
+        },
+        {
+          "name": "categoryId",
+          "type": "string",
+          "doc": "Identifier for the product category"
+        }
+      ]
+    }
+  },
+  "users": {
+    "Address": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Address",
+      "description": "Schema for a postal address",
+      "type": "object",
+      "properties": {
+        "addressId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Identifier of the user this address belongs to"
+        },
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2 country code (e.g., US, CA)"
+        },
+        "addressType": {
+          "type": "string",
+          "enum": ["SHIPPING", "BILLING", "HOME", "WORK"],
+          "description": "Type of address"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": ["addressId", "userId", "street", "city", "state", "postalCode", "country"]
+    },
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "description": "Schema for a user profile in FlowMart",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": ["string", "null"],
+          "pattern": "^\\+?[1-9]\\d{1,14}$"
+        },
+        "defaultShippingAddressId": {
+          "type": ["string", "null"]
+        },
+        "defaultBillingAddressId": {
+          "type": ["string", "null"]
+        },
+        "preferences": {
+          "type": "object",
+          "properties": {
+            "newsletterSubscribed": {
+              "type": "boolean",
+              "default": false
+            },
+            "theme": {
+              "type": "string",
+              "enum": ["light", "dark"],
+              "default": "light"
+            }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["userId", "firstName", "lastName", "email", "createdAt"]
+    },
+    "UserRegisteredEvent": {
+      "type": "record",
+      "name": "UserRegisteredEvent",
+      "namespace": "com.flowmart.users.events",
+      "doc": "Event triggered when a new user completes registration.",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        },
+        {
+          "name": "userId",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "registrationSource",
+          "type": {
+            "type": "enum",
+            "name": "RegistrationSource",
+            "symbols": ["WEBSITE", "MOBILE_APP", "SOCIAL_LOGIN"]
+          },
+          "doc": "Source from which the user registered"
+        }
+      ]
+    }
+  }
+}

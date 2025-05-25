@@ -1,0 +1,486 @@
+{
+  "EventCatalogDocument": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Event Catalog Document",
+    "type": "object",
+    "definitions": {
+      "Domain": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/definitions/DomainData"
+          },
+          "filePath": {
+            "type": "string"
+          },
+          "deferredRender": {
+            "type": "boolean"
+          },
+          "collection": {
+            "type": "string"
+          },
+          "digest": {
+            "type": "string"
+          },
+          "receives": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/DomainReceive"
+            }
+          },
+          "sends": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/DomainSend"
+            }
+          }
+        },
+        "title": "Domain"
+      },
+      "Domains": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Domain"
+        }
+
+      },
+
+
+      "BadgeDefinition": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "backgroundColor": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "textColor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "backgroundColor",
+          "content",
+          "textColor"
+        ],
+        "title": "BadgeDefinition"
+      },
+
+
+      "Service": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "collection": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/definitions/ServiceEventData"
+          },
+          "deferredRender": {
+            "type": "boolean"
+          },
+          "digest": {
+            "type": "string"
+          },
+          "filePath": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "title": "ServiceEvent"
+      },
+      "ServiceEventData": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "badges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/BadgeDefinition"
+            }
+          },
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ServiceEventChannel"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ServiceEventOwner"
+            }
+          },
+          "schemaPath": {
+            "type": "string"
+          },
+          "sidebar": {
+            "type": "object",
+            "additionalProperties": {},
+            "properties": {
+              "badge": {
+                "type": "string"
+              }
+            }
+          },
+          "summary": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "title": "ServiceEventData"
+      },
+      "ServiceEventChannel": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": {},
+            "properties": {
+              "env": {
+                "type": "string"
+              }
+            }
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "title": "ServiceChannel"
+      },
+      "ServiceEventOwner": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "ServiceEventOwner"
+      },
+
+      "DomainData": {
+        "type": "object",
+        "additionalProperties": {},
+        "properties": {
+          "badges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/BadgeDefinition"
+            }
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Service"
+            }
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FluffyEntity"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "latestVersion": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FluffyOwner"
+            }
+          },
+          "resourceGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FluffyResourceGroup"
+            }
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FluffyService"
+            }
+          },
+          "summary": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "title": "EventCatalogDomainData"
+      }
+
+    },
+    "properties": {
+      "domains": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "Event Schema Format": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.flowmart.com/events/product/ProductCreated/1.0.0",
+    "title": "ProductCreated",
+    "description": "Represents the creation of a new product in the catalog",
+    "type": "object",
+    "required": ["eventId", "eventType", "eventVersion", "timestamp", "data"],
+    "properties": {
+      "eventId": {
+        "type": "string",
+        "format": "uuid",
+        "description": "Unique identifier for this event instance"
+      },
+      "eventType": {
+        "type": "string",
+        "enum": ["ProductCreated"],
+        "description": "Type of the event"
+      },
+      "eventVersion": {
+        "type": "string",
+        "pattern": "^\\d+\\.\\d+\\.\\d+$",
+        "description": "Semantic version of the event schema"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "ISO-8601 timestamp when the event was created"
+      },
+      "source": {
+        "type": "string",
+        "description": "Service that produced the event"
+      },
+      "data": {
+        "type": "object",
+        "required": ["productId", "name", "sku", "price"],
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the product"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "Name of the product"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Description of the product"
+          },
+          "sku": {
+            "type": "string",
+            "pattern": "^[A-Z0-9-]{5,20}$",
+            "description": "Stock keeping unit - unique product identifier"
+          },
+          "price": {
+            "type": "object",
+            "required": ["amount", "currency"],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Price amount"
+              },
+              "currency": {
+                "type": "string",
+                "enum": ["USD", "EUR", "GBP", "CAD"],
+                "description": "Price currency code"
+              }
+            }
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Categories the product belongs to"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": ["string", "number", "boolean"]
+            },
+            "description": "Additional product attributes as key-value pairs"
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "Additional contextual information about the event"
+      },
+      "correlationId": {
+        "type": "string",
+        "format": "uuid",
+        "description": "ID for correlating related events"
+      },
+      "causationId": {
+        "type": "string",
+        "format": "uuid",
+        "description": "ID of the event that caused this event"
+      }
+    },
+    "additionalProperties": false
+  },
+
+  "Standard Event Envelope": {
+    "eventId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "eventType": "ProductCreated",
+    "eventVersion": "1.0.0",
+    "timestamp": "2023-09-15T13:25:47.803Z",
+    "source": "product-service",
+    "data": {},
+    "metadata": {},
+    "correlationId": "7f8d0e3c-d5f9-42e1-a11b-78ad6c0c380a",
+    "causationId": "3e4f5d6c-7b8a-9c0d-1e2f-3a4b5c6d7e8f"
+  },
+
+  "Event Data Types": {
+    "Complex Types": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://schemas.flowmart.com/common/Address/1.0.0",
+      "title": "Address",
+      "type": "object",
+      "required": ["line1", "city", "postalCode", "country"],
+      "properties": {
+        "line1": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "line2": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "region": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 2,
+          "pattern": "^[A-Z]{2}$"
+        }
+      }
+    }
+  },
+
+  "Common Event Patterns": {
+    "State Change Events": {
+      "eventType": "OrderStatusChanged",
+      "data": {
+        "orderId": "61fea0a1-2ac4-4e8c-a851-d38f7c8c06f9",
+        "previousStatus": "PAYMENT_PENDING",
+        "newStatus": "PAYMENT_COMPLETED",
+        "reason": "Payment successful",
+        "changedBy": "payment-service"
+      }
+    },
+    "Resource Creation Events": {
+      "eventType": "CustomerCreated",
+      "data": {
+        "customerId": "cust-12345",
+        "email": "john.doe@example.com",
+        "firstName": "John",
+        "lastName": "Doe",
+        "createdAt": "2023-09-15T10:30:00Z"
+      }
+    },
+    "Resource Update Events": {
+      "eventType": "ProductUpdated",
+      "data": {
+        "productId": "b3c631a5-f7c8-4d89-a57f-dd2f069b5730",
+        "changes": {
+          "price": {
+            "amount": 24.99,
+            "currency": "USD"
+          },
+          "inventory": {
+            "inStock": 250
+          }
+        },
+        "updatedAt": "2023-09-15T14:22:36Z"
+      }
+    },
+    "Action Events": {
+      "eventType": "PaymentProcessed",
+      "data": {
+        "paymentId": "pay-67890",
+        "orderId": "ord-12345",
+        "amount": 99.99,
+        "currency": "USD",
+        "status": "SUCCESSFUL",
+        "paymentMethod": "CREDIT_CARD",
+        "processedAt": "2023-09-15T13:45:22Z"
+      }
+    }
+  }
+}
