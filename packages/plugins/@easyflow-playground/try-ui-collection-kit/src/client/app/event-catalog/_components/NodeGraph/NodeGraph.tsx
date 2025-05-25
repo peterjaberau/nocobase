@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useMemo, useState, useCallback, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import { Box, Container } from '@chakra-ui/react';
 import {
   ReactFlow,
   Background,
@@ -457,57 +457,62 @@ const NodeGraph = ({
   const [elem, setElem] = useState(null);
   const [showFooter, setShowFooter] = useState(true);
 
-  useEffect(() => {
-    // @ts-ignore
-    setElem(document.getElementById(`${id}-portal`));
-  }, []);
+  console.log('---visualizer-----', {
+    nodes: nodes,
+    edges: edges,
+  })
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const embed = urlParams.get('embed');
-    if (embed === 'true') {
-      setShowFooter(false);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const embed = urlParams.get('embed');
+  //   if (embed === 'true') {
+  //     setShowFooter(false);
+  //   }
+  // }, []);
 
-  if (!elem) return null;
+  // useEffect(() => {
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const embed = urlParams.get('embed');
+  //   if (embed === 'true') {
+  //     setShowFooter(false);
+  //   }
+  // }, []);
+
+  // if (!elem) return null;
 
   return (
-    <div>
-      {createPortal(
-        <ReactFlowProvider>
-          <NodeGraphBuilder
-            edges={edges}
-            nodes={nodes}
-            title={title}
-            linkTo={linkTo}
-            includeKey={includeKey}
-            linksToVisualiser={linksToVisualiser}
-            links={links}
-          />
+    <Container backgroundColor={'bg.panel'} fluid centerContent height={'500px'}>
+      <ReactFlowProvider>
+        <NodeGraphBuilder
+          edges={edges}
+          nodes={nodes}
+          title={title}
+          linkTo={linkTo}
+          includeKey={includeKey}
+          linksToVisualiser={linksToVisualiser}
+          links={links}
+        />
 
-          {showFooter && (
-            <div className="flex justify-between" id="visualiser-footer">
-              {footerLabel && (
-                <div className="py-2 w-full text-left ">
-                  <span className=" text-sm no-underline py-2 text-gray-500">{footerLabel}</span>
-                </div>
-              )}
+        {showFooter && (
+          <div className="flex justify-between" id="visualiser-footer">
+            {footerLabel && (
+              <div className="py-2 w-full text-left ">
+                <span className=" text-sm no-underline py-2 text-gray-500">{footerLabel}</span>
+              </div>
+            )}
 
-              {href && (
-                <div className="py-2 w-full text-right flex justify-between">
-                  <span className="text-sm text-gray-500 italic">Right click a node to access documentation</span>
-                  <a className=" text-sm underline text-gray-800 hover:text-primary" href={href}>
-                    {hrefLabel} &rarr;
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-        </ReactFlowProvider>,
-        elem
-      )}
-    </div>
+            {href && (
+              <div className="py-2 w-full text-right flex justify-between">
+                <span className="text-sm text-gray-500 italic">Right click a node to access documentation</span>
+                <a className=" text-sm underline text-gray-800 hover:text-primary" href={href}>
+                  {hrefLabel} &rarr;
+                </a>
+              </div>
+            )}
+          </div>
+        )}
+      </ReactFlowProvider>
+    </Container>
   );
 };
 

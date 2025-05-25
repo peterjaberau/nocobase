@@ -16,10 +16,10 @@ export const Page = () => {
   const [view, setView] = useState('catalog') // catalog, visualiser
   return (
     <>
-      <Container fluid>
+      <Container backgroundColor={'bg.panel'} fluid centerContent p={8}>
         <ButtonGroup size="sm" variant="outline">
           <Button
-            onClick={() => setView('visualiser')}
+            onClick={() => setView('catalog')}
             variant={view === 'catalog' ? 'solid' : 'outline'}
             color={view === 'catalog' ? 'fg.inverted' : undefined}
           >
@@ -36,7 +36,18 @@ export const Page = () => {
 
         </ButtonGroup>
       </Container>
-      <EventCatalog />
+
+      {view === 'catalog' && <EventCatalog />}
+      {view === 'visualiser' &&
+        <EventCatalogVisualiser
+          id={'E-Commerce-1.0.0'}
+          collection={'domains'}
+          version={'1.0.0'}
+          mode={'simple'} // full, simple
+          href={'#'}
+        />
+      }
+
     </>
   );
 };

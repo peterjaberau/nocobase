@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NodeGraphNew from './NodeGraph/NodeGraph';
 import { getNodesAndEdges as getNodesAndEdgesForService } from '../utils/node-graphs/services-node-graph';
+import { Container, Box } from '@chakra-ui/react';
 import {
   getNodesAndEdgesForCommands,
   getNodesAndEdgesForEvents,
@@ -98,7 +99,7 @@ export const EventCatalogVisualiser = ({
     fetchData();
   }, [id, collection, version, mode]);
   return (
-    <div>
+
       <NodeGraphNew
         id={id}
         nodes={nodes}
@@ -110,14 +111,6 @@ export const EventCatalogVisualiser = ({
         linksToVisualiser={linksToVisualiser}
         links={links}
       />
-      <style>
-        {`
-          .react-flow__attribution {
-            display: none;
-          }
-        `}
-      </style>
-    </div>
   );
 };
 
