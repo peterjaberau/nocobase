@@ -1,7 +1,6 @@
 import React from 'react'
 import { UserIcon } from '@heroicons/react/20/solid';
 import { Handle } from '@xyflow/react';
-import { TinyAccordion } from '../../../ui/tiny.accordion';
 
 interface Data {
   title: string;
@@ -30,29 +29,6 @@ export default function UserNode({ data, sourcePosition, targetPosition }: any) 
         mode === 'full' ? 'min-h-[5em]' : 'min-h-[2em]'
       )}
     >
-      <TinyAccordion
-        w={'400px'}
-        items={[
-          {
-            title: { name } + 'Event',
-            value: { name },
-            titleExtension: <>ACTOR</>,
-            content: (
-              <>
-                {targetPosition && <Handle type="target" position={targetPosition} style={{ top: 16, marginLeft: -4, transform: 'none'}} />}
-                {sourcePosition && <Handle type="source" position={sourcePosition} style={{ top: 16, marginRight: -4, transform: 'none'}} />}
-
-                {summary}
-              </>
-            ),
-          },
-        ]}
-        defaultExpandedValues={[name]}
-        collapsible={false}
-      />
-
-
-
       <div
         className={classNames(
           'bg-gradient-to-b from-yellow-400 to-yellow-600 relative flex items-center w-5 justify-center rounded-l-sm text-orange-100-500',

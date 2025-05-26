@@ -5685,7 +5685,9 @@ __metadata:
     "@statelyai/inspect": ^0.4.0
     "@types/react": ">=18.3.1"
     "@types/react-dom": ">=18.3.1"
+    "@types/semver": ^7.5.8
     "@types/set-value": 4.0.3
+    "@vanilla-extract/css": ^1.17.2
     "@xstate/graph": ^3.0.2
     "@xstate/react": ^5.0.3
     "@xstate/store": ^3.4.1
@@ -5696,7 +5698,11 @@ __metadata:
     react-dom: ">=18.3.1"
     react-icons: ^5.5.0
     react18-json-view: ^0.2.9
+    semver: 7.6.3
     set-value: 4.1.0
+    tinybase: ^6.1.2
+    tinytick: ^1.2.8
+    tinywidgets: 1.2.4
     ts-results: ^3.3.0
     xstate: ^5.19.2
     zx: ^8.1.2
@@ -7710,7 +7716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/hash@npm:^0.9.2":
+"@emotion/hash@npm:^0.9.0, @emotion/hash@npm:^0.9.2":
   version: 0.9.2
   resolution: "@emotion/hash@npm:0.9.2"
   checksum: 379bde2830ccb0328c2617ec009642321c0e009a46aa383dfbe75b679c6aea977ca698c832d225a893901f29d7b3eef0e38cf341f560f6b2b56f1ff23c172387
@@ -16115,6 +16121,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/semver@npm:^7.5.8":
+  version: 7.7.0
+  resolution: "@types/semver@npm:7.7.0"
+  checksum: d488eaeddb23879a0a8a759bed667e1a76cb0dd4d23e3255538e24c189db387357953ca9e7a3bda2bb7f95e84cac8fe0db4fbe6b3456e893043337732d1d23cc
+  languageName: node
+  linkType: hard
+
 "@types/send@npm:*":
   version: 0.17.4
   resolution: "@types/send@npm:0.17.4"
@@ -17165,6 +17178,33 @@ __metadata:
   peerDependencies:
     react: ">= 16.8.0"
   checksum: 763ef5fe5e91715a20beac0d430b0ffd815f1ab761ffdd8a0c8352fa680411123b3855815a77b4e2d1018878ba515424f9daa863ea797c3dd089032fb539ec22
+  languageName: node
+  linkType: hard
+
+"@vanilla-extract/css@npm:^1.17.2":
+  version: 1.17.2
+  resolution: "@vanilla-extract/css@npm:1.17.2"
+  dependencies:
+    "@emotion/hash": ^0.9.0
+    "@vanilla-extract/private": ^1.0.7
+    css-what: ^6.1.0
+    cssesc: ^3.0.0
+    csstype: ^3.0.7
+    dedent: ^1.5.3
+    deep-object-diff: ^1.1.9
+    deepmerge: ^4.2.2
+    lru-cache: ^10.4.3
+    media-query-parser: ^2.0.2
+    modern-ahocorasick: ^1.0.0
+    picocolors: ^1.0.0
+  checksum: 22c21335113bf378f4699085613586d03e91837ab0d95d51375fd1770d801dea04c0e4c49e09a99ebfc99d27a925100216e8f7ea7c225849ef45748f9c312bbc
+  languageName: node
+  linkType: hard
+
+"@vanilla-extract/private@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "@vanilla-extract/private@npm:1.0.7"
+  checksum: d0203d8a1fbf29a67fc04b223af3266052ade0930c20a753b2c7e4cf59936d47d9de511c2666bbb58eae33556c77dca6ba78e8f6c55f1afe315b137b2455977a
   languageName: node
   linkType: hard
 
@@ -23349,7 +23389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:3.1.3, csstype@npm:^3.0.2, csstype@npm:^3.0.8, csstype@npm:^3.1.3":
+"csstype@npm:3.1.3, csstype@npm:^3.0.2, csstype@npm:^3.0.7, csstype@npm:^3.0.8, csstype@npm:^3.1.3":
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
   checksum: 8db785cc92d259102725b3c694ec0c823f5619a84741b5c7991b8ad135dfaa66093038a1cc63e03361a6cd28d122be48f2106ae72334e067dd619a51f49eddf7
@@ -24303,6 +24343,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dedent@npm:^1.5.3":
+  version: 1.6.0
+  resolution: "dedent@npm:1.6.0"
+  peerDependencies:
+    babel-plugin-macros: ^3.1.0
+  peerDependenciesMeta:
+    babel-plugin-macros:
+      optional: true
+  checksum: ecaa83968b3db4ffeadf8f679c01280f8679ec79993d7e203c0281d7926e883bb79f42b263ba0df1f78e146e4b0be1b9a5b922b1fe040cb89b09977bc9c25b38
+  languageName: node
+  linkType: hard
+
 "deep-eql@npm:4.1.4":
   version: 4.1.4
   resolution: "deep-eql@npm:4.1.4"
@@ -24379,6 +24431,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: edb65dd0d7d1b9c40b2f50219aef30e116cedd6fc79290e740972c132c09106d2e80aa0bc8826673dd5a00222d4179c84b36a790eef63a4c4bca75a37ef90804
+  languageName: node
+  linkType: hard
+
+"deep-object-diff@npm:^1.1.9":
+  version: 1.1.9
+  resolution: "deep-object-diff@npm:1.1.9"
+  checksum: ecd42455e4773f653595d28070295e7aaa8402db5f8ab21d0bec115a7cb4de5e207a5665514767da5f025c96597f1d3a0a4888aeb4dd49e03c996871a3aa05ef
   languageName: node
   linkType: hard
 
@@ -34018,7 +34077,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
+"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0, lru-cache@npm:^10.4.3":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 6476138d2125387a6d20f100608c2583d415a4f64a0fecf30c9e2dda976614f09cad4baa0842447bd37dd459a7bd27f57d9d8f8ce558805abd487c583f3d774a
@@ -34082,6 +34141,15 @@ __metadata:
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
   checksum: f02450c8d15e405edc958f04f07f5a12486f4407c37751d534f1e28905f2100ae419358d1400c5f20ce37bd747ceb689873bd5d215df0ae7ed0f8199201fd327
+  languageName: node
+  linkType: hard
+
+"lucide-react@npm:^0.511.0":
+  version: 0.511.0
+  resolution: "lucide-react@npm:0.511.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: b347d276c1a8cdc51f6ca44ef09d51a3a916bfb58ef0a0d55c729b1afb54877c1bbad981313984751ea13e4cc9903bfeae346f112184c94158a5a39274daea65
   languageName: node
   linkType: hard
 
@@ -34959,6 +35027,15 @@ __metadata:
   version: 2.0.0
   resolution: "mdurl@npm:2.0.0"
   checksum: 880bc289ef668df0bb34c5b2b5aaa7b6ea755052108cdaf4a5e5968ad01cf27e74927334acc9ebcc50a8628b65272ae6b1fd51fae1330c130e261c0466e1a3b2
+  languageName: node
+  linkType: hard
+
+"media-query-parser@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "media-query-parser@npm:2.0.2"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+  checksum: 8ef956d9e63fe6f4041988beda69843b3a6bb48228ea2923a066f6e7c8f7c5dba75fae357318c48a97ed5beae840b8425cb7e727fc1bb77acc65f2005f8945ab
   languageName: node
   linkType: hard
 
@@ -36492,6 +36569,13 @@ __metadata:
   bin:
     random: bin/random
   checksum: 11c16eda7fee1fa38c645813169c5a8f4301788819e237633a314d406551a90a61f3865e8aa4a8902eefc4db991605fa74349336e6690e7a154b5b4826e3e253
+  languageName: node
+  linkType: hard
+
+"modern-ahocorasick@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "modern-ahocorasick@npm:1.1.0"
+  checksum: 78b99840c9af086c1e36a594ee85bebd8c19d48e2ef31a67d1bad0e673ac12fc931e5961abb5b16daaf820af4923e700f76b1793b7413e18782230162866a0af
   languageName: node
   linkType: hard
 
@@ -44500,6 +44584,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:7.6.3, semver@npm:^7.6.3":
+  version: 7.6.3
+  resolution: "semver@npm:7.6.3"
+  bin:
+    semver: bin/semver.js
+  checksum: 4110ec5d015c9438f322257b1c51fe30276e5f766a3f64c09edd1d7ea7118ecbc3f379f3b69032bacf13116dc7abc4ad8ce0d7e2bd642e26b0d271b56b61a7d8
+  languageName: node
+  linkType: hard
+
 "semver@npm:^6.0.0, semver@npm:^6.1.0, semver@npm:^6.2.0, semver@npm:^6.3.0, semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
@@ -44526,15 +44619,6 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 586b825d36874007c9382d9e1ad8f93888d8670040add24a28e06a910aeebd673a2eb9e3bf169c6679d9245e66efb9057e0852e70d9daa6c27372aab1dda7104
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.6.3":
-  version: 7.6.3
-  resolution: "semver@npm:7.6.3"
-  bin:
-    semver: bin/semver.js
-  checksum: 4110ec5d015c9438f322257b1c51fe30276e5f766a3f64c09edd1d7ea7118ecbc3f379f3b69032bacf13116dc7abc4ad8ce0d7e2bd642e26b0d271b56b61a7d8
   languageName: node
   linkType: hard
 
@@ -46987,6 +47071,138 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tinybase@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "tinybase@npm:6.1.2"
+  peerDependencies:
+    "@automerge/automerge-repo": ^1.2.1
+    "@cloudflare/workers-types": ^4.20250524.0
+    "@electric-sql/pglite": ^0.2.17
+    "@libsql/client": ^0.15.7
+    "@powersync/common": ^1.30.0
+    "@sqlite.org/sqlite-wasm": ^3.49.2-build1
+    "@vlcn.io/crsqlite-wasm": ^0.16.0
+    bun: ^1.2.14
+    electric-sql: ^0.12.1
+    expo: ^53.0.9
+    expo-sqlite: ^15.2.10
+    partykit: ^0.0.115
+    partysocket: ^1.1.4
+    postgres: ^3.4.7
+    react: ^19.0.0
+    react-dom: ^19.0.0
+    sqlite3: ^5.1.7
+    ws: ^8.18.2
+    yjs: ^13.6.27
+  peerDependenciesMeta:
+    "@automerge/automerge-repo":
+      optional: true
+    "@cloudflare/workers-types":
+      optional: true
+    "@electric-sql/pglite":
+      optional: true
+    "@libsql/client":
+      optional: true
+    "@powersync/common":
+      optional: true
+    "@sqlite.org/sqlite-wasm":
+      optional: true
+    "@vlcn.io/crsqlite-wasm":
+      optional: true
+    bun:
+      optional: true
+    electric-sql:
+      optional: true
+    expo:
+      optional: true
+    expo-sqlite:
+      optional: true
+    partykit:
+      optional: true
+    partysocket:
+      optional: true
+    postgres:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    sqlite3:
+      optional: true
+    ws:
+      optional: true
+    yjs:
+      optional: true
+  checksum: b644ed5a0d8362319d354163b07dafdfa9eaf203cecba0541727146b4e904e5167588bb9d2c4a3865e5195016e2e5065e4018ce7abe80dc2e2d72ee44bd83acd
+  languageName: node
+  linkType: hard
+
+"tinybase@npm:^6.2.0-beta.1":
+  version: 6.2.0-beta.1
+  resolution: "tinybase@npm:6.2.0-beta.1"
+  peerDependencies:
+    "@automerge/automerge-repo": ^1.2.1
+    "@cloudflare/workers-types": ^4.20250515.0
+    "@electric-sql/pglite": ^0.2.17
+    "@libsql/client": ^0.15.6
+    "@powersync/common": ^1.30.0
+    "@sqlite.org/sqlite-wasm": ^3.49.2-build1
+    "@vlcn.io/crsqlite-wasm": ^0.16.0
+    bun: ^1.2.13
+    electric-sql: ^0.12.1
+    expo: ^53.0.9
+    expo-sqlite: ^15.2.10
+    partykit: ^0.0.114
+    partysocket: ^1.1.4
+    postgres: ^3.4.5
+    react: ^19.0.0
+    react-dom: ^19.0.0
+    sqlite3: ^5.1.7
+    ws: ^8.18.2
+    yjs: ^13.6.27
+  peerDependenciesMeta:
+    "@automerge/automerge-repo":
+      optional: true
+    "@cloudflare/workers-types":
+      optional: true
+    "@electric-sql/pglite":
+      optional: true
+    "@libsql/client":
+      optional: true
+    "@powersync/common":
+      optional: true
+    "@sqlite.org/sqlite-wasm":
+      optional: true
+    "@vlcn.io/crsqlite-wasm":
+      optional: true
+    bun:
+      optional: true
+    electric-sql:
+      optional: true
+    expo:
+      optional: true
+    expo-sqlite:
+      optional: true
+    partykit:
+      optional: true
+    partysocket:
+      optional: true
+    postgres:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    sqlite3:
+      optional: true
+    ws:
+      optional: true
+    yjs:
+      optional: true
+  checksum: 3f999de251d79bae11ae36794dfa410c73bc524c9a1570d5d0f0c214e38e10ffad4617593e5af87b739189a529abe155cb55a2c82173338351133e3153b6ee2f
+  languageName: node
+  linkType: hard
+
 "tinybench@npm:4.x, tinybench@npm:^4.0.1":
   version: 4.0.1
   resolution: "tinybench@npm:4.0.1"
@@ -47043,6 +47259,26 @@ __metadata:
   version: 2.2.0
   resolution: "tinyspy@npm:2.2.0"
   checksum: 36431acaa648054406147a92b9bde494b7548d0f9f3ffbcc02113c25a6e59f3310cbe924353d7f4c51436299150bec2dbb3dc595748f58c4ddffea22d5baaadb
+  languageName: node
+  linkType: hard
+
+"tinytick@npm:^1.2.8":
+  version: 1.2.8
+  resolution: "tinytick@npm:1.2.8"
+  checksum: 1929fc18eb69881249c8775fd6965076342989e4e32833db2e7f2ab0c64e1a7a2efd3776d5080a84f13715476ef8a13ff3b1f33830abce3d73f418468cddb4fc
+  languageName: node
+  linkType: hard
+
+"tinywidgets@npm:1.2.4":
+  version: 1.2.4
+  resolution: "tinywidgets@npm:1.2.4"
+  dependencies:
+    "@vanilla-extract/css": ^1.17.2
+    lucide-react: ^0.511.0
+    react: ^19.1.0
+    react-dom: ^19.1.0
+    tinybase: ^6.2.0-beta.1
+  checksum: 5241fb3299e7526d1f97c754ad00aa7d9145035a664fdc0cf88e9bede02be5ac373a9663a8a36b1fe8459175595be5e62dc1ccfcf76e09ef75cc54c6839bf755
   languageName: node
   linkType: hard
 

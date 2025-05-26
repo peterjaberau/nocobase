@@ -1,10 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { Handle } from '@xyflow/react';
-import { Icon, HStack, Box, Card, Heading, Text, List, For } from '@chakra-ui/react';
+import { Icon } from '@chakra-ui/react';
 import * as ContextMenu from '@radix-ui/react-context-menu';
-import { LuCircleCheck, LuCircleDashed } from 'react-icons/lu';
-import { TinyAccordion } from '../../../ui/tiny.accordion';
-import { SimpleGrid } from '@chakra-ui/react';
+
 interface Data {
   title: string;
   label: string;
@@ -30,7 +28,7 @@ export default function ChannelNode({ data, sourcePosition, targetPosition }: an
 
   const { id, name, version, summary, owners = [], address, protocols = [], styles } = channel.data;
   const protocol = protocols[0];
-  const { node: { color = 'gray', label = '' } = {}, icon = 'ArrowsRightLeftIcon' } = styles || {};
+  const { node: { color = 'gray', label = '-' } = {}, icon = 'ArrowsRightLeftIcon' } = styles || {};
 
   // const Icon = getIconForProtocol(protocol);
 
@@ -61,53 +59,57 @@ export default function ChannelNode({ data, sourcePosition, targetPosition }: an
   return (
     <ContextMenu.Root>
       <ContextMenu.Trigger>
-          <TinyAccordion
-            w={'400px'}
-            items={[
-              {
-                title: `${name} (${version})`,
-                value: `${name} (${version})`,
-                titleExtension: <>{nodeLabel}</>,
-                content: (
-                  <>
-                    {targetPosition && <Handle type="target" position={targetPosition} style={{ top: 16, marginLeft: -4, transform: 'none'}} />}
-                    {sourcePosition && <Handle type="source" position={sourcePosition} style={{ top: 16, marginRight: -4, transform: 'none'}} />}
-                    {summary}
-                    {mode === 'full' && (
-                      <List.Root variant="plain" mb={0}>
-                      <SimpleGrid columns={2} gap={2}>
-                        {address && (
-                          <List.Item>
-                            <List.Indicator asChild>
-                              <LuCircleCheck />
-                            </List.Indicator>
-                            {getAddress()}
-                          </List.Item>
-                        )}
-                        {protocols.length > 0 && (
-                          <For each={[...protocols]}>
-                            {(protocol, index) => {
-                              return (
-                                <List.Item key={index}>
-                                  <List.Indicator asChild>
-                                    <LuCircleCheck />
-                                  </List.Indicator>
-                                  {protocol}
-                                </List.Item>
-                              );
-                            }}
-                          </For>
-                        )}
-                      </SimpleGrid>
-                      </List.Root>
+        <div
+          className={classNames(
+            mode === 'simple' ? 'min-h-[3em]' : 'min-h-[6.5em]',
+            `w-full rounded-md border flex justify-start  bg-white text-black border-${color}-400 transform  `
+          )}
+        >
+          <div className="p-1 min-w-60 max-w-[min-content]">
+            {targetPosition && <Handle type="target" position={targetPosition} />}
+            {sourcePosition && <Handle type="source" position={sourcePosition} />}
+            <div className={classNames(mode === 'full' ? `border-b border-gray-200` : '')}>
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-bold block pb-0.5">{name}</span>
+                {Icon && <Icon className="w-5 h-5 opacity-60 p-0.5" />}
+              </div>
+              <div className="flex justify-between">
+                <span className="text-[10px] font-light block pt-0.5 pb-0.5 ">v{version}</span>
+                {mode === 'simple' && (
+                  <span className="text-[10px] text-gray-500 font-light block pt-0.5 pb-0.5 ">{nodeLabel}</span>
+                )}
+              </div>
+            </div>
+            {mode === 'full' && (
+              <div className="divide-y divide-gray-200 ">
+                <div className="leading-[10px] py-1 ">
+                  <span className="text-[8px] font-light">{summary}</span>
+                </div>
+                {address && (
+                  <div className="leading-3 py-1 flex flex-col items-start space-y-0.5">
+                    <div className="text-[6px] flex items-center space-x-0.5 ">
+                      <LinkIcon className="w-2 h-2 opacity-60" />
+                      <span className="block font-normal ">{getAddress()}</span>
+                    </div>
+                    {protocols.length > 0 && (
+                      <div className="text-[6px] font-semibold flex space-x-2 items-center ">
+                        {[...protocols].map((protocol, index) => {
+                          // const ProtoColIcon = getIconForProtocol(protocol);
+                          return (
+                            <span key={index} className="font-normal flex items-center -ml-[1px] space-x-0.5">
+                              {/*{ProtoColIcon && <ProtoColIcon className="w-2 h-2 opacity-60 inline-block" />}*/}
+                              <span>{protocol}</span>
+                            </span>
+                          );
+                        })}
+                      </div>
                     )}
-                  </>
-                )
-              }
-            ]}
-            defaultExpandedValues={[`${name} (${version})`]}
-            collapsible={false}
-          />
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
       </ContextMenu.Trigger>
       <ContextMenu.Portal>
         <ContextMenu.Content className="min-w-[220px] bg-white rounded-md p-1 shadow-md border border-gray-200">

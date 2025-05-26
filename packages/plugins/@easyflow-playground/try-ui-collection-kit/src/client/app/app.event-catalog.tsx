@@ -6,9 +6,9 @@ import { PlaygroundInstanceRenderer } from '../machines/renderers';
 export const AppEventCatalog = () => {
   return (
     <RootLayout>
-      <PlaygroundInstanceRenderer actorOptions={undefined}>
-        <Page />
-      </PlaygroundInstanceRenderer>
+        <PlaygroundInstanceRenderer actorOptions={undefined}>
+          <Page />
+        </PlaygroundInstanceRenderer>
     </RootLayout>
   );
 };

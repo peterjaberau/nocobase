@@ -13287,7 +13287,7 @@ export const visualizerPayloads = {
       _reactListenings4ct1zz20te: true,
     },
   },
-  'domains.payment': {
+  'payment': {
     id: 'Payment',
     hrefLabel: 'Open documentation for Payment v0.0.1',
     nodes: [

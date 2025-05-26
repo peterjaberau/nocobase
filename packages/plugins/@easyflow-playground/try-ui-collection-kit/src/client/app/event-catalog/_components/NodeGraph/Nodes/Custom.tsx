@@ -1,10 +1,13 @@
 import React from 'react';
 import { Handle } from '@xyflow/react';
+import { TinyAccordion } from '../../../ui/tiny.accordion';
 import * as Icons from '@heroicons/react/24/solid';
 import type { ComponentType } from 'react';
 import * as ContextMenu from '@radix-ui/react-context-menu';
 import * as Tooltip from '@radix-ui/react-tooltip';
-
+import { List, chakra } from '@chakra-ui/react';
+import { LuCircleCheck } from 'react-icons/lu';
+import { SimpleGrid } from '@chakra-ui/react';
 type MenuItem = {
   label: string;
   url?: string;
@@ -61,83 +64,68 @@ export default function UserNode({ data, sourcePosition, targetPosition }: any) 
   return (
     <ContextMenu.Root>
       <ContextMenu.Trigger>
-        <div
-          className={classNames(`w-full rounded-md border flex justify-start  bg-white text-black border-${color}-400`)}
-          style={{ minHeight: mode === 'full' ? `${height}em` : '2em' }}
-        >
-          <div
-            className={classNames(
-              `bg-gradient-to-b from-${color}-400 to-${color}-600 relative flex items-center w-5 justify-center rounded-l-sm text-orange-100-500`,
-              `border-r-[1px] border-${color}`
-            )}
-          >
-            <IconComponent className="w-4 h-4 opacity-90 text-white absolute top-1 " />
-            {mode === 'full' && (
-              <Tooltip.Provider>
-                <Tooltip.Root>
-                  <Tooltip.Trigger asChild>
-                    <span className="rotate -rotate-90 w-1/2 text-center absolute bottom-1 text-[9px] text-white font-bold uppercase tracking-[3px]  ">
-                      {displayType}
-                    </span>
-                  </Tooltip.Trigger>
-                  {isLongType && (
-                    <Tooltip.Portal>
-                      <Tooltip.Content
-                        className="bg-slate-800 text-white rounded px-2 py-1 text-xs shadow-md z-50"
-                        side="right"
-                        sideOffset={5}
-                      >
-                        {type}
-                        <Tooltip.Arrow className="fill-slate-800" />
-                      </Tooltip.Content>
-                    </Tooltip.Portal>
+        <TinyAccordion
+          w={'400px'}
+          items={[
+            {
+              title: { title },
+              value: { title },
+              titleExtension: <>{displayType}</>,
+              content: (
+                <>
+                  {targetPosition && <Handle type="target" position={targetPosition} style={{ top: 16, marginLeft: -4, transform: 'none'}} />}
+                  {sourcePosition && <Handle type="source" position={sourcePosition} style={{ top: 16, marginRight: -4, transform: 'none'}} />}
+                  {summary}
+                  {mode === 'full' && (
+                    <List.Root variant="plain" mb={0}>
+                      <SimpleGrid columns={2} gap={2}>
+                        <List.Item>
+                          <List.Indicator asChild>
+                            <LuCircleCheck />
+                          </List.Indicator>
+                          {`Type: ${type}`}
+                        </List.Item>
+                        <List.Item>
+                          <List.Indicator asChild>
+                            <LuCircleCheck />
+                          </List.Indicator>
+                          {`displayType: ${displayType}`}
+                        </List.Item>
+                        {properties && (
+                          <>
+                            {Object.entries(properties).map(([key, value]) => (
+                              <List.Item key={key}>
+                                <List.Indicator asChild>
+                                  <LuCircleCheck />
+                                </List.Indicator>
+                                {key}:{' '}
+                                {typeof value === 'string' && value.startsWith('http') ? (
+                                  <chakra.a href={value} target="_blank" rel="noopener noreferrer">
+                                    {value}
+                                  </chakra.a>
+                                ) : (
+                                  value
+                                )}
+                              </List.Item>
+                            ))}
+                          </>
+                        )}
+                        <List.Item>
+                          <List.Indicator asChild>
+                            <LuCircleCheck />
+                          </List.Indicator>
+                          {`displayType: ${displayType}`}
+                        </List.Item>
+                      </SimpleGrid>
+                    </List.Root>
                   )}
-                </Tooltip.Root>
-              </Tooltip.Provider>
-            )}
-          </div>
-          <div className="p-1 min-w-60 max-w-[min-content]">
-            {targetPosition && <Handle type="target" position={targetPosition} />}
-            {sourcePosition && <Handle type="source" position={sourcePosition} />}
-
-            {(!summary || mode !== 'full') && (
-              <div className="h-full ">
-                <span className="text-sm font-bold block pb-0.5 w-full">{title}</span>
-              </div>
-            )}
-
-            {summary && mode === 'full' && (
-              <div>
-                <div className={classNames(mode === 'full' ? `border-b border-gray-200` : '')}>
-                  <span className="text-xs font-bold block pb-0.5">{title}</span>
-                </div>
-                {mode === 'full' && (
-                  <div className="divide-y divide-gray-200 ">
-                    <div className="leading-3 py-1">
-                      <span className="text-[8px] font-light">{summary}</span>
-                    </div>
-                    {properties && (
-                      <div className="grid grid-cols-2 gap-x-4 py-1">
-                        {Object.entries(properties).map(([key, value]) => (
-                          <span key={key} className="text-xs" style={{ fontSize: '0.2em' }}>
-                            {key}:{' '}
-                            {typeof value === 'string' && value.startsWith('http') ? (
-                              <a href={value} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                                {value}
-                              </a>
-                            ) : (
-                              value
-                            )}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
+                </>
+              ),
+            },
+          ]}
+          defaultExpandedValues={[name]}
+          collapsible={false}
+        />
       </ContextMenu.Trigger>
       {menu?.length > 0 && (
         <ContextMenu.Portal>
