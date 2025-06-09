@@ -10,7 +10,7 @@ import {
   HStack,
   CheckboxCard,
 } from '@chakra-ui/react';
-import { Play } from './components/play';
+import Play from './components/play';
 
 const GridItem = ({ title, children }: any) => {
   return (

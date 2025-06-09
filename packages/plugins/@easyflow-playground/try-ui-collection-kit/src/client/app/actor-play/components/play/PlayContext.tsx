@@ -1,9 +1,12 @@
 import React from 'react';
 import { createActorContext } from '@xstate/react';
 import { createMachine, InspectionEvent, spawnChild, setup } from 'xstate';
+import { smartNodeMachine } from './machines';
 
 const playMachine = createMachine({
-  entry: [],
+  entry: [
+    spawnChild(smartNodeMachine, { systemId: 'smart-node' }),
+  ],
 });
 
 export const playContext = createActorContext(playMachine);
