@@ -9,7 +9,7 @@ const playMachine = createMachine({
   ],
 });
 
-export const playContext = createActorContext(playMachine);
+export const playContext: any = createActorContext(playMachine);
 
 const PlayContext = ({ children }) => {
   return <playContext.Provider>{children}</playContext.Provider>;

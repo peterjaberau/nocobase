@@ -16,6 +16,7 @@ export const useSmartNode = () => {
 
   const smartNodeId = smartNodeRef.id;
 
+
   return {
     smartNodeRef,
     smartNodeId,

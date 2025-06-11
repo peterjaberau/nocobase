@@ -9,8 +9,13 @@ import {
   Center,
   HStack,
   CheckboxCard,
+  Separator
 } from '@chakra-ui/react';
 import Play from './components/play';
+import { ChakraDemo } from './components/ui/chakra-demo';
+import { ArkDemo } from './components/ui/ark-demo';
+import { Editor } from './app/Editor/Editor';
+import { EditorWidgets } from './app/Editor/EditorWidgets';
 
 const GridItem = ({ title, children }: any) => {
   return (
@@ -21,8 +26,9 @@ const GridItem = ({ title, children }: any) => {
       p="3"
       borderRadius={'md'}
     >
-      <Heading>{title}</Heading>
-      <Box>
+      <Heading margin='0'>{title}</Heading>
+      <Separator />
+      <Box pt={1}>
         {children}
       </Box>
     </Stack>
@@ -36,7 +42,25 @@ export const Page = () => {
       <Flex gap={8}>
         <Play hasActors={true} />
 
-        <Play />
+        {/*<Play />*/}
+
+        <GridItem title="Chakra UI">
+          <ChakraDemo />
+        </GridItem>
+
+        <GridItem title="Ark UI">
+          <ArkDemo />
+
+        </GridItem>
+
+
+        <GridItem title="EditorWidgets">
+          <Editor>
+            <EditorWidgets />
+          </Editor>
+
+        </GridItem>
+
 
 
 
