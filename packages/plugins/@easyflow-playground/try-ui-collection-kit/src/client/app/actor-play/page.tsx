@@ -15,7 +15,9 @@ import Play from './components/play';
 import { ChakraDemo } from './components/ui/chakra-demo';
 import { ArkDemo } from './components/ui/ark-demo';
 import { Editor } from './app/Editor/Editor';
-import { EditorWidgets } from './app/Editor/EditorWidgets';
+import { EditorWidgets, EditorWidgetsSearch } from './app/Editor/EditorWidgets';
+// import { SearchBox } from './app/_components/SearchBox';
+import JsonView from 'react18-json-view'
 
 const GridItem = ({ title, children }: any) => {
   return (
@@ -38,6 +40,7 @@ const GridItem = ({ title, children }: any) => {
 
 export const Page = () => {
   return (
+    <Editor>
     <Container p={4} bg={'bg.panel'}>
       <Flex gap={8}>
         <Play hasActors={true} />
@@ -55,10 +58,14 @@ export const Page = () => {
 
 
         <GridItem title="EditorWidgets">
-          <Editor>
-            <EditorWidgets />
-          </Editor>
 
+            <EditorWidgets />
+
+
+        </GridItem>
+
+        <GridItem title="Search">
+          <EditorWidgetsSearch />
         </GridItem>
 
 
@@ -66,5 +73,6 @@ export const Page = () => {
 
       </Flex>
     </Container>
+</Editor>
   );
 };

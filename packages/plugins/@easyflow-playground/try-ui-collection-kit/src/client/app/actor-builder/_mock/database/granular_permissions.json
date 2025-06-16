@@ -1,0 +1,47 @@
+[
+  {
+    "id": "e85a5d3c-4a93-4185-84cb-a60ae8c30854",
+    "group_id": "1e701acb-dc01-433f-9d34-c4cb1532780f",
+    "name": "Apps",
+    "type": "app",
+    "is_all": true,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "89730516-b7f7-4df6-9556-1f7e80a8d05e",
+    "group_id": "8787a9f5-e9f5-4501-8df0-95f569096442",
+    "name": "Apps",
+    "type": "app",
+    "is_all": true,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "816f5ee9-bff0-4f04-bff7-1b9a8f3ac21b",
+    "group_id": "8787a9f5-e9f5-4501-8df0-95f569096442",
+    "name": "Data sources",
+    "type": "data_source",
+    "is_all": true,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "f93b0c27-053b-4f56-a58d-6e9bed980892",
+    "group_id": "1f60d2a0-cc7d-431e-8d51-5c77ebaa8f03",
+    "name": "Apps",
+    "type": "app",
+    "is_all": true,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "ceba525c-868b-4602-a49c-c22043582a6f",
+    "group_id": "1f60d2a0-cc7d-431e-8d51-5c77ebaa8f03",
+    "name": "Data sources",
+    "type": "data_source",
+    "is_all": true,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  }
+]

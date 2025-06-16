@@ -1,0 +1,34 @@
+[
+  {
+    "id": "6141c4e9-bb97-4465-90de-fea0577ebd6c",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "table_name": "library_resources",
+    "created_at": "2025-06-15 01:14:59.636181",
+    "updated_at": "2025-06-15 01:14:59.636181",
+    "configurations": {"columns": {"column_names": {"id": "def15003-c5f6-483e-a641-9dd2a9705e27", "title": "9c57fa28-0a19-4b6e-a37f-db1cf09ea118", "author": "c7bed113-3476-4201-a48b-567180c52a71", "format": "6b67174f-1e06-4e09-9798-490510a98644", "borrower_id": "ad03a82e-076c-4bb4-afd2-ac17bac10073", "description": "5afd693f-7100-4764-aa50-c43a1c119c71", "availability": "984e3443-45a2-4eff-9374-1f921ee1bf80", "publication_date": "9b929b8b-2e72-4e22-ac96-ea2d3eadb1c7"}, "configurations": {"5afd693f-7100-4764-aa50-c43a1c119c71": {}, "6b67174f-1e06-4e09-9798-490510a98644": {}, "984e3443-45a2-4eff-9374-1f921ee1bf80": {}, "9b929b8b-2e72-4e22-ac96-ea2d3eadb1c7": {}, "9c57fa28-0a19-4b6e-a37f-db1cf09ea118": {}, "ad03a82e-076c-4bb4-afd2-ac17bac10073": {}, "c7bed113-3476-4201-a48b-567180c52a71": {}, "def15003-c5f6-483e-a641-9dd2a9705e27": {}}}}
+  },
+  {
+    "id": "c97c208a-8cda-483c-ae30-3246997f2801",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "table_name": "borrowers_details",
+    "created_at": "2025-06-15 01:14:59.636181",
+    "updated_at": "2025-06-15 01:14:59.636181",
+    "configurations": {"columns": {"column_names": {"id": "85859b38-d9fc-4d9e-a131-bab0b437506b", "borrow_date": "9c83d70e-9f94-480c-8c0e-5f771f06d6c5", "return_date": "68780e91-9517-408c-bd2e-29aa9b475dc1", "borrower_name": "c7796632-1dda-456a-8b55-ed41655d6efa"}, "configurations": {"68780e91-9517-408c-bd2e-29aa9b475dc1": {}, "85859b38-d9fc-4d9e-a131-bab0b437506b": {}, "9c83d70e-9f94-480c-8c0e-5f771f06d6c5": {}, "c7796632-1dda-456a-8b55-ed41655d6efa": {}}}}
+  },
+  {
+    "id": "967f0952-8b65-4629-b563-b71a5754da71",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "table_name": "table1",
+    "created_at": "2025-06-15 01:16:41.077907",
+    "updated_at": "2025-06-15 01:16:41.077907",
+    "configurations": {"columns": {"column_names": {"id": "54e73144-8d52-46c5-a4cb-40cb09aa63b9"}, "configurations": {"54e73144-8d52-46c5-a4cb-40cb09aa63b9": {}}}}
+  },
+  {
+    "id": "76b45e9a-acab-44f3-b6e2-cc00fa68d983",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "table_name": "tj_admin_panel",
+    "created_at": "2025-06-15 01:17:19.901326",
+    "updated_at": "2025-06-15 01:17:19.901326",
+    "configurations": {"columns": {"column_names": {"id": "18ebee7c-37b8-47df-a97b-1ddd1d4c80e8", "email": "6620c7ad-51b7-4cdd-b64c-b8ad4b2a9620", "items": "4ce0e31b-ec97-4fbe-8360-dce3d8926d08", "delivery": "d92227d6-ec53-42a1-9c8d-30f12951424b", "subtotal": "b00c8842-5b71-482b-bef9-ce1ebe4b346d", "total_cost": "7d6b02a9-efbc-435c-aceb-397fcd5ef2c7", "customer_name": "410876e8-c5c5-44ac-88cf-3ef501350307"}, "configurations": {"18ebee7c-37b8-47df-a97b-1ddd1d4c80e8": {}, "410876e8-c5c5-44ac-88cf-3ef501350307": {}, "4ce0e31b-ec97-4fbe-8360-dce3d8926d08": {}, "6620c7ad-51b7-4cdd-b64c-b8ad4b2a9620": {}, "7d6b02a9-efbc-435c-aceb-397fcd5ef2c7": {}, "b00c8842-5b71-482b-bef9-ce1ebe4b346d": {}, "d92227d6-ec53-42a1-9c8d-30f12951424b": {}}}}
+  }
+]

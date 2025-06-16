@@ -83,7 +83,7 @@ export function SchemaSettingsCollapsedItem() {
       }
       onSubmit={({ collapsed = true }) => {
 
-        console.log('onSubmit-collapsed', collapsed)
+        // console.log('onSubmit-collapsed', collapsed)
 
         const componentProps = fieldSchema['x-component-props'] || {};
         componentProps['collapsed'] = collapsed;

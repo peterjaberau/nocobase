@@ -1,0 +1,13 @@
+[
+  {
+    "id": "e15bdd21-36c4-4055-8082-e65de499f2a3",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "user_id": "9a7fdaa2-ca28-447f-a8d0-9b46e8aa788d",
+    "role": "all-users",
+    "status": "active",
+    "created_at": "2025-06-15 01:12:38.191000",
+    "updated_at": "2025-06-15 01:12:38.191000",
+    "invitation_token": null,
+    "source": "invite"
+  }
+]

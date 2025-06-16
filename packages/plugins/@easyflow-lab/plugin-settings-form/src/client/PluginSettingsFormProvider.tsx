@@ -8,7 +8,7 @@ export const PluginSettingsFormProvider: FC<{ children: React.ReactNode }> = ({ 
     url: 'samplesMapConfiguration:get',
   });
 
-  console.log('PluginSettingsFormProvider', request.data?.data);
+  // console.log('PluginSettingsFormProvider', request.data?.data);
 
   return <PluginSettingsFormContext.Provider value={request}>{children}</PluginSettingsFormContext.Provider>;
 }

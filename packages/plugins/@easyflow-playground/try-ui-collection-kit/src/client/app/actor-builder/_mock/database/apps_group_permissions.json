@@ -1,0 +1,29 @@
+[
+  {
+    "id": "312754df-36eb-4290-9edf-5c18c927e54a",
+    "granular_permission_id": "e85a5d3c-4a93-4185-84cb-a60ae8c30854",
+    "can_edit": false,
+    "can_view": true,
+    "hide_from_dashboard": false,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "f82e338d-61ee-48f0-b3a8-16c958e2f86a",
+    "granular_permission_id": "89730516-b7f7-4df6-9556-1f7e80a8d05e",
+    "can_edit": true,
+    "can_view": false,
+    "hide_from_dashboard": false,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "5ab569da-8cc5-4409-ae60-a40c56376c4e",
+    "granular_permission_id": "f93b0c27-053b-4f56-a58d-6e9bed980892",
+    "can_edit": true,
+    "can_view": false,
+    "hide_from_dashboard": false,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  }
+]

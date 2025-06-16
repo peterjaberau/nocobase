@@ -8,7 +8,7 @@ export const PluginSettingsTableProvider: FC<{ children: React.ReactNode }> = ({
     url: 'samplesEmailTemplates:list',
   });
 
-  console.log('PluginSettingsTableProvider', request.data?.data);
+  // console.log('PluginSettingsTableProvider', request.data?.data);
 
   return <PluginSettingsTableContext.Provider value={request}>{children}</PluginSettingsTableContext.Provider>;
 }

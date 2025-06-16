@@ -1,0 +1,32 @@
+[
+  {
+    "id": "8e16ec05-219f-4078-8b11-55b6b5c1418c",
+    "name": "development",
+    "default": false,
+    "created_at": "2025-06-15 01:12:38.030000",
+    "updated_at": "2025-06-15 01:12:38.030000",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "priority": 1,
+    "enabled": true
+  },
+  {
+    "id": "d685e3d5-bd36-4bb8-bafa-00cc3ca3e72a",
+    "name": "staging",
+    "default": false,
+    "created_at": "2025-06-15 01:12:38.030000",
+    "updated_at": "2025-06-15 01:12:38.030000",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "priority": 2,
+    "enabled": true
+  },
+  {
+    "id": "b6ff8ac4-87dc-466b-a22c-af1b56509426",
+    "name": "production",
+    "default": true,
+    "created_at": "2025-06-15 01:12:38.031000",
+    "updated_at": "2025-06-15 01:12:38.031000",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "priority": 3,
+    "enabled": true
+  }
+]

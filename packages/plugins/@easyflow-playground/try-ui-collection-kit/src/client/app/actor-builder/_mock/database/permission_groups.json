@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1e701acb-dc01-433f-9d34-c4cb1532780f",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "name": "end-user",
+    "type": "default",
+    "app_create": false,
+    "app_delete": false,
+    "folder_crud": false,
+    "org_constant_crud": false,
+    "data_source_create": false,
+    "data_source_delete": false,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "8787a9f5-e9f5-4501-8df0-95f569096442",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "name": "admin",
+    "type": "default",
+    "app_create": true,
+    "app_delete": true,
+    "folder_crud": true,
+    "org_constant_crud": true,
+    "data_source_create": true,
+    "data_source_delete": true,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  },
+  {
+    "id": "1f60d2a0-cc7d-431e-8d51-5c77ebaa8f03",
+    "organization_id": "0b58dbd2-4f2f-4dda-ab04-5467afeb3e22",
+    "name": "builder",
+    "type": "default",
+    "app_create": true,
+    "app_delete": true,
+    "folder_crud": true,
+    "org_constant_crud": true,
+    "data_source_create": false,
+    "data_source_delete": false,
+    "created_at": "2025-06-15 01:12:38.024094",
+    "updated_at": "2025-06-15 01:12:38.024094"
+  }
+]

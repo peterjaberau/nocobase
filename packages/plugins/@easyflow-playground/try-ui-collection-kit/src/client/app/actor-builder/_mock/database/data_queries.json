@@ -1,0 +1,137 @@
+[
+  {
+    "id": "f1780322-fcb1-4f07-8291-257f735943ab",
+    "data_source_id": "0b9b2d7b-a0aa-4a1b-afe6-d3bff377710e",
+    "name": "filterTitles",
+    "options": {"code":"if (components.formatFilter.values.length > 0) {\n  if (components.authorFilter.values.length > 0) {\n    return queries.getBooksDetails.data.result.filter(\n      (row) =>\n        components.formatFilter.values.includes(row.library_resources_format) &&\n        components.authorFilter.values.includes(row.library_resources_author)\n    );\n  } else {\n    return queries.getBooksDetails.data.result.filter((row) =>\n      components.formatFilter.values.includes(row.library_resources_format)\n    );\n  }\n} else if (components.authorFilter.values.length > 0) {\n  return queries.getBooksDetails.data.result.filter((row) =>\n    components.authorFilter.values.includes(row.library_resources_author)\n  );\n} else {\n  return queries.getBooksDetails.data.result;\n}\n","parameters":[]},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:14:59.770964",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "a643d2fa-0abe-498d-81ac-fd71fe421e7b",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "updateTitleAvailability",
+    "options": {"operation":"update_rows","transformationLanguage":"javascript","enableTransformation":false,"table_id":"6141c4e9-bb97-4465-90de-fea0577ebd6c","join_table":{"joins":[{"id":1733754644470,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"6141c4e9-bb97-4465-90de-fea0577ebd6c","type":"Table"},"fields":[{"name":"title","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"author","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"description","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"format","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"publication_date","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"availability","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"borrower_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"}]},"list_rows":{},"update_rows":{"columns":{"0":{"column":"availability","value":"{{components.190ae9fd-a9a5-4093-a3ca-fa2cec9ff32d.data.dropdownlegacy4.value == \"issue\" ? \"ISSUED\" : \"AVAILABLE\"}}"},"3963643e-fc00-4880-a641-7135221829f5":{"column":"borrower_id","value":"{{components.190ae9fd-a9a5-4093-a3ca-fa2cec9ff32d.data.dropdownlegacy4.value == \"issue\"\n  ? queries.6134626a-32dc-4fb4-91e4-f977daf88984.data[0].id\n  : queries.ec049239-06ce-405e-a03c-6adc0abfcc3c.data.result.filter(\n      (row) =>\n        row.library_resources_id == components.190ae9fd-a9a5-4093-a3ca-fa2cec9ff32d.data.dropdown1.value\n    )[0].library_resources_borrower_id}}"}},"where_filters":{"fae94536-dd1e-4b34-bbe9-57b2fe77363c":{"column":"id","operator":"eq","value":"{{components.190ae9fd-a9a5-4093-a3ca-fa2cec9ff32d.data.dropdown1.value}}","id":"fae94536-dd1e-4b34-bbe9-57b2fe77363c"}}},"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:00.087559",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "ec049239-06ce-405e-a03c-6adc0abfcc3c",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "getBooksDetails",
+    "options": {"operation":"join_tables","transformationLanguage":"javascript","enableTransformation":false,"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22","table_id":"6141c4e9-bb97-4465-90de-fea0577ebd6c","join_table":{"joins":[{"id":1728924616295,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"6141c4e9-bb97-4465-90de-fea0577ebd6c","columnName":"borrower_id","type":"Column"},"rightField":{"table":"c97c208a-8cda-483c-ae30-3246997f2801","columnName":"id","type":"Column"}}]},"joinType":"LEFT","table":"c97c208a-8cda-483c-ae30-3246997f2801"}],"from":{"name":"6141c4e9-bb97-4465-90de-fea0577ebd6c","type":"Table"},"fields":[{"name":"borrower_name","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"borrow_date","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"return_date","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"title","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"author","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"description","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"format","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"publication_date","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"availability","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"borrower_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"}],"conditions":{"conditionsList":[]},"order_by":[{"columnName":"id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c","direction":"DESC"}]},"list_rows":{},"runOnPageLoad":true,"showSuccessNotification":false,"notificationDuration":"1"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:01.093000",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "6134626a-32dc-4fb4-91e4-f977daf88984",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "addBorrower",
+    "options": {"operation":"create_row","transformationLanguage":"javascript","enableTransformation":false,"table_id":"c97c208a-8cda-483c-ae30-3246997f2801","join_table":{"joins":[{"id":1733352338024,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"c97c208a-8cda-483c-ae30-3246997f2801"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"c97c208a-8cda-483c-ae30-3246997f2801","type":"Table"},"fields":[{"name":"id","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"borrower_name","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"borrow_date","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"return_date","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"book_id","table":"c97c208a-8cda-483c-ae30-3246997f2801"}]},"list_rows":{},"create_row":{"0376aca6-eec0-4675-9b08-1e17c7557433":{"column":"borrower_name","value":"{{components.190ae9fd-a9a5-4093-a3ca-fa2cec9ff32d.data.textinput1.value}}"},"ef887c8d-9d0d-4e51-a1a8-31bb1d7f8bee":{"column":"borrow_date","value":"{{moment().format(\"DD/MM/YYYY\")}}"}},"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:00.087559",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "dd6b838f-1568-4cc3-be2b-50a2e6e060b0",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "updateBorrower",
+    "options": {"operation":"update_rows","transformationLanguage":"javascript","enableTransformation":false,"table_id":"c97c208a-8cda-483c-ae30-3246997f2801","join_table":{"joins":[{"id":1733352511652,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"c97c208a-8cda-483c-ae30-3246997f2801"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"c97c208a-8cda-483c-ae30-3246997f2801","type":"Table"},"fields":[{"name":"id","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"borrower_name","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"borrow_date","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"return_date","table":"c97c208a-8cda-483c-ae30-3246997f2801"},{"name":"book_id","table":"c97c208a-8cda-483c-ae30-3246997f2801"}]},"list_rows":{},"update_rows":{"columns":{"9ac7b99d-9cc7-47f9-a14d-7b1b201ff7ec":{"column":"return_date","value":"{{moment().format(\"DD/MM/YYYY\")}}"}},"where_filters":{"2697eb12-f7e6-4ab9-b80c-81ae6e9c44dd":{"column":"id","operator":"eq","value":"{{queries.ec049239-06ce-405e-a03c-6adc0abfcc3c.data.result.filter(\n  (row) =>\n    row.library_resources_id == components.190ae9fd-a9a5-4093-a3ca-fa2cec9ff32d.data.dropdown1.value\n)[0].library_resources_borrower_id}}","id":"2697eb12-f7e6-4ab9-b80c-81ae6e9c44dd"}}},"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:00.087559",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "fabd0e88-a8e8-4ec5-820a-b1342ec5004b",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "addNewTitle",
+    "options": {"operation":"create_row","transformationLanguage":"javascript","enableTransformation":false,"table_id":"6141c4e9-bb97-4465-90de-fea0577ebd6c","join_table":{"joins":[{"id":1733356785868,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"6141c4e9-bb97-4465-90de-fea0577ebd6c","type":"Table"},"fields":[{"name":"book_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"title","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"author","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"description","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"format","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"publication_date","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"availability","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"borrower_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"}]},"list_rows":{},"create_row":{"d48b8fd3-e42b-493f-86dd-cae782b2046b":{"column":"title","value":"{{components.e8f595f8-85fb-4564-9144-8c7e799d4d40.data.newTitle.value}}"},"bf4806f0-2abf-4a1f-b427-3cffa749f3f1":{"column":"author","value":"{{components.e8f595f8-85fb-4564-9144-8c7e799d4d40.data.newAuthor.value}}"},"25ab6e3e-cfa0-4441-973f-9f26a82123f3":{"column":"format","value":"{{components.e8f595f8-85fb-4564-9144-8c7e799d4d40.data.newFormat.value}}"},"2d0415e6-d0af-4350-ba2c-6efe3a18764a":{"column":"publication_date","value":"{{components.e8f595f8-85fb-4564-9144-8c7e799d4d40.data.newDatePicker.value}}"},"9d85a0a2-1af7-4b50-af99-6984c0b5553d":{"column":"description","value":"{{components.e8f595f8-85fb-4564-9144-8c7e799d4d40.data.textarea2.value}}"},"f71decf0-c700-4194-874e-ca0e8a70c7e9":{"column":"availability","value":"AVAILABLE"}},"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:00.087559",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "5a9b8560-10c4-4692-969a-47974ccd0344",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "updateTitleDetails",
+    "options": {"operation":"update_rows","transformationLanguage":"javascript","enableTransformation":false,"table_id":"6141c4e9-bb97-4465-90de-fea0577ebd6c","join_table":{"joins":[{"id":1733358975208,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"6141c4e9-bb97-4465-90de-fea0577ebd6c","type":"Table"},"fields":[{"name":"book_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"title","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"author","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"description","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"format","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"publication_date","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"availability","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"borrower_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"}]},"list_rows":{},"update_rows":{"columns":{"0":{"column":"title","value":"{{components.4a77343d-62ed-4e40-a484-7850249b3e73.value}}"},"1":{"column":"author","value":"{{components.6b78cd92-0f3f-4056-9b4c-cf795dfbc771.value}}"},"2":{"column":"format","value":"{{components.197dd5e1-20f6-450e-aeee-851fd8462723.value}}"},"3":{"column":"publication_date","value":"{{components.4fce9bc7-b3a2-418e-af71-8713868d4827.value}}"},"95c8ca18-898d-40ba-ac85-72e150a2dd8e":{"column":"description","value":"{{components.1f980180-51b4-466e-9382-207391d6c3bd.value}}"}},"where_filters":{"25d560f8-6914-44d0-b56f-459ae215bd8d":{"column":"id","operator":"eq","value":"{{components.d5c878b5-18cd-4a46-9f56-dd4f736575c6.selectedRow.library_resources_id}}","id":"25d560f8-6914-44d0-b56f-459ae215bd8d"}}},"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:00.087559",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "989d2341-56ff-40f8-bd25-6448682e4512",
+    "data_source_id": "7bffa4a7-13ef-4755-a239-d376e01d1d4d",
+    "name": "deleteTitle",
+    "options": {"operation":"delete_rows","transformationLanguage":"javascript","enableTransformation":false,"table_id":"6141c4e9-bb97-4465-90de-fea0577ebd6c","join_table":{"joins":[{"id":1733753933218,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"6141c4e9-bb97-4465-90de-fea0577ebd6c","type":"Table"},"fields":[{"name":"book_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"title","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"author","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"description","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"format","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"publication_date","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"availability","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"},{"name":"borrower_id","table":"6141c4e9-bb97-4465-90de-fea0577ebd6c"}]},"list_rows":{},"delete_rows":{"limit":1,"where_filters":{"c2bcdd47-48ae-4edd-b8e9-c2cd6ef33fe3":{"column":"id","operator":"eq","value":"{{components.d5c878b5-18cd-4a46-9f56-dd4f736575c6.selectedRow.library_resources_id}}","id":"c2bcdd47-48ae-4edd-b8e9-c2cd6ef33fe3"}}},"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22"},
+    "created_at": "2025-06-15 01:14:59.770964",
+    "updated_at": "2025-06-15 01:15:00.087559",
+    "app_version_id": "79249c8e-26dc-43b0-9273-74a7d4ca231d"
+  },
+  {
+    "id": "93170888-6b0d-4e1c-928f-f3a2fc788dc0",
+    "data_source_id": "6da62be6-ca47-40bd-a13d-cc6d1ce624c2",
+    "name": "addItem",
+    "options": {"code":"let items = variables.items;\n\nconst newItem = {\n  ...variables.newItem,\n  id: items.length,\n};\n\nitems.push(newItem);\n\nactions.setVariable(\"items\", items);","hasParamSupport":true,"parameters":[]},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:17:20.059879",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  },
+  {
+    "id": "167fbbe1-b905-409f-b62c-019305d3d6dc",
+    "data_source_id": "6da62be6-ca47-40bd-a13d-cc6d1ce624c2",
+    "name": "calculateSubtotal",
+    "options": {"code":"const items = variables.items || [];\n\nlet subtotal = 0;\n\nitems.forEach((item) => {\n  subtotal += item.quantity * item.cost;\n});\n\nreturn subtotal;","hasParamSupport":true,"parameters":[]},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:17:20.059879",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  },
+  {
+    "id": "581d4f50-bf90-4cbd-ac6c-8d1d709b13fa",
+    "data_source_id": "6da62be6-ca47-40bd-a13d-cc6d1ce624c2",
+    "name": "deleteItem",
+    "options": {"code":"let items = variables.items;\nconst deletedItemId = variables.deletedItemId;\n\nitems.splice(deletedItemId, 1);\nitems = items.map((item, i) => ({ ...item, id: i }));\n\nactions.setVariable(\"items\", items);","hasParamSupport":true,"parameters":[]},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:17:20.059879",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  },
+  {
+    "id": "99482e3e-f4eb-4645-8c4f-71773e84ee82",
+    "data_source_id": "a902adb0-1cc7-4fe5-b417-024257d5e46b",
+    "name": "addCustomer",
+    "options": {"operation":"create_row","transformationLanguage":"javascript","enableTransformation":false,"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22","table_id":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","join_table":{"joins":[{"id":1705927074461,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","type":"Table"},"fields":[{"name":"id","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"customer_name","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"email","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"items","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"subtotal","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"delivery","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"total_cost","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"}]},"list_rows":{},"create_row":{"0":{"column":"customer_name","value":"{{components.textinput2.value}}"},"1":{"column":"email","value":"{{components.textinput4.value}}"},"2":{"column":"items","value":"{{JSON.stringify(variables.items.map(({id, ...item}) => ({...item})))}}"},"3":{"column":"subtotal","value":"{{components.numberinput6.value}}"},"4":{"column":"delivery","value":"{{components.numberinput3.value}}"},"1b9c9652-40c8-4410-96a6-431e8dbdc5b9":{"column":"total_cost","value":"{{components.numberinput12.value}}"}}},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:17:20.059879",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  },
+  {
+    "id": "9f03dd21-1303-47c3-829f-8c6916cb5eaf",
+    "data_source_id": "a902adb0-1cc7-4fe5-b417-024257d5e46b",
+    "name": "updateCustomer",
+    "options": {"operation":"update_rows","transformationLanguage":"javascript","enableTransformation":false,"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22","table_id":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","join_table":{"joins":[{"id":1705954010660,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","type":"Table"},"fields":[{"name":"id","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"customer_name","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"email","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"items","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"subtotal","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"delivery","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"total_cost","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"}]},"list_rows":{},"update_rows":{"columns":{"0":{"column":"customer_name","value":"{{components.textinput6.value}}"},"1":{"column":"email","value":"{{components.textinput7.value}}"},"2":{"column":"items","value":"{{JSON.stringify(variables.items.map(({id, ...item}) => ({...item})))}}"},"3":{"column":"subtotal","value":"{{components.numberinput20.value}}"},"4":{"column":"delivery","value":"{{components.numberinput19.value}}"},"1635412e-5a49-44d5-b9fc-58ffe188d9c3":{"column":"total_cost","value":"{{components.numberinput21.value}}"}},"where_filters":{"8a7c6d00-f34d-45e2-b29f-99a2f941764f":{"column":"id","operator":"eq","value":"{{components.table1.selectedRow.id}}","id":"8a7c6d00-f34d-45e2-b29f-99a2f941764f"}}}},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:17:20.059879",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  },
+  {
+    "id": "720523d5-5d0d-475b-9e07-76c604b8ae2d",
+    "data_source_id": "a902adb0-1cc7-4fe5-b417-024257d5e46b",
+    "name": "deleteCustomer",
+    "options": {"operation":"delete_rows","transformationLanguage":"javascript","enableTransformation":false,"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22","table_id":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","join_table":{"joins":[{"id":1710780419332,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","type":"Table"},"fields":[{"name":"id","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"customer_name","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"email","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"items","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"subtotal","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"delivery","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"total_cost","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"}]},"list_rows":{},"delete_rows":{"limit":1,"where_filters":{"47e6df53-37d9-4e81-a45c-626f71082aa5":{"column":"id","operator":"eq","value":"{{components.table1.selectedRow.id}}","id":"47e6df53-37d9-4e81-a45c-626f71082aa5"}}}},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:17:20.059879",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  },
+  {
+    "id": "bd4045ee-5e9e-4644-97cb-4ecdbd3c0f28",
+    "data_source_id": "a902adb0-1cc7-4fe5-b417-024257d5e46b",
+    "name": "listCustomers",
+    "options": {"operation":"list_rows","transformationLanguage":"javascript","enableTransformation":true,"organization_id":"0b58dbd2-4f2f-4dda-ab04-5467afeb3e22","table_id":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","join_table":{"joins":[{"id":1705951827944,"conditions":{"operator":"AND","conditionsList":[{"operator":"=","leftField":{"table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},"rightField":{}}]},"joinType":"INNER"}],"from":{"name":"76b45e9a-acab-44f3-b6e2-cc00fa68d983","type":"Table"},"fields":[{"name":"id","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"customer_name","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"email","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"items","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"subtotal","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"delivery","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"},{"name":"total_cost","table":"76b45e9a-acab-44f3-b6e2-cc00fa68d983"}]},"list_rows":{"order_filters":{"83d130df-a447-4626-9adc-00d0f28dd8e1":{"column":"id","order":"desc","id":"83d130df-a447-4626-9adc-00d0f28dd8e1"}}},"transformation":"return data.map((row) => ({\n  ...row,\n  transformedItems: JSON.parse(row.items).map((item) =>\n    Object.keys(item)\n      .map((k) => `${k.toUpperCase()}: ${item[k]}`)\n      .join(\", \")\n  ),\n}));","runOnPageLoad":true},
+    "created_at": "2025-06-15 01:17:20.059879",
+    "updated_at": "2025-06-15 01:46:08.172000",
+    "app_version_id": "6c8aca09-1e17-4e7b-8250-4f79af31f1cb"
+  }
+]
