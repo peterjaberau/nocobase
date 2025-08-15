@@ -1,4 +1,3 @@
-
 const _ = require('lodash');
 const { Command } = require('commander');
 const { generatePlugins, run, postCheck, nodeCheck, promptForTs, isPortReachable, checkDBDialect } = require('../util');

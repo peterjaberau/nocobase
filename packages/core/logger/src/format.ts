@@ -1,5 +1,3 @@
-
-
 import chalk from 'chalk';
 import winston from 'winston';
 import { getLoggerFormat } from './config';
@@ -117,8 +115,10 @@ export const consoleFormat: winston.Logform.Format = winston.format.printf((info
     .map(([k, v]) => `${k}=${v}`)
     .join(' ');
 
-  const level = `[${info.level}]`.padEnd(7, ' ');
-  const message = info.message.padEnd(44, ' ');
+  // @ts-ignore
+  const level = (`[${info.level}]` as any).padEnd(7, ' ');
+  // @ts-ignore
+  const message = (info.message as any)?.padEnd(44, ' ');
   const color =
     {
       error: chalk.red,

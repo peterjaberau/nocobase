@@ -1,6 +1,6 @@
 
 
-import jwt, { JwtPayload, SignOptions } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { ITokenBlacklistService } from './token-blacklist-service';
 export interface JwtOptions {
   secret: string;
@@ -33,7 +33,7 @@ export class JwtService {
   }
 
   /* istanbul ignore next -- @preserve */
-  sign(payload: SignPayload, options?: SignOptions) {
+  sign(payload: SignPayload, options?: any) {
     const opt = { expiresIn: this.expiresIn(), ...options };
     if (opt.expiresIn === 'never') {
       opt.expiresIn = '1000y';
@@ -42,9 +42,9 @@ export class JwtService {
   }
 
   /* istanbul ignore next -- @preserve */
-  decode(token: string): Promise<JwtPayload> {
+  decode(token: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      jwt.verify(token, this.secret(), (err, decoded: JwtPayload) => {
+      jwt.verify(token, this.secret(), (err, decoded: any) => {
         if (err) {
           return reject(err);
         }

@@ -36,6 +36,7 @@ export const getPluginPackages = (packages: Package[]) =>
 export const getPresetsPackages = (packages: Package[]) =>
   packages.filter((item) => item.location.startsWith(PRESETS_DIR));
 export const CORE_APP = path.join(PACKAGES_PATH, 'core/app');
+export const ESM_PACKAGES = ['@easyflow/test'];
 export const CORE_CLIENT = path.join(PACKAGES_PATH, 'core/client');
 export const CJS_EXCLUDE_PACKAGES = [
   path.join(PACKAGES_PATH, 'core/build'),
@@ -46,6 +47,7 @@ export const getCjsPackages = (packages: Package[]) =>
   packages
     .filter((item) => !PLUGINS_DIR.some((dir) => item.location.startsWith(dir)))
     .filter((item) => !item.location.startsWith(PRESETS_DIR))
+    .filter((item) => !ESM_PACKAGES.includes(item.name))
     .filter((item) => !CJS_EXCLUDE_PACKAGES.includes(item.location));
 
 // tar

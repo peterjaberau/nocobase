@@ -1,5 +1,3 @@
-
-
 import { Logger, LoggerOptions } from './logger';
 import { pick, omit } from 'lodash';
 const defaultRequestWhitelist = [

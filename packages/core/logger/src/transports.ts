@@ -1,5 +1,3 @@
-
-
 import winston from 'winston';
 import { DailyRotateFileTransportOptions } from 'winston-daily-rotate-file';
 import { LoggerOptions } from './logger';

@@ -35,12 +35,15 @@
     "react-dom": "^18.0.0",
     "nwsapi": "2.2.7",
     "antd": "5.12.8",
-    "@ant-design/icons": "^5.6.1"
+    "@ant-design/icons": "^5.6.1",
+    "cytoscape": "3.28.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@commitlint/prompt-cli": "^16.1.0",
+    "rimraf": "^6.0.1",
+
     "@types/react": "18.3.18",
     "@types/react-dom": "^18.0.0",
     "ghooks": "^2.0.4",
@@ -57,6 +60,5 @@
   "volta": {
     "node": "20.14.0",
     "yarn": "1.22.19"
-  },
-  "packageManager": "yarn@3.6.4+sha512.e70835d4d6d62c07be76b3c1529cb640c7443f0fe434ef4b6478a5a399218cbaf1511b396b3c56eb03bc86424cff2320f6167ad2fde273aa0df6e60b7754029f"
+  }
 }

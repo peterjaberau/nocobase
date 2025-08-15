@@ -133,7 +133,7 @@ export async function download(url: string, destination: string, options: AxiosR
 
   response.data.pipe(writer);
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve: any, reject: any) => {
     writer.on('finish', resolve);
     writer.on('error', reject);
   });

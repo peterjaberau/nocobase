@@ -11,7 +11,6 @@ import {
   getLoggerFilePath,
   Logger,
   LoggerOptions,
-  RequestLoggerOptions,
   SystemLogger,
   SystemLoggerOptions,
 } from '@easyflow/logger';
@@ -88,7 +87,7 @@ export interface ResourceManagerOptions {
 export interface ResourcerOptions extends ResourceManagerOptions {}
 
 export interface AppLoggerOptions {
-  request: RequestLoggerOptions;
+  request: any;
   system: SystemLoggerOptions;
 }
 

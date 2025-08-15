@@ -1,5 +1,3 @@
-
-
 import { SPLAT } from 'triple-beam';
 import winston, { format } from 'winston';
 import Transport from 'winston-transport';

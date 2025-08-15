@@ -8,7 +8,8 @@
   "dependencies": {
     "@easyflow/resourcer": "1.6.31",
     "@easyflow/utils": "1.6.31",
-    "minimatch": "^5.1.1"
+    "minimatch": "^5.1.1",
+    "@types/minimatch": "^5.1.1"
   },
   "repository": {
     "type": "git",
